@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class AddTrainersIdToCoursesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('courses', function (Blueprint $table) {
+            //
+            $table->foreignIdFor(\App\Models\Trainer::class,'trainer_id','id')->constrained()
+            ->cascadeOnDelete()->cascadeOnUpdate();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('courses', function (Blueprint $table) {
+            //
+        });
+    }
+}

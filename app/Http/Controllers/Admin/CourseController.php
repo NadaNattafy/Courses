@@ -1,0 +1,105 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\courses\coursestore;
+use App\Http\Requests\courses\courseupdate;
+use App\Models\Course;
+use App\Models\Trainer;
+use Illuminate\Http\Request;
+
+class CourseController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+        $courses = Course::get();
+        return view('admin.courses.index',compact('courses'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+        $trainers=Trainer::all();
+        return view('admin.courses.create',compact('trainers'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(coursestore $request)
+    {
+        //
+        Course::create($request->validated());
+
+        return redirect()->route('admin.courses.index')->with('message','Course created successfully.');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Course $course)
+    {
+        //
+        return view('admin.courses.show',compact('course'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Course $course)
+    {
+        //
+        return view('admin.courses.edit',compact('course'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(courseupdate $request, Course $course)
+    {
+        //
+        $course -> update($request->validated());
+
+        return redirect()->route('admin.courses.index')->with('message','Course Updated Successfully');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Course $course)
+    {
+        //
+        $course->delete();
+
+        return redirect()->route('admin.cou$courses.index')
+                        ->with('message','Course deleted successfully');
+    }
+}
