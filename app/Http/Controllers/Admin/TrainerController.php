@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\trainers\trainerstore;
-use App\Http\Requests\trainers\trainerupdate;
+use App\Http\Requests\Trainer\StoreRequest;
+use App\Http\Requests\Trainer\UpdateRequest;
 use App\Models\Trainer;
 use Illuminate\Http\Request;
 
@@ -39,7 +39,7 @@ class TrainerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(trainerstore $request)
+    public function store(StoreRequest $request)
     {
         //
         Trainer::create($request->validated());
@@ -78,7 +78,7 @@ class TrainerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(trainerupdate $request, Trainer $trainer)
+    public function update(UpdateRequest $request, Trainer $trainer)
     {
         //
         $trainer -> update($request->validated());

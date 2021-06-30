@@ -40,6 +40,15 @@
             </div>
         </div>
 
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <strong>Img:</strong>
+              <img src="{{url('/').'/storage/'.$course-> img}}" style="height: 50px; width:50px;">
+              <input type="file" name="img" class="w-20 mb-8 shadow-xl" alt="" src=<img src="{{asset("storage/course->img")}}">
+            </div>
+        </div>
+
+
 
         @if(session()->has('message'))
                        <div class="alert alert-success">

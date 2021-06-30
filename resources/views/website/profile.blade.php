@@ -20,180 +20,7 @@
     <!-- end the loading screen -->
 
     <div class="wrapper">
-        <header>
-            <div class="dividers">
-                <span class="t1"></span>
-                <span class="t2"></span>
-                <span class="t3"></span>
-                <span class="t4"></span>
-                <span class="t5"></span>
-                <span class="t1"></span>
-                <span class="t2"></span>
-                <span class="t3"></span>
-                <span class="t4"></span>
-                <span class="t5"></span>
-            </div>
-            <!-- /.dividers -->
-
-            <div class="header-nav">
-                <div class="container">
-                    <div class="nav-right user_nav-right col-md-6 col-xs-12 pull-right">
-
-                        <div class="logo">
-                            <a href="index.html" title="العلوم العصرية للتدريب">
-                                <img src="{{asset('assets/images/logo.png')}}" alt="site-logo" width="110" height="70">
-                            </a>
-                        </div>
-                        <!-- /.logo -->
-                    </div>
-                    <!-- /.nav-logo -->
-                    <div class="nav-left user_nav-left col-md-6 col-xs-12 pull-left">
-                        <div class="user-logged">
-                            <ul>
-                                <li>
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" class="hvr-underline-reveal">
-                                        <span class="cont-img">
-                                            <img src="{{asset('assets/images/comment-02.jpg')}}" width="35" height="35" alt="User-Img">
-                                        </span>
-                                        <b>امير ناجح</b>
-                                        <i class="fa fa-caret-down"></i>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                                        <div class="drop drop-links col-xs-12">
-                                            <div class="drop-links">
-                                                <ul>
-                                                    <li>
-                                                        <a href="profile1.html">
-                                                            <i class="fa fa-user"></i>&nbsp; حسابي
-                                                        </a>
-                                                    </li>
-                                                    <li>
-
-                                                        <a href="index.html">
-                                                            <i class="fa fa-power-off"></i>&nbsp; خروج
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <!-- end drop-links -->
-                                        </div>
-                                        <!-- end drop -->
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#" class="show-user_search">
-                                        <i class="fa fa-search"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="show-notification" class="dropdown-toggle" data-toggle="dropdown">
-                                        <i class="fa fa-bell"></i>
-                                    </a>
-                                    <ul class="dropdown-menu notification-box" role="menu" aria-labelledby="dropdownMenu">
-                                        <div class="drop drop-links col-xs-12">
-                                            <ul>
-                                                <li>
-                                                    <a href="#">
-                                                        <img src="{{asset('assets/images/avatar5.png')}}" alt="" class="img-circle pull-right">
-                                                        <h4>
-                                                            امير ناجح
-                                                            <small><i class="fa fa-clock-o"></i>5 دقائق</small>
-                                                        </h4>
-                                                        <p> هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما
-                                                            سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع
-                                                            الفقرات في الصفحة التي يقرأها.</p>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <img src="{{asset('assets/images/avatar04.png')}}" alt="" class="img-circle pull-right">
-                                                        <h4>
-                                                            حسني اديب
-                                                            <small><i class="fa fa-clock-o"></i>5 دقائق</small>
-                                                        </h4>
-                                                        <p> هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما
-                                                            سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع
-                                                            الفقرات في الصفحة التي يقرأها.</p>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <img src="{{asset('assets/images/avatar3.png')}}" alt="" class="img-circle pull-right">
-                                                        <h4>
-                                                            مني سلامة
-                                                            <small><i class="fa fa-clock-o"></i>5 دقائق</small>
-                                                        </h4>
-                                                        <p> هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما
-                                                            سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع
-                                                            الفقرات في الصفحة التي يقرأها.</p>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <img src="{{asset('assets/images/b3.jpg')}}" alt="" class="img-circle pull-right">
-                                                        <h4>
-                                                            امير ناجح
-                                                            <small><i class="fa fa-clock-o"></i>5 دقائق</small>
-                                                        </h4>
-                                                        <p> هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما
-                                                            سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع
-                                                            الفقرات في الصفحة التي يقرأها.</p>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <img src="{{asset('assets/images/avatar04.png')}}" alt="" class="img-circle pull-right">
-                                                        <h4>
-                                                            حسني اديب
-                                                            <small><i class="fa fa-clock-o"></i>5 دقائق</small>
-                                                        </h4>
-                                                        <p> هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما
-                                                            سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع
-                                                            الفقرات في الصفحة التي يقرأها.</p>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <img src="{{asset('assets/images/avatar3.png')}}" alt="" class="img-circle pull-right">
-                                                        <h4>
-                                                            مني سلامة
-                                                            <small><i class="fa fa-clock-o"></i>5 دقائق</small>
-                                                        </h4>
-                                                        <p> هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما
-                                                            سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع
-                                                            الفقرات في الصفحة التي يقرأها.</p>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- end drop -->
-                                    </ul>
-                                </li>
-
-                            </ul>
-                        </div>
-                        <!-- /.user-controls -->
-                    </div>
-                    <!-- /.nav-user -->
-
-                </div>
-                <!-- /.container -->
-                <div class="input-container user-search col-md-12 col-xs-12 input-lft">
-                    <div class="container">
-                        <input type="text" placeholder="ابحث عن جميع الكورسات من هنا">
-                        <button type="submit">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-                    <!-- /.container -->
-                </div>
-                <!-- /.input-container -->
-            </div>
-            <!-- /.header-nav -->
-
-        </header>
-        <!-- /header -->
-
+       
         <div class="profile-content empty-course">
             <div class="container">
                 <div class="right_tap-box col-md-3 col-xs-12 hidden-xs hidden-sm pull-right">
@@ -346,7 +173,7 @@
                                             <!-- /.imgcontent -->
                                         </div>
                                         <!-- /.Fption -->
-                                        <img src="{{asset('assets/images/s.png')}}" alt="" width="150" height="150">
+                                        <img src="{{ asset('assets/images/s.png') }}" alt="" width="150" height="150">
                                     </div>
                                 </div>
                                 <!-- /.home_img -->
@@ -526,7 +353,7 @@
                                         <i class="fa fa-database"></i>
                                         الدورات
                                     </h1>
-                                    <a class="add1_course" href="add-course-form.html">
+                                    <a class="add1_course" href="#">
                                         <i class="fa fa-plus"></i>إضافة دورة
                                     </a>
                                 </div>
@@ -649,11 +476,11 @@
                                                                                     <input type="file" class="uploaded">
                                                                                 </div>
                                                                                 <!--
-                                                                                <label class="text-right">
-                                                                                    <input type="radio" id="add-link">
-                                                                                    <span>يوتيوب</span>
-                                                                                </label>
-    -->
+                                                                                    <label class="text-right">
+                                                                                        <input type="radio" id="add-link">
+                                                                                        <span>يوتيوب</span>
+                                                                                    </label>
+        -->
                                                                             </div>
                                                                             <input type="text" placeholder="ادخل رابط فيديو"
                                                                                 class="linked">
@@ -883,11 +710,11 @@
                                                                                     <input type="file" class="uploaded">
                                                                                 </div>
                                                                                 <!--
-                                                                                <label class="text-right">
-                                                                                    <input type="radio" id="add-link">
-                                                                                    <span>يوتيوب</span>
-                                                                                </label>
-    -->
+                                                                                    <label class="text-right">
+                                                                                        <input type="radio" id="add-link">
+                                                                                        <span>يوتيوب</span>
+                                                                                    </label>
+        -->
                                                                             </div>
                                                                             <input type="text" placeholder="ادخل رابط فيديو"
                                                                                 class="linked">
@@ -1217,8 +1044,8 @@
                                                                     <span class="corse-type">جافا سكربت</span>
                                                                     <div class="card-img">
 
-                                                                        <img src="{{asset('assets/images/b3.jpg')}}" alt=""
-                                                                            class="img-responsive">
+                                                                        <img src="{{ asset('assets/images/b3.jpg') }}"
+                                                                            alt="" class="img-responsive">
                                                                         <div class="lessons-number text-center">
                                                                             <h1>
                                                                                 <i class="fa fa-play-circle"></i>
@@ -1244,8 +1071,9 @@
                                                                         <!-- /.course_setting -->
                                                                         <div class="course_instructor-data">
                                                                             <span>
-                                                                                <img src="{{asset('assets/images/s.png')}}" width="70"
-                                                                                    height="70" class="img-responsive">
+                                                                                <img src="{{ asset('assets/images/s.png') }}"
+                                                                                    width="70" height="70"
+                                                                                    class="img-responsive">
                                                                             </span>
                                                                             <a href="#">
                                                                                 <i class="fa fa-user"></i> أمير ناجح الدسوقي
@@ -1264,8 +1092,8 @@
                                                                 <div class="card-inner">
                                                                     <span class="corse-type">جافا سكربت</span>
                                                                     <div class="card-img">
-                                                                        <img src="{{asset('assets/images/b3.jpg')}}" alt=""
-                                                                            class="img-responsive">
+                                                                        <img src="{{ asset('assets/images/b3.jpg') }}"
+                                                                            alt="" class="img-responsive">
                                                                         <div class="lessons-number text-center">
                                                                             <h1>
                                                                                 <i class="fa fa-play-circle"></i>
@@ -1291,8 +1119,9 @@
                                                                         <!-- /.course_setting -->
                                                                         <div class="course_instructor-data">
                                                                             <span>
-                                                                                <img src="{{asset('assets/images/s.png')}}" width="70"
-                                                                                    height="70" class="img-responsive">
+                                                                                <img src="{{ asset('assets/images/s.png') }}"
+                                                                                    width="70" height="70"
+                                                                                    class="img-responsive">
                                                                             </span>
                                                                             <a href="#">
                                                                                 <i class="fa fa-user"></i> أمير ناجح الدسوقي
@@ -1311,8 +1140,8 @@
                                                                 <div class="card-inner">
                                                                     <span class="corse-type">جافا سكربت</span>
                                                                     <div class="card-img">
-                                                                        <img src="{{asset('assets/images/b3.jpg')}}" alt=""
-                                                                            class="img-responsive">
+                                                                        <img src="{{ asset('assets/images/b3.jpg') }}"
+                                                                            alt="" class="img-responsive">
                                                                         <div class="lessons-number text-center">
                                                                             <h1>
                                                                                 <i class="fa fa-play-circle"></i>
@@ -1338,8 +1167,9 @@
                                                                         <!-- /.course_setting -->
                                                                         <div class="course_instructor-data">
                                                                             <span>
-                                                                                <img src="{{asset('assets/images/s.png')}}" width="70"
-                                                                                    height="70" class="img-responsive">
+                                                                                <img src="{{ asset('assets/images/s.png') }}"
+                                                                                    width="70" height="70"
+                                                                                    class="img-responsive">
                                                                             </span>
                                                                             <a href="#">
                                                                                 <i class="fa fa-user"></i> أمير ناجح الدسوقي
@@ -1368,8 +1198,8 @@
                                                                     <span class="corse-type">الالهام</span>
                                                                     <div class="card-img">
 
-                                                                        <img src="{{asset('assets/images/bg-4.jpg')}}" alt=""
-                                                                            class="img-responsive">
+                                                                        <img src="{{ asset('assets/images/bg-4.jpg') }}"
+                                                                            alt="" class="img-responsive">
                                                                         <div class="lessons-number text-center">
                                                                             <h1>
                                                                                 <i class="fa fa-play-circle"></i>
@@ -1395,8 +1225,9 @@
                                                                         <!-- /.course_setting -->
                                                                         <div class="course_instructor-data">
                                                                             <span>
-                                                                                <img src="{{asset('assets/images/s.png')}}" width="70"
-                                                                                    height="70" class="img-responsive">
+                                                                                <img src="{{ asset('assets/images/s.png') }}"
+                                                                                    width="70" height="70"
+                                                                                    class="img-responsive">
                                                                             </span>
                                                                             <a href="#">
                                                                                 <i class="fa fa-user"></i> أمير ناجح الدسوقي
@@ -1415,8 +1246,8 @@
                                                                 <div class="card-inner">
                                                                     <span class="corse-type">جافا سكربت</span>
                                                                     <div class="card-img">
-                                                                        <img src="{{asset('assets/images/bg-4.jpg')}}" alt=""
-                                                                            class="img-responsive">
+                                                                        <img src="{{ asset('assets/images/bg-4.jpg') }}"
+                                                                            alt="" class="img-responsive">
                                                                         <div class="lessons-number text-center">
                                                                             <h1>
                                                                                 <i class="fa fa-play-circle"></i>
@@ -1442,8 +1273,9 @@
                                                                         <!-- /.course_setting -->
                                                                         <div class="course_instructor-data">
                                                                             <span>
-                                                                                <img src="{{asset('assets/images/s.png')}}" width="70"
-                                                                                    height="70" class="img-responsive">
+                                                                                <img src="{{ asset('assets/images/s.png') }}"
+                                                                                    width="70" height="70"
+                                                                                    class="img-responsive">
                                                                             </span>
                                                                             <a href="#">
                                                                                 <i class="fa fa-user"></i> أمير ناجح الدسوقي
@@ -1462,8 +1294,8 @@
                                                                 <div class="card-inner">
                                                                     <span class="corse-type">جافا سكربت</span>
                                                                     <div class="card-img">
-                                                                        <img src="{{asset('assets/images/bg-4.jpg')}}" alt=""
-                                                                            class="img-responsive">
+                                                                        <img src="{{ asset('assets/images/bg-4.jpg') }}"
+                                                                            alt="" class="img-responsive">
                                                                         <div class="lessons-number text-center">
                                                                             <h1>
                                                                                 <i class="fa fa-play-circle"></i>
@@ -1489,8 +1321,9 @@
                                                                         <!-- /.course_setting -->
                                                                         <div class="course_instructor-data">
                                                                             <span>
-                                                                                <img src="{{asset('assets/images/s.png')}}" width="70"
-                                                                                    height="70" class="img-responsive">
+                                                                                <img src="{{ asset('assets/images/s.png') }}"
+                                                                                    width="70" height="70"
+                                                                                    class="img-responsive">
                                                                             </span>
                                                                             <a href="#">
                                                                                 <i class="fa fa-user"></i> أمير ناجح الدسوقي
@@ -1567,8 +1400,8 @@
                                                                     <span class="corse-type">الالهام</span>
                                                                     <div class="card-img">
 
-                                                                        <img src="{{asset('assets/images/bg-4.jpg')}}" alt=""
-                                                                            class="img-responsive">
+                                                                        <img src="{{ asset('assets/images/bg-4.jpg') }}"
+                                                                            alt="" class="img-responsive">
                                                                         <div class="lessons-number text-center">
                                                                             <h1>
                                                                                 <i class="fa fa-play-circle"></i>
@@ -1594,8 +1427,9 @@
                                                                         <!-- /.course_setting -->
                                                                         <div class="course_instructor-data">
                                                                             <span>
-                                                                                <img src="{{asset('assets/images/s.png')}}" width="70"
-                                                                                    height="70" class="img-responsive">
+                                                                                <img src="{{ asset('assets/images/s.png') }}"
+                                                                                    width="70" height="70"
+                                                                                    class="img-responsive">
                                                                             </span>
                                                                             <a href="#">
                                                                                 <i class="fa fa-user"></i> أمير ناجح الدسوقي
@@ -1625,8 +1459,8 @@
                                                                 <div class="card-inner">
                                                                     <span class="corse-type">جافا سكربت</span>
                                                                     <div class="card-img">
-                                                                        <img src="{{asset('assets/images/bg-4.jpg')}}" alt=""
-                                                                            class="img-responsive">
+                                                                        <img src="{{ asset('assets/images/bg-4.jpg') }}"
+                                                                            alt="" class="img-responsive">
                                                                         <div class="lessons-number text-center">
                                                                             <h1>
                                                                                 <i class="fa fa-play-circle"></i>
@@ -1652,8 +1486,9 @@
                                                                         <!-- /.course_setting -->
                                                                         <div class="course_instructor-data">
                                                                             <span>
-                                                                                <img src="{{asset('assets/images/s.png')}}" width="70"
-                                                                                    height="70" class="img-responsive">
+                                                                                <img src="{{ asset('assets/images/s.png') }}"
+                                                                                    width="70" height="70"
+                                                                                    class="img-responsive">
                                                                             </span>
                                                                             <a href="#">
                                                                                 <i class="fa fa-user"></i> أمير ناجح الدسوقي
@@ -1683,8 +1518,8 @@
                                                                 <div class="card-inner">
                                                                     <span class="corse-type">جافا سكربت</span>
                                                                     <div class="card-img">
-                                                                        <img src="{{asset('assets/images/bg-4.jpg')}}" alt=""
-                                                                            class="img-responsive">
+                                                                        <img src="{{ asset('assets/images/bg-4.jpg') }}"
+                                                                            alt="" class="img-responsive">
                                                                         <div class="lessons-number text-center">
                                                                             <h1>
                                                                                 <i class="fa fa-play-circle"></i>
@@ -1710,8 +1545,9 @@
                                                                         <!-- /.course_setting -->
                                                                         <div class="course_instructor-data">
                                                                             <span>
-                                                                                <img src="{{asset('assets/images/s.png')}}" width="70"
-                                                                                    height="70" class="img-responsive">
+                                                                                <img src="{{ asset('assets/images/s.png') }}"
+                                                                                    width="70" height="70"
+                                                                                    class="img-responsive">
                                                                             </span>
                                                                             <a href="#">
                                                                                 <i class="fa fa-user"></i> أمير ناجح الدسوقي
@@ -1832,7 +1668,7 @@
 
                     <div class="block col-md-4">
                         <figure>
-                            <div><img src="{{asset('assets/images/b3.jpg')}}" alt="img05" class="img-responsive"></div>
+                            <div><img src="{{ asset('assets/images/b3.jpg') }}" alt="img05" class="img-responsive"></div>
                             <figcaption class="text-right">
                                 <h1>اسم الكورس</h1>
                                 <h1>اسم المدرس</h1>
@@ -1848,7 +1684,7 @@
                     <!-- /.block -->
                     <div class="block col-md-4">
                         <figure>
-                            <div><img src="{{asset('assets/images/b3.jpg')}}" alt="img05" class="img-responsive"></div>
+                            <div><img src="{{ asset('assets/images/b3.jpg') }}" alt="img05" class="img-responsive"></div>
                             <figcaption class="text-right">
                                 <h1>
                                     <label>اسم الكورس</label>
@@ -1883,7 +1719,7 @@
                     <!-- /.block -->
                     <div class="block col-md-4">
                         <figure>
-                            <div><img src="{{asset('assets/images/b3.jpg')}}" alt="img05" class="img-responsive"></div>
+                            <div><img src="{{ asset('assets/images/b3.jpg') }}" alt="img05" class="img-responsive"></div>
                             <figcaption class="text-right">
                                 <h1>اسم الكورس</h1>
                                 <h1>اسم المدرس</h1>
@@ -1899,7 +1735,7 @@
                     <!-- /.block -->
                     <div class="block col-md-4">
                         <figure>
-                            <div><img src="{{asset('assets/images/b3.jpg')}}" alt="img05" class="img-responsive"></div>
+                            <div><img src="{{ asset('assets/images/b3.jpg') }}" alt="img05" class="img-responsive"></div>
                             <figcaption class="text-right">
                                 <h1>اسم الكورس</h1>
                                 <h1>اسم المدرس</h1>
@@ -1915,7 +1751,7 @@
                     <!-- /.block -->
                     <div class="block col-md-4">
                         <figure>
-                            <div><img src="{{asset('assets/images/b3.jpg')}}" alt="img05" class="img-responsive"></div>
+                            <div><img src="{{ asset('assets/images/b3.jpg') }}" alt="img05" class="img-responsive"></div>
                             <figcaption class="text-right">
                                 <h1>اسم الكورس</h1>
                                 <h1>اسم المدرس</h1>
@@ -1931,7 +1767,7 @@
                     <!-- /.block -->
                     <div class="block col-md-4">
                         <figure>
-                            <div><img src="{{asset('assets/images/b3.jpg')}}" alt="img05" class="img-responsive"></div>
+                            <div><img src="{{ asset('assets/images/b3.jpg') }}" alt="img05" class="img-responsive"></div>
                             <figcaption class="text-right">
                                 <h1>اسم الكورس</h1>
                                 <h1>اسم المدرس</h1>
@@ -1951,7 +1787,7 @@
                 <!-- /.row -->
 
                 <div class="all-courses text-center">
-                    <a href="all-courses.html">عرض جميع الكورسات</a>
+                    <a href="#">عرض جميع الكورسات</a>
 
                 </div>
                 <!-- /.all-courses -->

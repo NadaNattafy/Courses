@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\test\teststore;
+use App\Models\Test;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
@@ -15,6 +17,8 @@ class TestController extends Controller
     public function index()
     {
         //
+        $tests = Test::get();
+        return view('website.tests.test',compact('tests'));
     }
 
     /**
@@ -25,6 +29,8 @@ class TestController extends Controller
     public function create()
     {
         //
+        $tests=Test::all();
+        return view('website.tests.test',compact('tests'));
     }
 
     /**
@@ -33,9 +39,12 @@ class TestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(teststore $request)
     {
         //
+        Test::create($request->validated());
+
+        return back()->with('message','Test Added successfully.');
     }
 
     /**
@@ -44,9 +53,10 @@ class TestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Test $test)
     {
         //
+        return view('website.tests.show',compact('test'));
     }
 
     /**

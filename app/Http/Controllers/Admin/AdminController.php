@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\admins\adminstore;
+use App\Http\Requests\Admin\StoreRequest;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 
@@ -38,7 +38,7 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(adminstore $request)
+    public function store(StoreRequest $request)
     {
         //
 
@@ -79,7 +79,7 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(adminstore $request, Admin $admin)
+    public function update(StoreRequest $request, Admin $admin)
     {
         //
 

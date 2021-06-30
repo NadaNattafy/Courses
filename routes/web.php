@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Website\AuthController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -14,32 +15,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => 'website', 'as' => 'website.', 'namespace' => 'App\Http\Controllers\Website'], function () {
+
+    Route::resource('home', HomeController::class);
+
+    Route::resource('courses', CoursesController::class);
+
+    Route::resource('remarks', RemarkController::class);
+
+    Route::resource('tests', TestController::class);
+
+    Route::resource('about', AboutController::class);
+
+    Route::resource('certif', CertifController::class);
+
+    Route::resource('contact', ContactController::class)->only(['index', 'store', 'create']);
+
+    Route::resource('editor', EditorController::class);
+
+    Route::resource('profile', ProfileController::class);
+
+    Route::resource('reset', ResetController::class);
+
+    Route::resource('trainer', TrainerController::class);
+
+   Route::post('user-login', [AuthController::class, 'userLogin'])->name('login.user');
+
+   Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+  // Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+
 });
-
-Route::get('website/home', function () {
-    return view('website.index');
-});
-
-Route::group(['prefix'=>'website','as'=>'website.','namespace'=>'App\Http\Controllers\Website'], function () {
-
-    Route::resource('about', Website\AboutController::class);
-
-    Route::resource('category', Website\CategoryController::class);
-
-    Route::resource('contact', Website\ContactController::class);
-
-    Route::resource('course', Website\CourseController::class);
-
-    Route::resource('index', Website\IndexController::class);
-
-    Route::resource('profile', Website\ProfileController::class);
-
-    Route::resource('test', Website\TestController::class);
-
-    Route::resource('signup', Website\SignUpController::class);
-
-    Route::resource('trainer', Website\TrainerController::class);
-});
-

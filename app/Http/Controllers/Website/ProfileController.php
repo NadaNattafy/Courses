@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -15,6 +16,15 @@ class ProfileController extends Controller
     public function index()
     {
         //
+        $courses = Course::orderBy('id','DESC')->paginate(6);
+        $courses = Course::WithAvg('review','rate')->orderBy('id','DESC')->paginate();
+        //$courses = Course::find(11);
+
+        // foreach($courses->review as $re)
+        // {
+        //  return  $re->rate;
+        // }
+       return view('website.profile',compact('courses'));
     }
 
     /**

@@ -62,12 +62,36 @@
                 <li>
                     <a href="javascript: void(0);">
                         <i class="mdi mdi-view-list"></i>
+                        <span> Lessons</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="{{route('admin.lessons.index')}}">Index Lesson</a></li>
+                        <li><a href="{{route('admin.lessons.create')}}">Create Lesson</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);">
+                        <i class="mdi mdi-view-list"></i>
                         <span> UserCourses</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li><a href="{{route('admin.usercourses.index')}}">Index UserCourse</a></li>
                         <li><a href="{{route('admin.usercourses.create')}}">Create UserCourse</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);">
+                        <i class="mdi mdi-view-list"></i>
+                        <span> UserOpinions</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="{{route('admin.useropinions.index')}}">Index UserOpinion</a></li>
+                        <li><a href="{{route('admin.useropinions.create')}}">Create UserOpinion</a></li>
                     </ul>
                 </li>
 

@@ -48,4 +48,10 @@ class User extends Authenticatable
         return $this->belongsToMany(Course::class, 'usre_courses')->withPivot('value');
 
     }
+
+    public function review(){
+
+        return $this->hasMany(Review::class);
+    }
+
 }

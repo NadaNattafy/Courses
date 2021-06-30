@@ -3,17 +3,17 @@
         <div class="footer-sub col-md-2 col-xs-12 text-center pull-right">
             <ul>
                 <li>
-                    <a href="about-us.html">من نحن</a>
+                    {{-- <a href="{{route('about')}}">من نحن</a> --}}
                 </li>
 
                 <li>
-                    <a href="contact-us.html">إتصل بنا</a>
+                    {{-- <a href="{{route('contact')}}">إتصل بنا</a> --}}
                 </li>
             </ul>
         </div>
         <!-- end footer-sub -->
         <div class="copyrights col-md-8 col-xs-12 text-center pull-right">
-            <p>حميع الحقوق محفوظة لدي العلوم العصرية للتدريب</p>
+            <p>جميع الحقوق محفوظة لدي العلوم العصرية للتدريب</p>
         </div>
         <!-- /.copyrights -->
         <div class="footer-links col-md-2 col-xs-12 pull-left text-center">

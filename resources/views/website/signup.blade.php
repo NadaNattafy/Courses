@@ -32,7 +32,7 @@
             </h2>
             <ul>
                 <li><a class="icon icon-data" href="#"><i class="fa fa-user"></i> الملف الشخصي</a></li>
-                <li><a id="sd" class="icon icon-location" href="profile1.html#password"><i class="fa fa-lock"></i> كلمة المرور</a></li>
+                <li><a id="sd" class="icon icon-location" href="{{ route('profile') }}"><i class="fa fa-lock"></i> كلمة المرور</a></li>
                 <li><a class="icon icon-study" href="#"><i class="fa fa-database"></i> الدورات</a></li>
                 <li><a class="icon icon-photo" href="#">Collections</a></li>
                 <li><a class="icon icon-wallet" href="#">Credits</a></li>
@@ -130,7 +130,7 @@
                     <div class="container">
                         <div class="nav-right col-md-8 col-xs-12 pull-right">
                             <div class="logo">
-                                <a href="index.html" title="العلوم العصرية للتدريب">
+                                <a href="{{ route('index') }}" title="العلوم العصرية للتدريب">
                                     <img src="{{asset('assets/images/logo.png')}}" alt="site-logo" width="110" height="70">
                                 </a>
                             </div>
@@ -244,12 +244,12 @@
                                     <label>
                                         <input type="checkbox">
                                         <span>مدرب</span>
-                                        <a href="trainer-privacy.html" class="show-privacy">تعرف علي سياسة الخصوصية كمدرب</a>
+                                        <a href="{{ route('trainer') }}" class="show-privacy">تعرف علي سياسة الخصوصية كمدرب</a>
                                     </label>
                                     <label>
                                         <input type="checkbox">
                                         <span>متدرب</span>
-                                        <a href="trainer-privacy.html" class="show-privacy">تعرف علي سياسة الخصوصية كمتدرب</a>
+                                        <a href="{{ route('trainer') }}" class="show-privacy">تعرف علي سياسة الخصوصية كمتدرب</a>
                                     </label>
                                 </div>
                                 <!-- /.up_form-item -->

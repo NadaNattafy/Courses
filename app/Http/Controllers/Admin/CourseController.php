@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\courses\coursestore;
-use App\Http\Requests\courses\courseupdate;
+use App\Http\Requests\Courses\UpdateRequest;
+use App\Http\Requests\Courses\StoreRequest;
 use App\Models\Course;
 use App\Models\Trainer;
 use Illuminate\Http\Request;
@@ -41,10 +41,15 @@ class CourseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(coursestore $request)
+    public function store(StoreRequest $request)
     {
         //
-        Course::create($request->validated());
+        $course = Course::create($request->validated());
+
+        if ($request->has('img')) {
+
+            $course->update(['img' => $request->file('img')->store('coursePics')]);
+           }
 
         return redirect()->route('admin.courses.index')->with('message','Course created successfully.');
     }
@@ -80,10 +85,15 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(courseupdate $request, Course $course)
+    public function update(UpdateRequest $request, Course $course)
     {
         //
         $course -> update($request->validated());
+
+        if ($request->has('img')) {
+
+            $course->update(['img' => $request->file('img')->store('coursePics')]);
+           }
 
         return redirect()->route('admin.courses.index')->with('message','Course Updated Successfully');
     }
@@ -99,7 +109,7 @@ class CourseController extends Controller
         //
         $course->delete();
 
-        return redirect()->route('admin.cou$courses.index')
+        return redirect()->route('admin.courses.index')
                         ->with('message','Course deleted successfully');
     }
 }

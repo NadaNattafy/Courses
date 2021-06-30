@@ -11,7 +11,8 @@ class Course extends Model
 
     protected $fillable = [
         'name',
-        'trainer_id'
+        'trainer_id',
+        'img',
     ];
 
     public function trainer(){
@@ -24,6 +25,16 @@ class Course extends Model
 
         return $this->belongsToMany(User::class, 'usre_courses')->withPivot('value');
 
+    }
+
+    public function lesson(){
+
+        return $this->hasMany(Lesson::class);
+    }
+
+    public function review(){
+
+        return $this->hasMany(Review::class);
     }
 
 }
