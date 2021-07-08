@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
-use App\Models\Course;
-use App\Models\Trainer;
+use App\Http\Requests\Lesson\StoreRequest;
+use App\Models\Lesson;
 use Illuminate\Http\Request;
 
-class ProfileController extends Controller
+class LessonController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,16 +17,6 @@ class ProfileController extends Controller
     public function index()
     {
         //
-        $trainers = Trainer::get();
-        $courses = Course::orderBy('id','DESC')->paginate(6);
-        $courses = Course::WithAvg('review','rate')->orderBy('id','DESC')->paginate();
-        //$courses = Course::find(11);
-
-        // foreach($courses->review as $re)
-        // {
-        //  return  $re->rate;
-        // }
-       return view('website.profile',compact('courses','trainers'));
     }
 
     /**
@@ -37,6 +27,9 @@ class ProfileController extends Controller
     public function create()
     {
         //
+        $lessons = Lesson::get();
+
+        return view('website.profile', compact('lessons'));
     }
 
     /**
@@ -45,9 +38,12 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
+        Lesson::create($request->validated());
+
+        return back()->with('message', 'Lesson Added successfully.');
     }
 
     /**

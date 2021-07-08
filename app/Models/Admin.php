@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
 
 class Admin extends Model
 {
@@ -14,5 +15,12 @@ class Admin extends Model
         'password',
         'email'
     ];
+
+    public function setPasswordAttribute($value)
+    {
+        if (!empty($value)) {
+        $this->attributes['password'] = Hash::make($value);
+       }
+    }
 
 }

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\Hash;
 class Trainer extends Model
 {
     use HasFactory;
@@ -19,8 +19,16 @@ class Trainer extends Model
         'course',
         'field',
         'qualified',
-        'expertise'
+        'expertise',
+        'speciality'
     ];
+
+    public function setPasswordAttribute($value)
+    {
+        if (!empty($value)) {
+        $this->attributes['password'] = Hash::make($value);
+       }
+    }
 
     public function course(){
 

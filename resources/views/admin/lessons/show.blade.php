@@ -29,14 +29,14 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Name</Title>:</strong>
+                <strong>Description</Title>:</strong>
                 {{ $lesson->description }}
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Name</Title>:</strong>
+                <strong>Url</Title>:</strong>
                 {{ $lesson->url }}
             </div>
         </div>

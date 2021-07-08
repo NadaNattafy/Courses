@@ -63,7 +63,31 @@
             </div>
             <!-- /.signup-form -->
 
+            <div class="signup-form col-md-6 col-xs-12 text-right">
+                <h1>تسجيل عضوية جديدة</h1>
+                <p>اذا كنت مستخدم جديد لموقعنا فيمكنك ان تتصفح معظم الكورسات الموجودة الان امامك ولكن لن تستطيع الحصول علي معلومات الكورس او الاشتراك به الا اذا كنت تمتلك حساب لدينا لذلك تستطيع تسجيل حساب جديد من هنا </p>
+                <a href="{{ route('website.signup.index') }}">
+                    <i class="fa fa-user-plus"></i> تسجيل عضوية
+                </a>
+            </div>
+            <!-- /.signup-form -->
 
+            <!-- =========================================================================================================================================== -->
+
+            <div class="panel-pop modal" id="forget">
+                <div class="lost-inner">
+                    <h1>هل نسيت كلمة المرور ؟</h1>
+                    <div class="lost-item">
+                        <input type="text" placeholder="الايميل المستخدم في تسجيل الدخول">
+                    </div>
+                    <!-- /.lost-item -->
+                    <div class="text-center">
+                        <input type="submit" value="إعادة ضبط">
+                    </div>
+                    <!-- /.lost-item -->
+                </div>
+                <!-- /.lost-inner -->
+            </div>
 
         </div>
         <!-- /.container -->
@@ -82,6 +106,7 @@
         <span class="t4"></span>
         <span class="t5"></span>
     </div>
+
     <!-- /.dividers -->
 
     <div class="header-nav">

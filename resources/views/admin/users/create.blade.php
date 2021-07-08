@@ -40,6 +40,22 @@
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Last Name:</strong>
+                                        <input type="text" name="last_name" class="form-control" placeholder="Last Name">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                            <strong>Mobile:</strong>
+                                            <input type="text" name="mobile" class="form-control" placeholder="Mobile">
+                                        </div>
+                                    </div>
+
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Email:</strong>

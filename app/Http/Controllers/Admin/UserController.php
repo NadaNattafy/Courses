@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\StoreRequest;
 use App\Http\Requests\User\UpdateRequest;
+use App\Models\Message;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,8 @@ class UserController extends Controller
     {
         //
         $users = User::get();
-        return view('admin.users.index',compact('users'));
+        $message = Message::get();
+        return view('admin.users.index',compact('users', 'message'));
     }
 
     /**

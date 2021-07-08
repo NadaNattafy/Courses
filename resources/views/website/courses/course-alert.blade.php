@@ -24,19 +24,19 @@
             <div class="container">
                 <ul>
                     <li>
-                        <a href="{{route('course')}}">
+                        <a href="#">
                             <i class="fa fa-tasks"></i> الدروس
                         </a>
                     </li>
 
                     <li>
-                        <a href="{{route('course-comment')}}">
+                        <a href="#">
                             <i class="fa fa-commenting-o"></i> النقاشات
                         </a>
                     </li>
 
                     <li>
-                        <a href="{{route('course-alert')}}" class="active">
+                        <a href="#" class="active">
                             <span class="padge">4</span>
                             <i class="fa fa-bell"></i> التنويهات
                         </a>

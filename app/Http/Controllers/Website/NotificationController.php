@@ -3,30 +3,47 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
-use App\Models\Course;
-use App\Models\Trainer;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Notification;
+use App\Notifications\MyFirstNotification;
 
-class ProfileController extends Controller
+class NotificationController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         //
-        $trainers = Trainer::get();
-        $courses = Course::orderBy('id','DESC')->paginate(6);
-        $courses = Course::WithAvg('review','rate')->orderBy('id','DESC')->paginate();
-        //$courses = Course::find(11);
+        return view('notification');
 
-        // foreach($courses->review as $re)
-        // {
-        //  return  $re->rate;
-        // }
-       return view('website.profile',compact('courses','trainers'));
+    }
+
+    public function sendNotification()
+    {
+        $user = User::first();
+
+        $details = [
+            'greeting' => 'Hi Artisan',
+            'body' => 'This is my first notification from ItSolutionStuff.com',
+            'thanks' => 'Thank you for using ItSolutionStuff.com tuto!',
+            'actionText' => 'View My Site',
+            'actionURL' => url('/'),
+            'order_id' => 101
+        ];
+
+        Notification::send($user, new MyFirstNotification($details));
+
+        dd('done');
     }
 
     /**

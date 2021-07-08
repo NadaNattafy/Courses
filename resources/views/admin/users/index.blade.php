@@ -16,7 +16,10 @@
                         <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Last Name</th>
+                            <th>Mobile</th>
                             <th>Email</th>
+                            <th>Message</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -27,7 +30,10 @@
 
                             <tr>
                                 <td>{{$user -> name}}</td>
+                                <td>{{$user -> last_name}}</td>
+                                <td>{{$user -> mobile}}</td>
                                 <td>{{$user -> email}}</td>
+                                <td>{{$user->message->message }}</td>
                                 <td>
                                     <a class="btn btn-info" href="{{ route('admin.users.show',$user->id) }}">Show</a>
                                        <a class="btn btn-primary" href="{{ route('admin.users.edit',$user->id) }}">Edit</a>

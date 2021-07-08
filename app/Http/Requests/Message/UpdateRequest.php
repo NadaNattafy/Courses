@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests\Message;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -13,7 +13,7 @@ class UpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -25,12 +25,6 @@ class UpdateRequest extends FormRequest
     {
         return [
             //
-            'name'     => 'required',
-            'last_name' => 'required',
-            'mobile' => 'required',
-            'email'    => 'required|email|unique:admins,email',
-            'password' => 'required',
-            'gender' => 'required',
         ];
     }
 }

@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Website;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Course;
-use App\Models\Trainer;
 use Illuminate\Http\Request;
 
-class ProfileController extends Controller
+class HashController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,16 +15,6 @@ class ProfileController extends Controller
     public function index()
     {
         //
-        $trainers = Trainer::get();
-        $courses = Course::orderBy('id','DESC')->paginate(6);
-        $courses = Course::WithAvg('review','rate')->orderBy('id','DESC')->paginate();
-        //$courses = Course::find(11);
-
-        // foreach($courses->review as $re)
-        // {
-        //  return  $re->rate;
-        // }
-       return view('website.profile',compact('courses','trainers'));
     }
 
     /**

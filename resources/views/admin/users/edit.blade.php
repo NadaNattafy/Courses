@@ -42,6 +42,20 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>Last Name:</strong>
+                <input type="text" name="last_name" value="{{ $user->last_name}}" class="form-control" placeholder="Last Name">
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Mobile:</strong>
+                <input type="text" name="mobile" value="{{ $user->mobile}}" class="form-control" placeholder="Mobile">
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>Email:</strong>
                 <input type="text" name="email" value="{{ $user->email}}" class="form-control" placeholder="Email">
             </div>

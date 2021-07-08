@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\StoreRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SignUpController extends Controller
@@ -15,6 +17,9 @@ class SignUpController extends Controller
     public function index()
     {
         //
+        $usres = User::get();
+       // dd($usres);
+        return view('website.signup',compact('usres'));
     }
 
     /**
@@ -25,6 +30,9 @@ class SignUpController extends Controller
     public function create()
     {
         //
+        $users = User::get();
+
+        return view('website.signup', compact('users'));
     }
 
     /**
@@ -33,9 +41,12 @@ class SignUpController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
+        User::create($request->validated());
+
+        return back()->with('message', 'User Sign Up successfully.');
     }
 
     /**

@@ -17,6 +17,12 @@
     </div>
 </div>
 
+@if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
+
 <!-- end the loading screen -->
 
 <div class="wrapper st-container" id="st-container">
@@ -32,7 +38,7 @@
             </h2>
             <ul>
                 <li><a class="icon icon-data" href="#"><i class="fa fa-user"></i> الملف الشخصي</a></li>
-                <li><a id="sd" class="icon icon-location" href="{{ route('profile') }}"><i class="fa fa-lock"></i> كلمة المرور</a></li>
+                <li><a id="sd" class="icon icon-location" href="{{ route('website.profile.index') }}"><i class="fa fa-lock"></i> كلمة المرور</a></li>
                 <li><a class="icon icon-study" href="#"><i class="fa fa-database"></i> الدورات</a></li>
                 <li><a class="icon icon-photo" href="#">Collections</a></li>
                 <li><a class="icon icon-wallet" href="#">Credits</a></li>
@@ -67,38 +73,44 @@
 
             <header>
 
-                <div class="signup-area">
+                {{-- <div class="signup-area">
                     <div class="container">
                         <div class="login-form col-md-6 col-xs-12 text-right pull-right">
                             <h1>تسجيل الدخول</h1>
-                            <div class="login-item">
-                                <input type="text" placeholder="إسم المستخدم">
-                            </div>
-                            <!-- /.login-item -->
-                            <div class="login-item">
-                                <input type="password" placeholder="كلمة السر">
-                            </div>
-                            <!-- /.login-item -->
-                            <div class="login-item">
-                                <label class="pull-right">
-                                    <input type="checkbox">
-                                    <span>تذكر كلمة السر دائماً</span>
-                                </label>
-                                <label class="pull-left">
-                                    <a href="#" class="forget">هل نسيت كلمة المرور ؟</a>
-                                </label>
-                            </div>
-                            <!-- /.login-item -->
-                            <div class="login-item">
-                                <input type="submit" value="دخول">
-                            </div>
+                            <form action="{{ route('website.login.user') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="login-item">
+                                    <input type="email" name="email" placeholder="بريد المستخدم">
+                                </div>
+                                <!-- /.login-item -->
+                                <div class="login-item">
+                                    <input type="password" name="password" placeholder="كلمة السر">
+                                </div>
+
+                                <!-- /.login-item -->
+                                <div class="login-item">
+                                    <label class="pull-right">
+                                        <input type="checkbox">
+                                        <span>تذكر كلمة السر دائماً</span>
+                                    </label>
+                                    <label class="pull-left">
+                                        <a href="#" class="forget">هل نسيت كلمة المرور ؟</a>
+                                    </label>
+                                </div>
+                                <!-- /.login-item -->
+                                <div class="login-item">
+                                    <input type="submit" value="دخول">
+                                </div>
+                            </form>
                             <!-- /.login-item -->
                         </div>
                         <!-- /.login-form -->
 
                         <div class="signup-form col-md-6 col-xs-12 text-right" style="display: none;">
                             <h1>تسجيل عضوية جديدة</h1>
-                            <p>اذا كنت مستخدم جديد لموقعنا فيمكنك ان تتصفح معظم الكورسات الموجودة الان امامك ولكن لن تستطيع الحصول علي معلومات الكورس او الاشتراك به الا اذا كنت تمتلك حساب لدينا لذلك تستطيع تسجيل حساب جديد من هنا </p>
+                            <p>اذا كنت مستخدم جديد لموقعنا فيمكنك ان تتصفح معظم الكورسات الموجودة الان امامك ولكن لن تستطيع الحصول
+                                علي معلومات الكورس او الاشتراك به الا اذا كنت تمتلك حساب لدينا لذلك تستطيع تسجيل حساب جديد من هنا
+                            </p>
                             <a href="#">
                                 <i class="fa fa-user-plus"></i> تسجيل عضوية
                             </a>
@@ -109,9 +121,9 @@
 
                     </div>
                     <!-- /.container -->
-                </div>
+                </div> --}}
                 <!-- /.login-area -->
-
+{{--
                 <div class="dividers">
                     <span class="t1"></span>
                     <span class="t2"></span>
@@ -123,14 +135,14 @@
                     <span class="t3"></span>
                     <span class="t4"></span>
                     <span class="t5"></span>
-                </div>
+                </div> --}}
                 <!-- /.dividers -->
-
+{{--
                 <div class="header-nav">
                     <div class="container">
                         <div class="nav-right col-md-8 col-xs-12 pull-right">
                             <div class="logo">
-                                <a href="{{ route('index') }}" title="العلوم العصرية للتدريب">
+                                <a href="{{ route('website.home.index') }}" title="العلوم العصرية للتدريب">
                                     <img src="{{asset('assets/images/logo.png')}}" alt="site-logo" width="110" height="70">
                                 </a>
                             </div>
@@ -144,7 +156,7 @@
                                         <a href="#" class="show-login">
                                             <i class="fa fa-user"></i> منطقة تسجيل الدخول
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <!--
                             <li>
 <a href="#">
@@ -175,31 +187,31 @@
                 <div class="up-box">
                     <div class="container">
                         <div class="up-form">
-
-                            <form action="#" method="get">
+                            <form id="sign-up" action="{{ route('website.signup.store') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
                                 <div class="up_form-item">
                                     <span id="error-form">من فضلك ادخل البيانات الصحيحة</span>
-                                    <input type="text" placeholder="الإسم بالكامل">
+                                    <input type="text" placeholder="الإسم بالكامل" name="last_name">
                                 </div>
                                 <!-- /.up_form-item -->
                                 <div class="up_form-item">
-                                    <input type="text" placeholder="إسم المستخدم">
+                                    <input type="text" placeholder="إسم المستخدم" name="name">
                                 </div>
                                 <!-- /.up_form-item -->
                                 <div class="up_form-item">
-                                    <input type="email" placeholder="البريد الإلكتروني">
+                                    <input type="email" placeholder="البريد الإلكتروني" name="email">
                                 </div>
                                 <!-- /.up_form-item -->
                                 <div class="up_form-item">
-                                    <input type="password" placeholder="كلمة المرور">
+                                    <input type="password" placeholder="كلمة المرور" name="password">
                                 </div>
                                 <!-- /.up_form-item -->
                                 <div class="up_form-item">
-                                    <input type="password" placeholder="إعادة كلمة المرور">
+                                    <input type="password" placeholder="إعادة كلمة المرور" name="password">
                                 </div>
                                 <!-- /.up_form-item -->
                                 <div class="up_form-item">
-                                    <input type="text" placeholder="رقم الهاتف">
+                                    <input type="text" placeholder="رقم الهاتف" name="mobile">
                                 </div>
                                 <!-- /.up_form-item -->
                                 <div class="up_form-item">
@@ -234,9 +246,14 @@
                                 <!-- /.up_form-item -->
                                 <div class="up_form-item">
                                     <select>
-                                        <option>الجنس ...</option>
-                                        <option>مذكر</option>
-                                        <option>مؤنث</option>
+                                        <option>الجنس</option>
+{{--
+                                        <label for="male">Male</label>
+                                    <input type="radio" name="gender" id="male" value="male" checked>
+                                    <label for="female">Female</label>
+                                    <input type="radio" name="gender" id="female" value="female"> --}}
+                                    <option>male</option>
+                                    <option>female</option>
                                     </select>
                                 </div>
                                 <!-- /.up_form-item -->
@@ -244,12 +261,12 @@
                                     <label>
                                         <input type="checkbox">
                                         <span>مدرب</span>
-                                        <a href="{{ route('trainer') }}" class="show-privacy">تعرف علي سياسة الخصوصية كمدرب</a>
+                                        <a href="{{ route('website.trainer.index') }}" class="show-privacy">تعرف علي سياسة الخصوصية كمدرب</a>
                                     </label>
                                     <label>
                                         <input type="checkbox">
                                         <span>متدرب</span>
-                                        <a href="{{ route('trainer') }}" class="show-privacy">تعرف علي سياسة الخصوصية كمتدرب</a>
+                                        <a href="{{ route('website.trainer.index') }}" class="show-privacy">تعرف علي سياسة الخصوصية كمتدرب</a>
                                     </label>
                                 </div>
                                 <!-- /.up_form-item -->
@@ -265,7 +282,7 @@
                                 <!-- /.policy -->
 
                                 <div class="up_form-item up-confirm">
-                                    <input type="submit" value="تسجيل">
+                                    <input  onclick="document.getElementById('sign-up').submit()"type="submit" value="تسجيل">
                                 </div>
                                 <!-- /.up_form-item -->
                             </form>
@@ -279,37 +296,6 @@
             </div>
             <!-- /.up-container -->
 
-            <footer>
-                <div class="container">
-                    <div class="copyrights col-md-10 col-xs-12 text-center pull-right">
-                        <p>حميع الحقوق محفوظة لدي العلوم العصرية للتدريب</p>
-                    </div>
-                    <!-- /.copyrights -->
-                    <div class="footer-links col-md-2 col-xs-12 pull-left">
-                        <ul>
-                            <li>
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="facebook">
-                                    <i class="fa fa-facebook-square"></i>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="twitter">
-                                    <i class="fa fa-twitter-square"></i>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="linkedin">
-                                    <i class="fa fa-linkedin-square"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.footer-links -->
-                </div>
-                <!-- /.container -->
-            </footer>
         </div>
         <!-- /.st-content -->
     </div>

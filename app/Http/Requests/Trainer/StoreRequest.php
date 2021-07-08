@@ -35,6 +35,7 @@ class StoreRequest extends FormRequest
             'field' => 'required',
             'qualified' => 'required',
             'expertise' => 'required',
+            'specialty' => 'required'
         ];
     }
 }

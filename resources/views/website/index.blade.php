@@ -16,7 +16,6 @@
         <div class="text">NOW LOADING</div>
     </div>
 </div>
-
 <div class="search-box">
     <div class="container">
         <div class="search-inner">

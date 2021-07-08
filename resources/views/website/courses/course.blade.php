@@ -54,7 +54,7 @@
                         </li>
 
                         <li>
-                            <a href="course-alerts.html">
+                            <a href="#">
                                 <i class="fa fa-bell"></i> التنويهات
                             </a>
                         </li>
@@ -107,13 +107,20 @@
                                 <i class="fa fa-envelope"></i>
                                 إرسال لجميع الطلاب المشتركين في الدورة
                             </h1>
+
+                            <form id="send-message" action="{{ route('website.messages.store') }}" method="POST"
+                                enctype="multipart/form-data">
+                                @csrf
                             <div class="lost-item" id="messageTo">
-                                <textarea placeholder="اكتب الرسالة هنا"></textarea>
+                                <textarea placeholder="اكتب الرسالة هنا" name="message"></textarea>
                             </div>
                             <!-- /.lost-item -->
                             <div class="text-center">
-                                <input type="submit" value="إرسال">
+                            <span>
+                                <input onclick="document.getElementById('send-message').submit()" type="submit" value="إرسال">
+                           </span>
                             </div>
+                        </form>
                             <!-- /.lost-item -->
                         </div>
                         <!-- /.lost-inner -->

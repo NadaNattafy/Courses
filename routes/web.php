@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Website\AuthController;
+use App\Http\Controllers\Website\NotificationController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,7 +22,13 @@ Route::group(['prefix' => 'website', 'as' => 'website.', 'namespace' => 'App\Htt
 
     Route::resource('courses', CoursesController::class);
 
+    Route::resource('lessons', LessonController::class);
+
     Route::resource('remarks', RemarkController::class);
+
+    Route::resource('messages', MessageController::class);
+
+    Route::resource('cvs', CvController::class);
 
     Route::resource('tests', TestController::class);
 
@@ -37,13 +44,15 @@ Route::group(['prefix' => 'website', 'as' => 'website.', 'namespace' => 'App\Htt
 
     Route::resource('reset', ResetController::class);
 
+    Route::resource('signup', SignUpController::class);
+
     Route::resource('trainer', TrainerController::class);
 
    Route::post('user-login', [AuthController::class, 'userLogin'])->name('login.user');
 
    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-  // Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+   Route::get('send', [NotificationController::class, 'sendNotification'])->name('send');
 
 
 });

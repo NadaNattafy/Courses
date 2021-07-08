@@ -19,6 +19,8 @@ class CoursesController extends Controller
     public function index()
     {
         //
+        $courses = Course::get();
+        return view('website.courses.course',compact('courses'));
     }
 
     /**
@@ -29,7 +31,6 @@ class CoursesController extends Controller
     public function create()
     {
         //
-
     }
 
     /**
@@ -52,7 +53,7 @@ class CoursesController extends Controller
     public function show(Course $course)
     {
         //
-        return view('website.courses.course',compact('course'));
+        return view('website.courses.course' ,compact('course'));
     }
 
     /**

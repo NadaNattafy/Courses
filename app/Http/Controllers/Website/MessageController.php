@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
-use App\Models\Course;
-use App\Models\Trainer;
+use App\Http\Requests\Message\StoreRequest;
+use App\Models\Message;
 use Illuminate\Http\Request;
 
-class ProfileController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,16 +17,6 @@ class ProfileController extends Controller
     public function index()
     {
         //
-        $trainers = Trainer::get();
-        $courses = Course::orderBy('id','DESC')->paginate(6);
-        $courses = Course::WithAvg('review','rate')->orderBy('id','DESC')->paginate();
-        //$courses = Course::find(11);
-
-        // foreach($courses->review as $re)
-        // {
-        //  return  $re->rate;
-        // }
-       return view('website.profile',compact('courses','trainers'));
     }
 
     /**
@@ -37,6 +27,9 @@ class ProfileController extends Controller
     public function create()
     {
         //
+        $messages = Message::get();
+
+        return view('website.courses.course', compact('messages'));
     }
 
     /**
@@ -45,9 +38,12 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
+        Message::create($request->validated());
+
+        return back()->with('message', 'Message Sent successfully.');
     }
 
     /**
