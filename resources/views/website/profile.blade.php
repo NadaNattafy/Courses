@@ -22,10 +22,10 @@
     <div class="wrapper">
 
         @if (session()->has('message'))
-        <div class="alert alert-success">
-            {{ session()->get('message') }}
-        </div>
-    @endif
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
 
         <div class="profile-content empty-course">
             <div class="container">
@@ -189,111 +189,112 @@
                                         <form action="#" method="get">
                                             @foreach ($trainers as $trainer)
 
-                                            <div class="home_data-item all-set col-md-6 col-sm-6  col-xs-12 pull-right">
-                                                <div>
-                                                    <i class="fa fa-user-secret"></i>
-                                                    <h1>الإسم بالكامل</h1>
-                                                    <input type="text" id="edit-area" placeholder="الإسم بالكامل">
-                                                    <span>{{ $trainer->name }}</span>
+                                                <div class="home_data-item all-set col-md-6 col-sm-6  col-xs-12 pull-right">
+                                                    <div>
+                                                        <i class="fa fa-user-secret"></i>
+                                                        <h1>الإسم بالكامل</h1>
+                                                        <input type="text" id="edit-area" placeholder="الإسم بالكامل">
+                                                        <span>{{ $trainer->name }}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <!-- /.home_data-item -->
+                                                <!-- /.home_data-item -->
 
-                                            <div class="home_data-item all-set col-md-6 col-sm-6  col-xs-12 pull-right">
-                                                <div>
-                                                    <i class="fa fa-user"></i>
-                                                    <h1>إسم المستخدم</h1>
-                                                    <input type="text" id="edit-area" placeholder="إسم المستخدم">
-                                                    <span>{{ $trainer->name }}</span>
+                                                <div class="home_data-item all-set col-md-6 col-sm-6  col-xs-12 pull-right">
+                                                    <div>
+                                                        <i class="fa fa-user"></i>
+                                                        <h1>إسم المستخدم</h1>
+                                                        <input type="text" id="edit-area" placeholder="إسم المستخدم">
+                                                        <span>{{ $trainer->name }}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <!-- /.home_data-item -->
-                                            <div class="home_data-item all-set col-md-6 col-sm-6  col-xs-12 pull-right">
-                                                <div>
-                                                    <i class="fa fa-phone"></i>
-                                                    <h1>رقم الهاتف</h1>
-                                                    <input type="text" id="edit-area" placeholder="رقم الهاتف">
-                                                    <span>{{ $trainer->mobile }}</span>
+                                                <!-- /.home_data-item -->
+                                                <div class="home_data-item all-set col-md-6 col-sm-6  col-xs-12 pull-right">
+                                                    <div>
+                                                        <i class="fa fa-phone"></i>
+                                                        <h1>رقم الهاتف</h1>
+                                                        <input type="text" id="edit-area" placeholder="رقم الهاتف">
+                                                        <span>{{ $trainer->mobile }}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <!-- /.home_data-item -->
+                                                <!-- /.home_data-item -->
 
-                                            <div class="home_data-item all-set col-md-6 col-sm-6  col-xs-12 pull-right">
-                                                <div>
-                                                    <i class="fa fa-envelope"></i>
-                                                    <h1>البريد الإلكتروني</h1>
-                                                    <input type="email" id="edit-area" placeholder="البريد الإلكتروني">
-                                                    <span>{{ $trainer->email }}</span>
+                                                <div class="home_data-item all-set col-md-6 col-sm-6  col-xs-12 pull-right">
+                                                    <div>
+                                                        <i class="fa fa-envelope"></i>
+                                                        <h1>البريد الإلكتروني</h1>
+                                                        <input type="email" id="edit-area" placeholder="البريد الإلكتروني">
+                                                        <span>{{ $trainer->email }}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <!-- /.home_data-item -->
-                                            <div class="home_data-item col-md-6 col-sm-6  col-xs-12 pull-right">
-                                                <div>
-                                                    <i class="fa fa-globe"></i>
-                                                    <h1>الدولة</h1>
-                                                    <input type="text" id="edit-area" placeholder="الدولة">
-                                                    <span>{{ $trainer->state }}</span>
+                                                <!-- /.home_data-item -->
+                                                <div class="home_data-item col-md-6 col-sm-6  col-xs-12 pull-right">
+                                                    <div>
+                                                        <i class="fa fa-globe"></i>
+                                                        <h1>الدولة</h1>
+                                                        <input type="text" id="edit-area" placeholder="الدولة">
+                                                        <span>{{ $trainer->state }}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <!-- /.home_data-item -->
-                                            <div class="home_data-item all-set col-md-6 col-sm-6  col-xs-12 pull-right">
-                                                <div>
-                                                    <i class="fa fa-male"></i>
-                                                    <h1>الجنس</h1>
+                                                <!-- /.home_data-item -->
+                                                <div class="home_data-item all-set col-md-6 col-sm-6  col-xs-12 pull-right">
+                                                    <div>
+                                                        <i class="fa fa-male"></i>
+                                                        <h1>الجنس</h1>
 
-                                                    <span>{{ $trainer->gender }}</span>
+                                                        <span>{{ $trainer->gender }}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <!-- /.home_data-item -->
-                                            <div class="home_data-item all-set col-md-6 col-sm-6  col-xs-12 pull-right">
-                                                <div>
-                                                    <i class="fa fa-globe"></i>
-                                                    <h1>مدرب / متدرب</h1>
-                                                    <input type="text" id="edit-area" placeholder="مدرب / متدرب">
-                                                    <span>متدرب</span>
+                                                <!-- /.home_data-item -->
+                                                <div class="home_data-item all-set col-md-6 col-sm-6  col-xs-12 pull-right">
+                                                    <div>
+                                                        <i class="fa fa-globe"></i>
+                                                        <h1>مدرب / متدرب</h1>
+                                                        <input type="text" id="edit-area" placeholder="مدرب / متدرب">
+                                                        <span>متدرب</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <!-- /.home_data-item -->
+                                                <!-- /.home_data-item -->
 
-                                            <div class="home_data-item all-set col-md-6 col-sm-6  col-xs-12 pull-right">
-                                                <div>
-                                                    <i class="fa fa-graduation-cap"></i>
-                                                    <h1> المؤهل</h1>
-                                                    <input type="text" id="edit-area" placeholder="المؤهل">
-                                                    <span>{{ $trainer->qualified }}</span>
+                                                <div class="home_data-item all-set col-md-6 col-sm-6  col-xs-12 pull-right">
+                                                    <div>
+                                                        <i class="fa fa-graduation-cap"></i>
+                                                        <h1> المؤهل</h1>
+                                                        <input type="text" id="edit-area" placeholder="المؤهل">
+                                                        <span>{{ $trainer->qualified }}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <!-- /.home_data-item -->
+                                                <!-- /.home_data-item -->
 
-                                            <div class="home_data-item all-set col-md-6 col-sm-6  col-xs-12 pull-right">
-                                                <div>
-                                                    <i class="fa fa-briefcase"></i>
-                                                    <h1>التخصص</h1>
-                                                    <input type="text" id="edit-area" placeholder="التخصص">
-                                                    <span>{{ $trainer->speciality }}</span>
+                                                <div class="home_data-item all-set col-md-6 col-sm-6  col-xs-12 pull-right">
+                                                    <div>
+                                                        <i class="fa fa-briefcase"></i>
+                                                        <h1>التخصص</h1>
+                                                        <input type="text" id="edit-area" placeholder="التخصص">
+                                                        <span>{{ $trainer->speciality }}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <!-- /.home_data-item -->
+                                                <!-- /.home_data-item -->
 
-                                            <div class="home_data-item all-set col-md-6 col-sm-6  col-xs-12 pull-right">
-                                                <div>
-                                                    <i class="fa fa-cogs"></i>
-                                                    <h1>مجال العمل</h1>
-                                                    <select id="edit-area">
-                                                        <option>هندسة هندسة</option>
-                                                        <option>هندسة هندسة</option>
-                                                        <option>هندسة هندسة</option>
-                                                        <option>هندسة هندسة</option>
-                                                    </select>
-                                                    <span>{{ $trainer->field }}</span>
+                                                <div class="home_data-item all-set col-md-6 col-sm-6  col-xs-12 pull-right">
+                                                    <div>
+                                                        <i class="fa fa-cogs"></i>
+                                                        <h1>مجال العمل</h1>
+                                                        <select id="edit-area">
+                                                            <option>هندسة هندسة</option>
+                                                            <option>هندسة هندسة</option>
+                                                            <option>هندسة هندسة</option>
+                                                            <option>هندسة هندسة</option>
+                                                        </select>
+                                                        <span>{{ $trainer->field }}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <!-- /.home_data-item -->
+                                                <!-- /.home_data-item -->
 
-                                            <div class="home_data-item all-set col-md-12 col-sm-12  col-xs-12 pull-right">
-                                                <input type="submit" class="confirm-set" value="حفظ التعديلات">
-                                            </div>
-                                            <!-- /.home_data-item -->
+                                                <div
+                                                    class="home_data-item all-set col-md-12 col-sm-12  col-xs-12 pull-right">
+                                                    <input type="submit" class="confirm-set" value="حفظ التعديلات">
+                                                </div>
+                                                <!-- /.home_data-item -->
                                             @endforeach
                                         </form>
                                     </div>
@@ -407,31 +408,35 @@
                                                                 <!-- =========================================================================================================================================== -->
 
 
-                    <div class="panel-pop modal" id="msg-all">
-                        <div class="lost-inner">
-                            <h1>
-                                <i class="fa fa-envelope"></i>
-                                إرسال لجميع الطلاب المشتركين في الدورة
-                            </h1>
+                                                                <div class="panel-pop modal" id="msg-all">
+                                                                    <div class="lost-inner">
+                                                                        <h1>
+                                                                            <i class="fa fa-envelope"></i>
+                                                                            إرسال لجميع الطلاب المشتركين في الدورة
+                                                                        </h1>
 
-                            <form id="send-message" action="{{ route('website.messages.store') }}" method="POST"
-                                enctype="multipart/form-data">
-                                @csrf
-                            <div class="lost-item" id="messageTo">
-                                <textarea placeholder="اكتب الرسالة هنا" name="message"></textarea>
-                            </div>
-                            <!-- /.lost-item -->
-                            <div class="text-center">
-                            <span>
-                                <input onclick="document.getElementById('send-message').submit()" type="submit" value="إرسال">
-                           </span>
-                            </div>
-                        </form>
-                            <!-- /.lost-item -->
-                        </div>
-                        <!-- /.lost-inner -->
-                    </div>
-                    <!-- /.modal -->
+                                                                        <form id="send-message"
+                                                                            action="{{ route('website.messages.store') }}"
+                                                                            method="POST" enctype="multipart/form-data">
+                                                                            @csrf
+                                                                            <div class="lost-item" id="messageTo">
+                                                                                <textarea placeholder="اكتب الرسالة هنا"
+                                                                                    name="message"></textarea>
+                                                                            </div>
+                                                                            <!-- /.lost-item -->
+                                                                            <div class="text-center">
+                                                                                <span>
+                                                                                    <input
+                                                                                        onclick="document.getElementById('send-message').submit()"
+                                                                                        type="submit" value="إرسال">
+                                                                                </span>
+                                                                            </div>
+                                                                        </form>
+                                                                        <!-- /.lost-item -->
+                                                                    </div>
+                                                                    <!-- /.lost-inner -->
+                                                                </div>
+                                                                <!-- /.modal -->
 
                                                                 <!-- =========================================================================================================================================== -->
                                                                 <a href="#" class="edit-course">
@@ -450,22 +455,26 @@
                                                                             اضافة تنويه للطلاب المشتركين في الدورة
                                                                         </h1>
 
-                                                                        <form id="add-remark" action="{{ route('website.remarks.store') }}" method="POST"
-                                                                            enctype="multipart/form-data">
+                                                                        <form id="add-remark"
+                                                                            action="{{ route('website.remarks.store') }}"
+                                                                            method="POST" enctype="multipart/form-data">
                                                                             @csrf
 
                                                                             <div class="lost-item" id="alert-item">
-                                                                                <input type="text" name="title" placeholder="عنوان التنويه">
+                                                                                <input type="text" name="title"
+                                                                                    placeholder="عنوان التنويه">
                                                                             </div>
                                                                             <!-- /.lost-item -->
                                                                             <div class="lost-item" id="alert-item">
-                                                                                <textarea placeholder="مضمون التنويه" name="body"></textarea>
+                                                                                <textarea placeholder="مضمون التنويه"
+                                                                                    name="body"></textarea>
                                                                             </div>
                                                                             <!-- /.lost-item -->
                                                                             <div class="text-center">
                                                                                 <span>
-                                                                                    <input onclick="document.getElementById('add-remark').submit()" type="submit"
-                                                                                        value="نشر التنويه">
+                                                                                    <input
+                                                                                        onclick="document.getElementById('add-remark').submit()"
+                                                                                        type="submit" value="نشر التنويه">
                                                                                 </span>
                                                                             </div>
 
@@ -501,11 +510,11 @@
                                                                                     <input type="file" class="uploaded">
                                                                                 </div>
                                                                                 <!--
-                                                                                    <label class="text-right">
-                                                                                        <input type="radio" id="add-link">
-                                                                                        <span>يوتيوب</span>
-                                                                                    </label>
-        -->
+                                                                                            <label class="text-right">
+                                                                                                <input type="radio" id="add-link">
+                                                                                                <span>يوتيوب</span>
+                                                                                            </label>
+                -->
                                                                             </div>
                                                                             <input type="text" placeholder="ادخل رابط فيديو"
                                                                                 class="linked">
@@ -662,14 +671,20 @@
                                                                             <i class="fa fa-envelope"></i>
                                                                             إرسال لجميع الطلاب المشتركين في الدورة
                                                                         </h1>
+
+                                                                        <form id="send-message" action="{{ route('website.messages.store') }}" method="POST"
+                                                                            enctype="multipart/form-data">
+                                                                            @csrf
                                                                         <div class="lost-item" id="messageTo">
-                                                                            <textarea
-                                                                                placeholder="اكتب الرسالة هنا"></textarea>
+                                                                            <textarea placeholder="اكتب الرسالة هنا" name="message"></textarea>
                                                                         </div>
                                                                         <!-- /.lost-item -->
                                                                         <div class="text-center">
-                                                                            <input type="submit" value="إرسال">
+                                                                        <span>
+                                                                            <input onclick="document.getElementById('send-message').submit()" type="submit" value="إرسال">
+                                                                       </span>
                                                                         </div>
+                                                                    </form>
                                                                         <!-- /.lost-item -->
                                                                     </div>
                                                                     <!-- /.lost-inner -->
@@ -692,18 +707,27 @@
                                                                             <i class="fa fa-envelope"></i>
                                                                             اضافة تنويه للطلاب المشتركين في الدورة
                                                                         </h1>
-                                                                        <div class="lost-item" id="alert-item">
-                                                                            <input type="text" placeholder="عنوان التنويه">
-                                                                        </div>
-                                                                        <!-- /.lost-item -->
-                                                                        <div class="lost-item" id="alert-item">
-                                                                            <textarea
-                                                                                placeholder="مضمون التنويه"></textarea>
-                                                                        </div>
-                                                                        <!-- /.lost-item -->
-                                                                        <div class="text-center">
-                                                                            <input type="submit" value="نشر التنويه">
-                                                                        </div>
+
+                                                                        <form id="add-remark" action="{{ route('website.remarks.store') }}" method="POST"
+                                                                            enctype="multipart/form-data">
+                                                                            @csrf
+
+                                                                            <div class="lost-item" id="alert-item">
+                                                                                <input type="text" name="title" placeholder="عنوان التنويه">
+                                                                            </div>
+                                                                            <!-- /.lost-item -->
+                                                                            <div class="lost-item" id="alert-item">
+                                                                                <textarea placeholder="مضمون التنويه" name="body"></textarea>
+                                                                            </div>
+                                                                            <!-- /.lost-item -->
+                                                                            <div class="text-center">
+                                                                                <span>
+                                                                                    <input onclick="document.getElementById('add-remark').submit()" type="submit"
+                                                                                        value="نشر التنويه">
+                                                                                </span>
+                                                                            </div>
+
+                                                                        </form>
                                                                         <!-- /.lost-item -->
                                                                     </div>
                                                                     <!-- /.lost-inner -->
@@ -712,9 +736,10 @@
 
                                                                 <!-- =========================================================================================================================================== -->
                                                                 <div class="add_lecture">
-                                                                    <form class="add-lesson" action="{{ route('website.lessons.store') }}" method="POST"
-                                                                    enctype="multipart/form-data">
-                                                                    @csrf
+                                                                    <form class="add-lesson"
+                                                                        action="{{ route('website.lessons.store') }}"
+                                                                        method="POST" enctype="multipart/form-data">
+                                                                        @csrf
                                                                         <div class="lecture-item">
                                                                             <h1>اسم الدرس</h1>
                                                                             <input type="text"
@@ -725,7 +750,7 @@
                                                                             <h1>اضف رابط خارجي للفيديو</h1>
                                                                             <div class="add_cont text-right">
                                                                                 <label class="text-right">
-                                                                                    <input type="checkbox" id="up-video" >
+                                                                                    <input type="checkbox" id="up-video">
                                                                                     <span>اذا أردت رفع فيديو من جهازك
                                                                                         الشخصي</span>
                                                                                 </label>
@@ -737,20 +762,20 @@
                                                                                     <input type="file" class="uploaded">
                                                                                 </div>
                                                                                 <!--
-                                                                                    <label class="text-right">
-                                                                                        <input type="radio" id="add-link">
-                                                                                        <span>يوتيوب</span>
-                                                                                    </label>
-        -->
+                                                                                            <label class="text-right">
+                                                                                                <input type="radio" id="add-link">
+                                                                                                <span>يوتيوب</span>
+                                                                                            </label>
+                -->
                                                                             </div>
-                                                                            <input type="text" placeholder="ادخل رابط فيديو" name="url"
-                                                                                class="linked">
+                                                                            <input type="text" placeholder="ادخل رابط فيديو"
+                                                                                name="url" class="linked">
                                                                         </div>
                                                                         <!-- /.lecture-item -->
                                                                         <div class="lecture-item">
                                                                             <h1>اسم الدرس</h1>
-                                                                            <textarea
-                                                                                placeholder="اضف وصف المحاضرة" name="description"></textarea>
+                                                                            <textarea placeholder="اضف وصف المحاضرة"
+                                                                                name="description"></textarea>
                                                                         </div>
                                                                         <!-- /.lecture-item -->
                                                                         <div class="lecture-item text-right">
@@ -775,7 +800,9 @@
                                                                         </div>
                                                                         <!-- /.lecture-item -->
                                                                         <div class="lecture-item confirm-lec">
-                                                                            <input onclick="document.getElementById('add-lesson').submit()" type="submit" value="إضافة محاضرة">
+                                                                            <input
+                                                                                onclick="document.getElementById('add-lesson').submit()"
+                                                                                type="submit" value="إضافة محاضرة">
                                                                         </div>
                                                                         <!-- /.lecture-item -->
 
@@ -882,14 +909,15 @@
                                     <div class="home_data col-xs-12 pull-right text-right">
                                         <div class="home_data-item col-md-12  col-xs-12 pull-right">
                                             <div>
-                                                <form class="cv-file" action="{{ route('website.cvs.store') }}" method="POST"
-                                                enctype="multipart/form-data">
-                                                @csrf
+                                                <form class="cv-file" action="{{ route('website.cvs.store') }}"
+                                                    method="POST" enctype="multipart/form-data">
+                                                    @csrf
                                                     <h1>أضف رابط خارجي لملف السيرة الذاتية</h1>
                                                     <input type="url" placeholder="رابط خارجي" name="url">
                                                     <h1>او يمكنك كتابتها بنفسك من خلال</h1>
                                                     <textarea placeholder="اكتب سيرتك الذاتية" name="cv"></textarea>
-                                                    <input onclick="document.getElementById('cv-file').submit()" type="submit" value="حفظ">
+                                                    <input onclick="document.getElementById('cv-file').submit()"
+                                                        type="submit" value="حفظ">
                                                     <a class="show-cv">عرض ملف السيرة الذاتية</a>
                                                 </form>
                                             </div>
@@ -1695,41 +1723,40 @@
                 <!-- /.testominal-head -->
                 <div class="row block-container">
                     @foreach ($courses as $course)
-                    <div class="block col-md-4 col-sm-6">
-                        <figure>
-                            <div><img src="{{ asset('assets/images/b3.jpg') }}" alt="img05"
-                                    class="img-responsive">
-                            </div>
-                            <figcaption class="text-right">
-                                <h1> اسم الكورس : {{ $course->name }}</h1>
-                                <h1> اسم المدرس : {{ $course->trainer->name }}</h1>
-                                <h1> عدد الطلبة المشتركين : 5</h1>
-                                <h1> تاريخ بداية الكورس : {{ $course->created_at }}</h1>
-                                {{-- <h1> تقييم الكورس : {{ $course->review->rate }}</h1> --}}
-                                <a href="{{ route('website.courses.show', $course->id)  }}">
-                                    <i class="fa fa-eye"></i> مشاهدة الكورس
-                                </a>
-                            </figcaption>
-                        </figure>
-                    </div>
+                        <div class="block col-md-4 col-sm-6">
+                            <figure>
+                                <div><img src="{{ asset('assets/images/b3.jpg') }}" alt="img05" class="img-responsive">
+                                </div>
+                                <figcaption class="text-right">
+                                    <h1> اسم الكورس : {{ $course->name }}</h1>
+                                    <h1> اسم المدرس : {{ $course->trainer->name }}</h1>
+                                    <h1> عدد الطلبة المشتركين : 5</h1>
+                                    <h1> تاريخ بداية الكورس : {{ $course->created_at }}</h1>
+                                    {{-- <h1> تقييم الكورس : {{ $course->review->rate }}</h1> --}}
+                                    <a href="{{ route('website.courses.show', $course->id) }}">
+                                        <i class="fa fa-eye"></i> مشاهدة الكورس
+                                    </a>
+                                </figcaption>
+                            </figure>
+                        </div>
                     @endforeach
 
                 </div>
 
-                </div>
-                <!-- /.row -->
-
-                <div class="all-courses text-center">
-                    <a href="all-courses.html">عرض جميع الكورسات</a>
-                </div>
-                <!-- /.all-courses -->
-
             </div>
-            <!-- /.conainer -->
+            <!-- /.row -->
+
+            <div class="all-courses text-center">
+                <a href="all-courses.html">عرض جميع الكورسات</a>
+            </div>
+            <!-- /.all-courses -->
+
         </div>
+        <!-- /.conainer -->
+    </div>
 
-    @endsection
+@endsection
 
-    @push('script')
+@push('script')
 
-    @endpush
+@endpush
