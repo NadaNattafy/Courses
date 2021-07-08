@@ -24,19 +24,19 @@
             <div class="container">
                 <ul>
                     <li>
-                        <a href="{{route('course')}}">
+                        <a href="{{route('website.courses.index')}}">
                             <i class="fa fa-tasks"></i> الدروس
                         </a>
                     </li>
 
                     <li>
-                        <a href="{{route('course-comment')}}" class="active">
+                        <a href="{{route('website.comments.index')}}" class="active">
                             <i class="fa fa-commenting-o"></i> النقاشات
                         </a>
                     </li>
 
                     <li>
-                        <a href="{{route('course-alert')}}">
+                        <a href="#">
                             <i class="fa fa-bell"></i> التنويهات
                         </a>
                     </li>
@@ -49,10 +49,22 @@
             <div class="container">
                 <div class="comments-disqus">
                     <div class="empty-msg text-center animated shake">
-                        <h1>
+                        {{-- <h1>
                             <i class="fa fa-frown-o"></i>
                             لا يوجد دروس الان ولكن يمكنك الاشتراك في الدورة لحين بدأها
-                        </h1>
+                        </h1> --}}
+                        <ul>
+                            @foreach ($comments as $comment)
+                            <li>
+                                    <a href="#" class="lesson-det">
+                                        <i class="fa fa-play-circle"></i>
+                                        <span class="lesson-name">  التعليق :
+                                            {{ $comment->comment }}</span>
+                                    </a>
+                            </li>
+                            @endforeach
+
+                        </ul>
                     </div>
                     <!-- end empty-msg -->
                 </div>

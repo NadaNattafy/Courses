@@ -48,13 +48,13 @@
 
                         <li>
                         <li>
-                            <a href="{{ route('website.courses.course-comment') }}"  >
+                            <a href="{{ route('website.comments.index') }}"  >
                                 <i class="fa fa-commenting-o"></i> النقاشات
                             </a>
                         </li>
 
                         <li>
-                            <a href="#">
+                            <a href="{{ route('website.alerts.index') }}">
                                 <i class="fa fa-bell"></i> التنويهات
                             </a>
                         </li>

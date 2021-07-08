@@ -26,6 +26,8 @@ Route::group(['prefix' => 'website', 'as' => 'website.', 'namespace' => 'App\Htt
 
     Route::resource('comments', CommentController::class);
 
+    Route::resource('alerts', AlertController::class);
+
     Route::resource('remarks', RemarkController::class);
 
     Route::resource('messages', MessageController::class);

@@ -3,13 +3,10 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
-use App\Models\Course;
-use App\Models\Lesson;
-use App\Models\Review;
-use Egulias\EmailValidator\Warning\Comment;
+use App\Models\Remark;
 use Illuminate\Http\Request;
 
-class CourseController extends Controller
+class AlertController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +16,8 @@ class CourseController extends Controller
     public function index()
     {
         //
-        $courses = Course::get();
-        return view('website.courses.course',compact('courses'));
+        $remarks = Remark::get();
+        return view('website.courses.course-alert',compact('remarks'));
     }
 
     /**
@@ -50,12 +47,9 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Course $course)
+    public function show($id)
     {
         //
-        $lessons=Lesson::where('course_id',$course->id)->get();
-        //dd($lessons);
-        return view('website.courses.course' ,compact('course','lessons'));
     }
 
     /**
@@ -90,6 +84,5 @@ class CourseController extends Controller
     public function destroy($id)
     {
         //
-
     }
 }
