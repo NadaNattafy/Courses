@@ -56,7 +56,6 @@
                             <li>
                                 <h1>{{ $remark->title }}</h1>
                                 <span>
-                                    {{  \Carbon\Carbon::now()->locale('ar')->format('d-m-Y')}}
                                     {{ $remark->created_at }}
                                 </span>
                                 <p>{{ $remark->body }}</p>

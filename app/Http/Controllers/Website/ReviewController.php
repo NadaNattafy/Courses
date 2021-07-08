@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
-use App\Models\Remark;
+use App\Http\Requests\Review\StoreRequest;
+use App\Models\Review;
 use Illuminate\Http\Request;
 
-class AlertController extends Controller
+class ReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +17,6 @@ class AlertController extends Controller
     public function index()
     {
         //
-        $date = "2020-02-22";
-	$newDate = \Carbon\Carbon::createFromFormat('Y-m-d', $date)->format('d M Y');
-        $remarks = Remark::get();
-        return view('website.courses.course-alert',compact('remarks'));
     }
 
     /**
@@ -30,6 +27,9 @@ class AlertController extends Controller
     public function create()
     {
         //
+        $reviews = Review::get();
+
+        return view('website.courses.course', compact('reviews'));
     }
 
     /**
@@ -38,9 +38,12 @@ class AlertController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
+        Review::create($request->validated());
+
+        return back()->with('message', 'Review Added successfully.');
     }
 
     /**
