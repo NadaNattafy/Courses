@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Lesson\StoreRequest;
 use App\Models\Course;
 use App\Models\Lesson;
+use App\Models\Review;
+use Egulias\EmailValidator\Warning\Comment;
 use Illuminate\Http\Request;
 
-class LessonController extends Controller
+class CourseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,6 +19,8 @@ class LessonController extends Controller
     public function index()
     {
         //
+        $courses = Course::get();
+        return view('website.courses.course',compact('courses'));
     }
 
     /**
@@ -28,9 +31,6 @@ class LessonController extends Controller
     public function create()
     {
         //
-        $lessons = Lesson::get();
-
-        return view('website.profile', compact('lessons'));
     }
 
     /**
@@ -39,12 +39,9 @@ class LessonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRequest $request)
+    public function store(Request $request)
     {
         //
-        Lesson::create($request->validated());
-
-        return back()->with('message', 'Lesson Added successfully.');
     }
 
     /**
@@ -53,9 +50,12 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Course $course)
     {
         //
+        $lessons=Lesson::where('course_id',$course->id)->get();
+        //dd($lessons);
+        return view('website.courses.course' ,compact('course','lessons'));
     }
 
     /**
@@ -90,11 +90,6 @@ class LessonController extends Controller
     public function destroy($id)
     {
         //
-$lesson = Lesson::find($id);
-dd('jkc;');
-        $lesson->delete();
-        return redirect()->route('website.courses.show')
-                        ->with('message','Lesson deleted successfully');
 
     }
 }

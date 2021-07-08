@@ -24,6 +24,8 @@ Route::group(['prefix' => 'website', 'as' => 'website.', 'namespace' => 'App\Htt
 
     Route::resource('lessons', LessonController::class);
 
+    Route::resource('comments', CommentController::class);
+
     Route::resource('remarks', RemarkController::class);
 
     Route::resource('messages', MessageController::class);

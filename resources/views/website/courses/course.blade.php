@@ -48,7 +48,7 @@
 
                         <li>
                         <li>
-                            <a href="#">
+                            <a href="{{ route('website.courses.course-comment') }}"  >
                                 <i class="fa fa-commenting-o"></i> النقاشات
                             </a>
                         </li>
@@ -111,16 +111,17 @@
                             <form id="send-message" action="{{ route('website.messages.store') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
-                            <div class="lost-item" id="messageTo">
-                                <textarea placeholder="اكتب الرسالة هنا" name="message"></textarea>
-                            </div>
-                            <!-- /.lost-item -->
-                            <div class="text-center">
-                            <span>
-                                <input onclick="document.getElementById('send-message').submit()" type="submit" value="إرسال">
-                           </span>
-                            </div>
-                        </form>
+                                <div class="lost-item" id="messageTo">
+                                    <textarea placeholder="اكتب الرسالة هنا" name="message"></textarea>
+                                </div>
+                                <!-- /.lost-item -->
+                                <div class="text-center">
+                                    <span>
+                                        <input onclick="document.getElementById('send-message').submit()" type="submit"
+                                            value="إرسال">
+                                    </span>
+                                </div>
+                            </form>
                             <!-- /.lost-item -->
                         </div>
                         <!-- /.lost-inner -->
@@ -191,39 +192,21 @@
                     </div>
                     <!-- end week-moduke -->
                     <ul>
+                        @foreach ($lessons as $lesson)
                         <li>
-                            <a href="#" class="lesson-det">
-                                <i class="fa fa-play-circle"></i>
-                                <span class="lesson-name">أنواع البيانات 1 - البيانات العددية - numeric data types</span>
-                            </a>
-                            <h3>8 دقيقة</h3>
-                            <a href="#" class="del-lesson" data-toggle="tooltip" data-placement="top" title="حذف الدرس">
-                                <i class="fa fa-trash"></i>
-                            </a>
+                                <a href="#" class="lesson-det">
+                                    <i class="fa fa-play-circle"></i>
+                                    <span class="lesson-name"> اسم الدرس :
+                                        {{ $lesson->name }}</span>
+                                </a>
+                                <h3>{{ $lesson->duration }} دقيقة</h3>
 
+                                <a href="{{ route('website.lessons.destroy', $lesson->id) }}" class="del-lesson" data-toggle="tooltip" data-placement="top" title="حذف الدرس">
+                                    <i class="fa fa-trash"></i>
+                                </a>
                         </li>
-                        <li>
-                            <a href="#" class="lesson-det">
-                                <i class="fa fa-play-circle"></i>
-                                <span class="lesson-name">أنواع البيانات 1 - البيانات العددية - numeric data types</span>
-                            </a>
-                            <h3>8 دقيقة</h3>
-                            <a href="#" class="del-lesson" data-toggle="tooltip" data-placement="top" title="حذف الدرس">
-                                <i class="fa fa-trash"></i>
-                            </a>
+                        @endforeach
 
-                        </li>
-                        <li>
-                            <a href="#" class="lesson-det">
-                                <i class="fa fa-play-circle"></i>
-                                <span class="lesson-name">أنواع البيانات 1 - البيانات العددية - numeric data types</span>
-                            </a>
-                            <h3>8 دقيقة</h3>
-                            <a href="#" class="del-lesson" data-toggle="tooltip" data-placement="top" title="حذف الدرس">
-                                <i class="fa fa-trash"></i>
-                            </a>
-
-                        </li>
                     </ul>
 
                     <div class="take-exam col-xs-12 text-center">

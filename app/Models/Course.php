@@ -20,6 +20,11 @@ class Course extends Model
         return $this->belongsTo(Trainer::class);
     }
 
+    public function comment(){
+
+        return $this->hasMany(Comment::class);
+    }
+
     public function user()
     {
 
