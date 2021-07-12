@@ -25,7 +25,7 @@
 
         <nav class="st-menu st-effect-8" id="menu-8">
             <h2 class="icon icon-stack">
-                <img src="images/logo.png" class="img-responsive">
+                <img src="{{ asset('assets/images/logo.png')}}" class="img-responsive">
             </h2>
             <ul>
                 <li><a class="icon icon-data" href="profile1.html#home"><i class="fa fa-user"></i> الملف الشخصي</a></li>
@@ -130,6 +130,9 @@
                 </div>
                 <!-- /.header-nav -->
             </header>
+        </div>
+    </div>
+</div>
 
 <div class="allcourses-box">
     <div class="allcourses-head text-center">

@@ -22,31 +22,35 @@
 <div class="wrapper">
     <header>
 
-        <div class="signup-area">
+        <div class="login-area">
             <div class="container">
                 <div class="login-form col-md-6 col-xs-12 text-right pull-right">
                     <h1>تسجيل الدخول</h1>
-                    <div class="login-item">
-                        <input type="text" placeholder="إسم المستخدم">
-                    </div>
-                    <!-- /.login-item -->
-                    <div class="login-item">
-                        <input type="password" placeholder="كلمة السر">
-                    </div>
-                    <!-- /.login-item -->
-                    <div class="login-item">
-                        <label class="pull-right">
-                            <input type="checkbox">
-                            <span>تذكر كلمة السر دائماً</span>
-                        </label>
-                        <label class="pull-left">
-                            <a href="#" class="forget">هل نسيت كلمة المرور ؟</a>
-                        </label>
-                    </div>
-                    <!-- /.login-item -->
-                    <div class="login-item">
-                        <input type="submit" value="دخول">
-                    </div>
+                    <form action="{{ route('website.login.user') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="login-item">
+                            <input type="email" name="email" placeholder="بريد المستخدم">
+                        </div>
+                        <!-- /.login-item -->
+                        <div class="login-item">
+                            <input type="password" name="password" placeholder="كلمة السر">
+                        </div>
+    
+                        <!-- /.login-item -->
+                        <div class="login-item">
+                            <label class="pull-right">
+                                <input type="checkbox">
+                                <span>تذكر كلمة السر دائماً</span>
+                            </label>
+                            <label class="pull-left">
+                                <a href="#" class="forget">هل نسيت كلمة المرور ؟</a>
+                            </label>
+                        </div>
+                        <!-- /.login-item -->
+                        <div class="login-item">
+                            <input type="submit" value="دخول">
+                        </div>
+                    </form>
                     <!-- /.login-item -->
                 </div>
                 <!-- /.login-form -->
@@ -144,6 +148,7 @@
         </div>
         <!-- /.header-nav -->
     </header>
+</div>
 
 <div class="intro-container">
     <div class="intro-head text-center">
@@ -197,7 +202,7 @@
             <div class="intro-video col-xs-12 text-center">
                 <!--                        <iframe width="100%" height="520" src="https://www.youtube.com/embed/tTgD9m1p5Ss?list=PLT56sSeAKiIvfQhsA2lXUUmjfh0JyEFU7" frameborder="0" allowfullscreen></iframe>-->
                 <video id="example_video_1" class="video-js vjs-default-skin" controls="true" width="100%" height="520" poster="images/3lom.jpg">
-                    <source src="images/test.mp4" type='video/mp4' />
+                    <source src="{{ asset('assets/images/test.mp4')}}" type='video/mp4' />
                 </video>
             </div>
             <!-- /.intro-video -->

@@ -22,27 +22,35 @@
 <div class="wrapper">
     <header>
 
-        <div class="signup-area">
+        <div class="login-area">
             <div class="container">
                 <div class="login-form col-md-6 col-xs-12 text-right pull-right">
                     <h1>تسجيل الدخول</h1>
-                    <div class="login-item">
-                        <input type="text" placeholder="إسم المستخدم">
-                    </div>
-                    <!-- /.login-item -->
-                    <div class="login-item">
-                        <input type="password" placeholder="كلمة السر">
-                    </div>
-                    <!-- /.login-item -->
-                    <div class="login-item">
-                        <label class="pull-right">
-                            <input type="checkbox">
-                            <span>تذكر كلمة السر دائماً</span>
-                        </label>
-                        <label class="pull-left">
-                            <a href="#" class="forget">هل نسيت كلمة المرور ؟</a>
-                        </label>
-                    </div>
+                    <form action="{{ route('website.login.user') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="login-item">
+                            <input type="email" name="email" placeholder="بريد المستخدم">
+                        </div>
+                        <!-- /.login-item -->
+                        <div class="login-item">
+                            <input type="password" name="password" placeholder="كلمة السر">
+                        </div>
+    
+                        <!-- /.login-item -->
+                        <div class="login-item">
+                            <label class="pull-right">
+                                <input type="checkbox">
+                                <span>تذكر كلمة السر دائماً</span>
+                            </label>
+                            <label class="pull-left">
+                                <a href="#" class="forget">هل نسيت كلمة المرور ؟</a>
+                            </label>
+                        </div>
+                        <!-- /.login-item -->
+                        <div class="login-item">
+                            <input type="submit" value="دخول">
+                        </div>
+                    </form>
                     <!-- /.login-item -->
                     <div class="login-item">
                         <input type="submit" value="دخول">
@@ -143,6 +151,7 @@
         </div>
         <!-- /.header-nav -->
     </header>
+</div>
 
     <div class="up-container">
         <div class="up-header text-center">

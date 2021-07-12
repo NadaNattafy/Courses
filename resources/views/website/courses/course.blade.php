@@ -22,31 +22,35 @@
 <div class="wrapper">
     <header>
 
-        <div class="signup-area">
+        <div class="login-area">
             <div class="container">
                 <div class="login-form col-md-6 col-xs-12 text-right pull-right">
                     <h1>تسجيل الدخول</h1>
-                    <div class="login-item">
-                        <input type="text" placeholder="إسم المستخدم">
-                    </div>
-                    <!-- /.login-item -->
-                    <div class="login-item">
-                        <input type="password" placeholder="كلمة السر">
-                    </div>
-                    <!-- /.login-item -->
-                    <div class="login-item">
-                        <label class="pull-right">
-                            <input type="checkbox">
-                            <span>تذكر كلمة السر دائماً</span>
-                        </label>
-                        <label class="pull-left">
-                            <a href="#" class="forget">هل نسيت كلمة المرور ؟</a>
-                        </label>
-                    </div>
-                    <!-- /.login-item -->
-                    <div class="login-item">
-                        <input type="submit" value="دخول">
-                    </div>
+                    <form action="{{ route('website.login.user') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="login-item">
+                            <input type="email" name="email" placeholder="بريد المستخدم">
+                        </div>
+                        <!-- /.login-item -->
+                        <div class="login-item">
+                            <input type="password" name="password" placeholder="كلمة السر">
+                        </div>
+    
+                        <!-- /.login-item -->
+                        <div class="login-item">
+                            <label class="pull-right">
+                                <input type="checkbox">
+                                <span>تذكر كلمة السر دائماً</span>
+                            </label>
+                            <label class="pull-left">
+                                <a href="#" class="forget">هل نسيت كلمة المرور ؟</a>
+                            </label>
+                        </div>
+                        <!-- /.login-item -->
+                        <div class="login-item">
+                            <input type="submit" value="دخول">
+                        </div>
+                    </form>
                     <!-- /.login-item -->
                 </div>
                 <!-- /.login-form -->
@@ -151,6 +155,7 @@
         </div>
         <!-- /.header-nav -->
     </header>
+</div>
 
     <div class="intro-container col-xs-12">
         <div class="intro-head text-center">
@@ -211,7 +216,7 @@
                                 <i class="fa fa-heart"></i>
                             </a>
                         </li>
-                        <li class="rating" data-toggle="tooltip" data-placment="top" title="إضافة تقييم للدورة">
+                        {{-- <li class="rating" data-toggle="tooltip" data-placment="top" title="إضافة تقييم للدورة">
                             <ul>
                                 <li>
                                     <a href="#">
@@ -239,7 +244,27 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
+                        <li class="rating" data-toggle="tooltip" data-placment="top" title="إضافة تقييم للدورة">
+                            <ul>
+                        <form class="form-horizontal poststars" action="{{ route('website.courseStar', $course->id) }}" id="addStar" method="POST">
+                            @csrf
+                            
+                                      <input class="star star-5" value="5" id="star-5" type="radio" name="rate"/>
+                                      <label class="star star-5" for="star-5"></label>
+                                      <input class="star star-4" value="4" id="star-4" type="radio" name="rate"/>
+                                      <label class="star star-4" for="star-4"></label>
+                                      <input class="star star-3" value="3" id="star-3" type="radio" name="rate"/>
+                                      <label class="star star-3" for="star-3"></label>
+                                      <input class="star star-2" value="2" id="star-2" type="radio" name="rate"/>
+                                      <label class="star star-2" for="star-2"></label>
+                                      <input class="star star-1" value="1" id="star-1" type="radio" name="rate"/>
+                                      <label class="star star-1" for="star-1"></label>
+                                     
+                             </ul> 
+                                </li>
+                          </form>
+
                     </ul>
                     <!-- =========================================================================================================================================== -->
 

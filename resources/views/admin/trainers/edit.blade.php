@@ -103,6 +103,13 @@
             </div>
         </div>
 
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Specialty:</strong>
+                <input type="text" name="specialty" value="{{ $trainer->specialty}}" class="form-control" placeholder="Specialty">
+            </div>
+        </div>
+
 
         @if(session()->has('message'))
                        <div class="alert alert-success">

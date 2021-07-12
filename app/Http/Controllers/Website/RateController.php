@@ -3,12 +3,9 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Lesson\StoreRequest;
-use App\Models\Course;
-use App\Models\Lesson;
 use Illuminate\Http\Request;
 
-class LessonController extends Controller
+class RateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,9 +25,6 @@ class LessonController extends Controller
     public function create()
     {
         //
-        $lessons = Lesson::get();
-
-        return view('website.profile', compact('lessons'));
     }
 
     /**
@@ -39,12 +33,9 @@ class LessonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRequest $request)
+    public function store(Request $request)
     {
         //
-        Lesson::create($request->validated());
-
-        return back()->with('message', 'Lesson Added successfully.');
     }
 
     /**
@@ -90,10 +81,5 @@ class LessonController extends Controller
     public function destroy($id)
     {
         //
-        $lessons = Lesson::find($id);
-        $lesson->delete();
-        return redirect()->route('website.courses.show')
-                        ->with('message','Lesson deleted successfully');
-
     }
 }

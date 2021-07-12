@@ -25,7 +25,7 @@
 
         <nav class="st-menu st-effect-8" id="menu-8">
             <h2 class="icon icon-stack">
-                <img src="images/logo.png" class="img-responsive">
+                <img src="{{ asset('assets/images/logo.png')}}" class="img-responsive">
             </h2>
             <ul>
                 <li><a class="icon icon-data" href="index.html"><i class="fa fa-user"></i> الرئيسية</a></li>
@@ -88,27 +88,31 @@
                     <div class="container">
                         <div class="login-form col-md-6 col-xs-12 text-right pull-right">
                             <h1>تسجيل الدخول</h1>
-                            <div class="login-item">
-                                <input type="text" placeholder="إسم المستخدم">
-                            </div>
-                            <!-- /.login-item -->
-                            <div class="login-item">
-                                <input type="password" placeholder="كلمة السر">
-                            </div>
-                            <!-- /.login-item -->
-                            <div class="login-item">
-                                <label class="pull-right">
-                                    <input type="checkbox">
-                                    <span>تذكر كلمة السر دائماً</span>
-                                </label>
-                                <label class="pull-left">
-                                    <a href="#" class="forget">هل نسيت كلمة المرور ؟</a>
-                                </label>
-                            </div>
-                            <!-- /.login-item -->
-                            <div class="login-item">
-                                <input type="submit" value="دخول">
-                            </div>
+                            <form action="{{ route('website.login.user') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="login-item">
+                                    <input type="email" name="email" placeholder="بريد المستخدم">
+                                </div>
+                                <!-- /.login-item -->
+                                <div class="login-item">
+                                    <input type="password" name="password" placeholder="كلمة السر">
+                                </div>
+            
+                                <!-- /.login-item -->
+                                <div class="login-item">
+                                    <label class="pull-right">
+                                        <input type="checkbox">
+                                        <span>تذكر كلمة السر دائماً</span>
+                                    </label>
+                                    <label class="pull-left">
+                                        <a href="#" class="forget">هل نسيت كلمة المرور ؟</a>
+                                    </label>
+                                </div>
+                                <!-- /.login-item -->
+                                <div class="login-item">
+                                    <input type="submit" value="دخول">
+                                </div>
+                            </form>
                             <!-- /.login-item -->
                         </div>
                         <!-- /.login-form -->
@@ -196,11 +200,8 @@
                     </div>
                     <!-- /.container -->
                 </div>
-
-<div class="wrap">
-    <div class="loading">
-        <div class="bounceball"></div>
-        <div class="text">NOW LOADING</div>
+            </header>
+        </div>
     </div>
 </div>
 <div class="search-box">

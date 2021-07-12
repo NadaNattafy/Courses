@@ -58,6 +58,14 @@ class CoursesController extends Controller
         return view('website.courses.course' ,compact('course','lessons'));
     }
 
+    public function courseStar (Request $request, Course $course) {
+        $review = new Review;
+        $review->user_id = Auth::id();
+        $review->review = $request->input('star');
+        $course->reviews()->save($review);
+        return redirect()->back();
+  }
+
     /**
      * Show the form for editing the specified resource.
      *

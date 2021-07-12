@@ -54,6 +54,13 @@
             </div>
         </div>
 
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Duration:</strong>
+                <input type="text" name="duration" class="form-control" placeholder="Duration">
+            </div>
+        </div>
+
         <select name="course_id" class="form-control">
             @foreach($courses  as $course)
 

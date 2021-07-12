@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Lesson;
+namespace App\Http\Requests\Rate;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -13,7 +13,7 @@ class StoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -25,11 +25,6 @@ class StoreRequest extends FormRequest
     {
         return [
             //
-            'name'     => 'required',
-            'description'     => 'required',
-            'url'     => 'required',
-            'duration'     => 'required',
-            'course_id' =>  'required|exists:courses,id',
         ];
     }
 }

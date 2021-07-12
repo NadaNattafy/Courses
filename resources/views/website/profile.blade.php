@@ -41,7 +41,7 @@
 
                     <div class="logo">
                         <a href="index.html" title="العلوم العصرية للتدريب">
-                            <img src="images/logo.png" alt="site-logo" width="110" height="70">
+                            <img src="{{ asset('assets/images/logo.png')}}" alt="site-logo" width="110" height="70">
                         </a>
                     </div>
                     <!-- /.logo -->
@@ -53,7 +53,7 @@
                             <li>
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" class="hvr-underline-reveal">
                                     <span class="cont-img">
-                                <img src="images/comment-02.jpg" width="35" height="35" alt="User-Img">
+                                <img src="{{ asset('assets/images/comment-02.jpg')}}" width="35" height="35" alt="User-Img">
                             </span>
                                     <b>امير ناجح</b>
                                     <i class="fa fa-caret-down"></i>
@@ -94,7 +94,7 @@
                                         <ul>
                                             <li>
                                                 <a href="#">
-                                                    <img src="images/avatar5.png" alt="" class="img-circle pull-right">
+                                                    <img src="{{ asset('assets/images/avatar5.png')}}" alt="" class="img-circle pull-right">
                                                     <h4>
                                                         امير ناجح
                                                         <small><i class="fa fa-clock-o"></i>5 دقائق</small>
@@ -104,7 +104,7 @@
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <img src="images/avatar04.png" alt="" class="img-circle pull-right">
+                                                    <img src="{{ asset('assets/images/avatar04.png')}}" alt="" class="img-circle pull-right">
                                                     <h4>
                                                         حسني اديب
                                                         <small><i class="fa fa-clock-o"></i>5 دقائق</small>
@@ -114,7 +114,7 @@
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <img src="images/avatar3.png" alt="" class="img-circle pull-right">
+                                                    <img src="{{ asset('assets/images/avatar3.png')}}" alt="" class="img-circle pull-right">
                                                     <h4>
                                                         مني سلامة
                                                         <small><i class="fa fa-clock-o"></i>5 دقائق</small>
@@ -124,7 +124,7 @@
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <img src="images/b3.jpg" alt="" class="img-circle pull-right">
+                                                    <img src="{{ asset('assets/images/b3.jpg')}}" alt="" class="img-circle pull-right">
                                                     <h4>
                                                         امير ناجح
                                                         <small><i class="fa fa-clock-o"></i>5 دقائق</small>
@@ -134,7 +134,7 @@
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <img src="images/avatar04.png" alt="" class="img-circle pull-right">
+                                                    <img src="{{ asset('assets/images/avatar04.png')}}" alt="" class="img-circle pull-right">
                                                     <h4>
                                                         حسني اديب
                                                         <small><i class="fa fa-clock-o"></i>5 دقائق</small>
@@ -144,7 +144,7 @@
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <img src="images/avatar3.png" alt="" class="img-circle pull-right">
+                                                    <img src="{{ asset('assets/images/avatar3.png')}}" alt="" class="img-circle pull-right">
                                                     <h4>
                                                         مني سلامة
                                                         <small><i class="fa fa-clock-o"></i>5 دقائق</small>
@@ -165,6 +165,9 @@
                 <!-- /.nav-user -->
 
             </div>
+        </div>
+    </header>
+</div>
             <!-- /.container -->
             <div class="input-container user-search col-md-12 col-xs-12 input-lft">
                 <div class="container">

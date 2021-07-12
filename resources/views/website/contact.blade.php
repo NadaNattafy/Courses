@@ -28,7 +28,7 @@
                 <i class="fa fa-times"></i>
             </span>
             <h2 class="icon icon-stack">
-                <img src="images/logo.png" class="img-responsive">
+                <img src="{{ asset('assets/images/logo.png')}}" class="img-responsive">
             </h2>
             <ul>
                 <li><a class="icon icon-data" href="#"><i class="fa fa-user"></i> الملف الشخصي</a></li>
@@ -400,6 +400,10 @@
         </div>
         <!-- /.up-box -->
     </div>
+            </header>
+        </div>
+    </div>
+</div>
 
 @endsection
 

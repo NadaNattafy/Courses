@@ -52,11 +52,15 @@ Route::group(['prefix' => 'website', 'as' => 'website.', 'namespace' => 'App\Htt
 
     Route::resource('trainer', TrainerController::class);
 
+    Route::resource('review', ReviewController::class);
+
    Route::post('user-login', [AuthController::class, 'userLogin'])->name('login.user');
 
    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
    Route::get('send', [NotificationController::class, 'sendNotification'])->name('send');
+
+   Route::post('/rate/{course}', 'CourseController@courseStar')->name('courseStar');
 
 
 });
