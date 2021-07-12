@@ -16,8 +16,6 @@ class AlertController extends Controller
     public function index()
     {
         //
-        $date = "2020-02-22";
-	$newDate = \Carbon\Carbon::createFromFormat('Y-m-d', $date)->format('d M Y');
         $remarks = Remark::get();
         return view('website.courses.course-alert',compact('remarks'));
     }

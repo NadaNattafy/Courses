@@ -60,3 +60,9 @@ Route::group(['prefix' => 'website', 'as' => 'website.', 'namespace' => 'App\Htt
 
 
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

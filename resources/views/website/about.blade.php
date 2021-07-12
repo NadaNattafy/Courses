@@ -10,6 +10,173 @@
 
 @section('content')
 
+<div class="wrap">
+    <div class="loading">
+        <div class="bounceball"></div>
+        <div class="text">NOW LOADING</div>
+    </div>
+</div>
+
+<!-- end the loading screen -->
+
+<div class="wrapper st-container" id="st-container">
+    <!-- content push wrapper -->
+    <div class="st-pusher">
+
+        <nav class="st-menu st-effect-8" id="menu-8">
+            <span class="close-nav" title="Close">
+                <i class="fa fa-times"></i>
+            </span>
+            <h2 class="icon icon-stack">
+                <img src="images/logo.png" class="img-responsive">
+            </h2>
+            <ul>
+                <li><a class="icon icon-data" href="#"><i class="fa fa-user"></i> الملف الشخصي</a></li>
+                <li><a id="sd" class="icon icon-location" href="profile1.html#password"><i class="fa fa-lock"></i> كلمة المرور</a></li>
+                <li><a class="icon icon-study" href="#"><i class="fa fa-database"></i> الدورات</a></li>
+                <li><a class="icon icon-photo" href="#">Collections</a></li>
+                <li><a class="icon icon-wallet" href="#">Credits</a></li>
+                <li><a class="icon icon-data" href="#">Data Management</a></li>
+                <li><a class="icon icon-location" href="#">Location</a></li>
+                <li><a class="icon icon-study" href="#">Study</a></li>
+                <li><a class="icon icon-photo" href="#">Collections</a></li>
+                <li><a class="icon icon-wallet" href="#">Credits</a></li>
+                <li><a class="icon icon-data" href="#">Data Management</a></li>
+                <li><a class="icon icon-location" href="#">Location</a></li>
+                <li><a class="icon icon-study" href="#">Study</a></li>
+                <li><a class="icon icon-photo" href="#">Collections</a></li>
+                <li><a class="icon icon-wallet" href="#">Credits</a></li>
+                <li><a class="icon icon-data" href="#">Data Management</a></li>
+                <li><a class="icon icon-location" href="#">Location</a></li>
+                <li><a class="icon icon-study" href="#">Study</a></li>
+                <li><a class="icon icon-photo" href="#">Collections</a></li>
+            </ul>
+        </nav>
+        <!-- /.st-effect-8 nav -->
+
+
+        <div class="st-content">
+
+            <div id="st-trigger-effects" class="column">
+                <button data-effect="st-effect-8" class="st_show">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+            <!-- /.st-trigger -->
+
+
+            <header>
+
+                <div class="signup-area">
+                    <div class="container">
+                        <div class="login-form col-md-6 col-xs-12 text-right pull-right">
+                            <h1>تسجيل الدخول</h1>
+                            <div class="login-item">
+                                <input type="text" placeholder="إسم المستخدم">
+                            </div>
+                            <!-- /.login-item -->
+                            <div class="login-item">
+                                <input type="password" placeholder="كلمة السر">
+                            </div>
+                            <!-- /.login-item -->
+                            <div class="login-item">
+                                <label class="pull-right">
+                                    <input type="checkbox">
+                                    <span>تذكر كلمة السر دائماً</span>
+                                </label>
+                                <label class="pull-left">
+                                    <a href="#" class="forget">هل نسيت كلمة المرور ؟</a>
+                                </label>
+                            </div>
+                            <!-- /.login-item -->
+                            <div class="login-item">
+                                <input type="submit" value="دخول">
+                            </div>
+                            <!-- /.login-item -->
+                        </div>
+                        <!-- /.login-form -->
+
+                        <div class="signup-form col-md-6 col-xs-12 text-right" style="display: none;">
+                            <h1>تسجيل عضوية جديدة</h1>
+                            <p>اذا كنت مستخدم جديد لموقعنا فيمكنك ان تتصفح معظم الكورسات الموجودة الان امامك ولكن لن تستطيع الحصول علي معلومات الكورس او الاشتراك به الا اذا كنت تمتلك حساب لدينا لذلك تستطيع تسجيل حساب جديد من هنا </p>
+                            <a href="#">
+                                <i class="fa fa-user-plus"></i> تسجيل عضوية
+                            </a>
+                        </div>
+                        <!-- /.signup-form -->
+
+
+
+                    </div>
+                    <!-- /.container -->
+                </div>
+                <!-- /.login-area -->
+
+                <div class="dividers">
+                    <span class="t1"></span>
+                    <span class="t2"></span>
+                    <span class="t3"></span>
+                    <span class="t4"></span>
+                    <span class="t5"></span>
+                    <span class="t1"></span>
+                    <span class="t2"></span>
+                    <span class="t3"></span>
+                    <span class="t4"></span>
+                    <span class="t5"></span>
+                </div>
+                <!-- /.dividers -->
+
+                <div class="header-nav">
+                    <div class="container">
+                        <div class="nav-right col-md-8 col-xs-12 pull-right">
+                            <div class="logo">
+                                <a href="index.html" title="العلوم العصرية للتدريب">
+                                    <img src="{{ asset('assets/images/logo.png') }}" alt="site-logo" width="110" height="70">
+                                </a>
+                            </div>
+                            <!-- /.logo -->
+                        </div>
+                        <!-- /.nav-logo -->
+                        <div class="nav-left col-md-4 col-xs-12 pull-left">
+                            <div class="user-controls">
+                                <ul>
+                                    @guest
+                                        <li>
+                                            <a href="#" class="show-login">
+                                                <i class="fa fa-user"></i> منطقة تسجيل الدخول
+                                            </a>
+                                        </li>
+                                    @endguest
+                                    @auth
+                                        <li>
+                                            {{-- <a href="#"> --}}
+                                            <a href="{{ route('website.logout') }}" onclick="event.preventDefault(); document.getElementById('logout_form').submit()">
+                                                <i class="fa fa-user"></i> منطقة تسجيل خروج
+                                                <form id="logout_form" action="{{ route('website.logout') }}" method="POST"
+                                                style="display: none;">
+                                              @csrf
+                                          </form>
+                                            </a>
+                                        </li>
+                                    @endauth
+                                    <!--
+                            <li>
+<a href="#">
+    <i class="fa fa-user-plus"></i> تسجيل عضوية
+</a>
+</li>
+-->
+                                </ul>
+                            </div>
+                            <!-- /.user-controls -->
+                        </div>
+                        <!-- /.nav-user -->
+                    </div>
+                    <!-- /.container -->
+                </div>
+                <!-- /.header-nav -->
+            </header>
+
 <div class="up-container">
     <div class="up-header text-center">
         <div class="container">

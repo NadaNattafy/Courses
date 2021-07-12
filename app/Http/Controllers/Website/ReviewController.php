@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Review\StoreRequest;
 use App\Models\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
@@ -41,6 +42,9 @@ class ReviewController extends Controller
     public function store(StoreRequest $request)
     {
         //
+        $request['user_id'] = Auth::user()->id ;
+
+
         Review::create($request->validated());
 
         return back()->with('message', 'Review Added successfully.');

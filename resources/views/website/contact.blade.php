@@ -10,6 +10,63 @@
 
 @section('content')
 
+<div class="wrap">
+    <div class="loading">
+        <div class="bounceball"></div>
+        <div class="text">NOW LOADING</div>
+    </div>
+</div>
+
+<!-- end the loading screen -->
+
+<div class="wrapper st-container" id="st-container">
+    <!-- content push wrapper -->
+    <div class="st-pusher">
+
+        <nav class="st-menu st-effect-8" id="menu-8">
+            <span class="close-nav" title="Close">
+                <i class="fa fa-times"></i>
+            </span>
+            <h2 class="icon icon-stack">
+                <img src="images/logo.png" class="img-responsive">
+            </h2>
+            <ul>
+                <li><a class="icon icon-data" href="#"><i class="fa fa-user"></i> الملف الشخصي</a></li>
+                <li><a id="sd" class="icon icon-location" href="profile1.html#password"><i class="fa fa-lock"></i> كلمة المرور</a></li>
+                <li><a class="icon icon-study" href="#"><i class="fa fa-database"></i> الدورات</a></li>
+                <li><a class="icon icon-photo" href="#">Collections</a></li>
+                <li><a class="icon icon-wallet" href="#">Credits</a></li>
+                <li><a class="icon icon-data" href="#">Data Management</a></li>
+                <li><a class="icon icon-location" href="#">Location</a></li>
+                <li><a class="icon icon-study" href="#">Study</a></li>
+                <li><a class="icon icon-photo" href="#">Collections</a></li>
+                <li><a class="icon icon-wallet" href="#">Credits</a></li>
+                <li><a class="icon icon-data" href="#">Data Management</a></li>
+                <li><a class="icon icon-location" href="#">Location</a></li>
+                <li><a class="icon icon-study" href="#">Study</a></li>
+                <li><a class="icon icon-photo" href="#">Collections</a></li>
+                <li><a class="icon icon-wallet" href="#">Credits</a></li>
+                <li><a class="icon icon-data" href="#">Data Management</a></li>
+                <li><a class="icon icon-location" href="#">Location</a></li>
+                <li><a class="icon icon-study" href="#">Study</a></li>
+                <li><a class="icon icon-photo" href="#">Collections</a></li>
+            </ul>
+        </nav>
+        <!-- /.st-effect-8 nav -->
+
+
+        <div class="st-content">
+
+            <div id="st-trigger-effects" class="column">
+                <button data-effect="st-effect-8" class="st_show">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+            <!-- /.st-trigger -->
+
+
+            <header>
+
     <div class="up-container">
         <div class="up-header text-center">
             <div class="container">

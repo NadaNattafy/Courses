@@ -10,6 +10,127 @@
 
 @section('content')
 
+<div class="wrap">
+    <div class="loading">
+        <div class="bounceball"></div>
+        <div class="text">NOW LOADING</div>
+    </div>
+</div>
+
+<!-- end the loading screen -->
+
+<div class="wrapper st-container" id="st-container">
+    <!-- content push wrapper -->
+    <div class="st-pusher">
+
+        <nav class="st-menu st-effect-8" id="menu-8">
+            <h2 class="icon icon-stack">
+                <img src="images/logo.png" class="img-responsive">
+            </h2>
+            <ul>
+                <li><a class="icon icon-data" href="profile1.html#home"><i class="fa fa-user"></i> الملف الشخصي</a></li>
+                <li><a id="sd" class="icon icon-location" href="profile1.html#password"><i class="fa fa-lock"></i> كلمة المرور</a></li>
+                <li><a class="icon icon-study" href="profile1.html#courses"><i class="fa fa-database"></i> الدورات</a></li>
+                <li><a class="icon icon-photo" href="#">Collections</a></li>
+                <li><a class="icon icon-wallet" href="#">Credits</a></li>
+                <li><a class="icon icon-data" href="#">Data Management</a></li>
+                <li><a class="icon icon-location" href="#">Location</a></li>
+                <li><a class="icon icon-study" href="#">Study</a></li>
+                <li><a class="icon icon-photo" href="#">Collections</a></li>
+                <li><a class="icon icon-wallet" href="#">Credits</a></li>
+                <li><a class="icon icon-data" href="#">Data Management</a></li>
+                <li><a class="icon icon-location" href="#">Location</a></li>
+                <li><a class="icon icon-study" href="#">Study</a></li>
+                <li><a class="icon icon-photo" href="#">Collections</a></li>
+                <li><a class="icon icon-wallet" href="#">Credits</a></li>
+                <li><a class="icon icon-data" href="#">Data Management</a></li>
+                <li><a class="icon icon-location" href="#">Location</a></li>
+                <li><a class="icon icon-study" href="#">Study</a></li>
+                <li><a class="icon icon-photo" href="#">Collections</a></li>
+            </ul>
+        </nav>
+
+
+        <div class="st-content">
+            <div class="dividers">
+                <span class="t1"></span>
+                <span class="t2"></span>
+                <span class="t3"></span>
+                <span class="t4"></span>
+                <span class="t5"></span>
+                <span class="t1"></span>
+                <span class="t2"></span>
+                <span class="t3"></span>
+                <span class="t4"></span>
+                <span class="t5"></span>
+            </div>
+            <!-- /.dividers -->
+
+            <div id="st-trigger-effects" class="column">
+
+                <button data-effect="st-effect-8" class="st_show">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+            <header>
+
+
+
+                <div class="header-nav">
+                    <div class="container">
+                        <div class="nav-right col-md-8 col-xs-12 pull-right">
+                            <div class="logo">
+                                <a href="index.html" title="العلوم العصرية للتدريب">
+                                    <img src="images/logo.png" alt="site-logo" width="110" height="70">
+                                </a>
+                            </div>
+                            <!-- /.logo -->
+                        </div>
+                        <!-- /.nav-logo -->
+                        <div class="nav-left hidden-nav col-md-4 col-xs-12 pull-left">
+                            <div class="user-logged">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" class="hvr-underline-reveal">
+                                            <span class="cont-img">
+                                <img src="images/comment-02.jpg" width="35" height="35" alt="User-Img">
+                            </span>
+                                            <b>امير ناجح</b>
+                                            <i class="fa fa-caret-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                                            <div class="drop drop-links col-xs-12">
+                                                <div class="drop-links">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="profile1.html">
+                                                                <i class="fa fa-user"></i>&nbsp; حسابي
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="index.html">
+                                                                <i class="fa fa-power-off"></i>&nbsp; خروج
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <!-- end drop-links -->
+                                            </div>
+                                            <!-- end drop -->
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <!-- /.user-controls -->
+                        </div>
+                        <!-- /.nav-user -->
+                    </div>
+                    <!-- /.container -->
+                </div>
+                <!-- /.header-nav -->
+            </header>
+
 <div class="allcourses-box">
     <div class="allcourses-head text-center">
         <div class="container">

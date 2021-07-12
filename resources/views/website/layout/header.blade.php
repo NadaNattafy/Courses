@@ -16,7 +16,7 @@
 <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('assets/css/reset.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('assets/images/favicon.png') }}" rel="icon" type="text/css">
-
+{{-- 
 <header>
 
     <div class="signup-area">
@@ -160,4 +160,4 @@
         <!-- /.container -->
     </div>
     <!-- /.header-nav -->
-</header>
+</header> --}}
