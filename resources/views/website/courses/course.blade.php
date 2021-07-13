@@ -2,6 +2,60 @@
 
 @push('style')
     <link href="{{ asset('assets/css/video-js.css') }}" rel="stylesheet" type="text/css">
+<style>
+  /** rating **/
+div.stars {
+  display: inline-block;
+}
+
+input.star { display: none; }
+
+label.star {
+  float: right;
+  padding: 10px;
+  font-size: 20px;
+  color: 
+#444;
+  transition: all .2s;
+}
+
+input.star:checked ~ label.star:before {
+  content: 'f005';
+  color: 
+#e74c3c;
+  transition: all .25s;
+}
+
+input.star-5:checked ~ label.star:before {
+  color: 
+#e74c3c;
+  text-shadow: 0 0 5px 
+#7f8c8d;
+}
+
+input.star-1:checked ~ label.star:before { color: 
+#F62; }
+
+label.star:hover { transform: rotate(-15deg) scale(1.3); }
+
+label.star:before {
+  content: 'f006';
+  font-family: FontAwesome;
+}
+
+
+.horline > li:not(:last-child):after {
+    content: " |";
+}
+.horline > li {
+  font-weight: bold;
+  color: 
+#ff7e1a;
+
+}
+/** end rating **/
+      </style>
+      
 @endpush
 
 @section('title')
@@ -246,10 +300,11 @@
                             </ul>
                         </li> --}}
                         <li class="rating" data-toggle="tooltip" data-placment="top" title="إضافة تقييم للدورة">
-                            <ul>
+                           
                         <form class="form-horizontal poststars" action="{{ route('website.courseStar', $course->id) }}" id="addStar" method="POST">
                             @csrf
-                            
+                            <div class="form-group required">
+          <div class="col-sm-12">
                                       <input class="star star-5" value="5" id="star-5" type="radio" name="rate"/>
                                       <label class="star star-5" for="star-5"></label>
                                       <input class="star star-4" value="4" id="star-4" type="radio" name="rate"/>
@@ -260,11 +315,10 @@
                                       <label class="star star-2" for="star-2"></label>
                                       <input class="star star-1" value="1" id="star-1" type="radio" name="rate"/>
                                       <label class="star star-1" for="star-1"></label>
-                                     
-                             </ul> 
-                                </li>
+                                    </div>
+                                </div>  
                           </form>
-
+                        </li>
                     </ul>
                     <!-- =========================================================================================================================================== -->
 
@@ -396,5 +450,11 @@
 @push('script')
 
     <script src="{{ asset('assets/js/video.js') }}" type="text/javascript"></script>
+
+    <script>
+        $('#addStar').change('.star', function(e) {
+        $(this).submit();
+        });
+    </script>
 
 @endpush

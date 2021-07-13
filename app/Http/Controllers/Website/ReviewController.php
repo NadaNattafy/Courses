@@ -43,7 +43,7 @@ class ReviewController extends Controller
     {
         //
         $review= new Review;
-        $review->review = 5;
+        $review->review = $request->input('star'); 
 
         $request['user_id'] = Auth::user()->id ;
 
@@ -52,6 +52,14 @@ class ReviewController extends Controller
 
         return back()->with('message', 'Review Added successfully.');
     }
+
+//     public function courseStar (Request $request, Post $post) {
+//         $rating = new Rating;
+//         $rating->user_id = Auth::id();
+//         $rating->rating = $request->input('star');
+//         $post->ratings()->save($rating);
+//         return redirect()->back();
+//   }
 
     /**
      * Display the specified resource.

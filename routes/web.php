@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Website\AuthController;
 use App\Http\Controllers\Website\NotificationController;
+use App\Http\Controllers\Website\CourseController;
 use Illuminate\Support\Facades\Route;
 
 
