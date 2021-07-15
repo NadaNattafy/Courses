@@ -18,6 +18,8 @@ Route::group(['prefix'=>'admin','as'=>'admin.','namespace'=>'App\Http\Controller
 
     Route::resource('courses', CourseController::class);
 
+    Route::resource('categories', CategoryController::class);
+
     Route::resource('users', UserController::class);
 
     Route::resource('lessons', LessonController::class);

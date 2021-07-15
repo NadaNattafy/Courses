@@ -50,6 +50,19 @@
                 <li>
                     <a href="javascript: void(0);">
                         <i class="mdi mdi-view-list"></i>
+                        <span> Categories </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="{{route('admin.categories.index')}}">Index Category</a></li>
+                        <li><a href="{{route('admin.categories.create')}}">Create Category</a></li>
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);">
+                        <i class="mdi mdi-view-list"></i>
                         <span> Courses</span>
                         <span class="menu-arrow"></span>
                     </a>

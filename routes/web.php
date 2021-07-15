@@ -3,6 +3,8 @@
 use App\Http\Controllers\Website\AuthController;
 use App\Http\Controllers\Website\NotificationController;
 use App\Http\Controllers\Website\CourseController;
+use App\Http\Controllers\Website\ForgetPassController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -23,6 +25,8 @@ Route::group(['prefix' => 'website', 'as' => 'website.', 'namespace' => 'App\Htt
 
     Route::resource('courses', CoursesController::class);
 
+    Route::resource('allcourses', AllCourseController::class);
+
     Route::resource('lessons', LessonController::class);
 
     Route::resource('comments', CommentController::class);
@@ -40,6 +44,8 @@ Route::group(['prefix' => 'website', 'as' => 'website.', 'namespace' => 'App\Htt
     Route::resource('about', AboutController::class);
 
     Route::resource('certif', CertifController::class);
+
+    Route::resource('category', CategoryController::class);
 
     Route::resource('contact', ContactController::class)->only(['index', 'store', 'create']);
 
@@ -63,6 +69,11 @@ Route::group(['prefix' => 'website', 'as' => 'website.', 'namespace' => 'App\Htt
 
    Route::post('/rate/{course}', 'CourseController@courseStar')->name('courseStar');
 
+   Route::get('/forget-password', [ForgotPassController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [ForgotPassController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [ForgotPassController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPassController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+
 
 });
 
@@ -71,3 +82,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('send-mail', [WelcomeController::class, 'mailSend']);
+

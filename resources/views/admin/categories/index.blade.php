@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card-box">
-                    <h4 class="mt-0 header-title">Course</h4>
+                    <h4 class="mt-0 header-title">Category</h4>
                     @if (session()->has('message'))
                         <div class="alert alert-success">
                             {{ session()->get('message') }}
@@ -16,38 +16,22 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Trainer Name</th>
-                                <th>Category Name</th>
-                                <th>Price</th>
-                                <th>Img</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
 
 
                         <tbody>
-                            @foreach ($courses as $course)
+                            @foreach ($categories as $category)
 
                                 <tr>
-                                    <td>{{ $course->name }}</td>
-                                    <td>{{ $course->trainer->name }}</td>
-                                    <td>{{ $course->category->name }}</td>
-                                    <td>{{ $course->price}}</td>
-                                    <td>
-                                        <a class="fancybox-buttons img-holder small-img" rel="gallery" title=""
-                                            data-fancybox-group="button" href="{{ url('/') . '/storage/' . $course->img }}"
-                                            style="height: 50px; width:50px;">
-                                            <img src="{{ url('/') . '/storage/' . $course->img }}"
-                                                style="height: 50px; width:50px;">
-                                        </a>
-
-                                    </td>
+                                    <td>{{ $category->name }}</td>
                                     <td>
                                         <a class="btn btn-info"
-                                            href="{{ route('admin.courses.show', $course->id) }}">Show</a>
+                                            href="{{ route('admin.categories.show', $category->id) }}">Show</a>
                                         <a class="btn btn-primary"
-                                            href="{{ route('admin.courses.edit', $course->id) }}">Edit</a>
-                                        <form action="{{ route('admin.courses.destroy', $course->id) }}" method="POST">
+                                            href="{{ route('admin.categories.edit', $category->id) }}">Edit</a>
+                                        <form action="{{ route('admin.categories.destroy', $category->id) }}" method="POST">
 
                                             @csrf
                                             @method('DELETE')

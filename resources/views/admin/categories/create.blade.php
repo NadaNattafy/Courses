@@ -6,15 +6,15 @@
     <div class="row">
         <div class="col-12">
             <div class="card-box">
-                <h4 class="mt-0 header-title">Course</h4>
+                <h4 class="mt-0 header-title">Category</h4>
 
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Add Course</h2>
+            <h2>Add Category</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('admin.courses.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('admin.categories.index') }}"> Back</a>
         </div>
     </div>
 </div>
@@ -29,7 +29,7 @@
     </div>
 @endif
 
-<form action="{{ route('admin.courses.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('admin.categories.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
      <div class="row">
@@ -37,34 +37,6 @@
             <div class="form-group">
                 <strong>Name:</strong>
                 <input type="text" name="name" class="form-control" placeholder="Name">
-            </div>
-        </div>
-
-        <select name="trainer_id" class="form-control">
-            @foreach($trainers  as $trainer)
-
-                <option value="{{ $trainer->id }} ">{{ $trainer->name }}</option>
-            @endforeach
-        </select>
-
-        <select name="category_id" class="form-control">
-            @foreach($categorys  as $category)
-
-                <option value="{{ $category->id }} ">{{ $category->name }}</option>
-            @endforeach
-        </select>
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Price:</strong>
-                <input type="text" name="price" class="form-control" placeholder="Price">
-            </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-              <strong>Img:</strong>
-              <input type="file" name="img" class="w-20 mb-8 shadow-xl" alt="" src=<img src="{{asset("storage/course->img")}}">
             </div>
         </div>
 

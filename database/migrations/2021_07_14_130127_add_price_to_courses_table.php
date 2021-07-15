@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateResetsTable extends Migration
+class AddPriceToCoursesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateResetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('resets', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('courses', function (Blueprint $table) {
+            //
+            $table->decimal('price');
         });
     }
 
@@ -26,6 +26,8 @@ class CreateResetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resets');
+        Schema::table('courses', function (Blueprint $table) {
+            //
+        });
     }
 }

@@ -6,14 +6,14 @@
     <div class="row">
         <div class="col-12">
             <div class="card-box">
-                <h4 class="mt-0 header-title">Course</h4>
+                <h4 class="mt-0 header-title">Category</h4>
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Edit Course</h2>
+            <h2>Edit Category</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('admin.courses.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('admin.categories.index') }}"> Back</a>
         </div>
     </div>
 </div>
@@ -28,7 +28,7 @@
     </div>
 @endif
 
-<form action="{{ route('admin.courses.update',$course->id) }}" method="POST"  enctype="multipart/form-data">
+<form action="{{ route('admin.categories.update',$category->id) }}" method="POST"  enctype="multipart/form-data">
     @csrf
 
     @method('PUT')
@@ -36,26 +36,9 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Name:</strong>
-                <input type="text" name="name" value="{{ $course->name}}" class="form-control" placeholder="Name">
+                <input type="text" name="name" value="{{ $category->name}}" class="form-control" placeholder="Name">
             </div>
         </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Price:</strong>
-                <input type="text" name="price" value="{{ $course->price}}" class="form-control" placeholder="Price">
-            </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-              <strong>Img:</strong>
-              <img src="{{url('/').'/storage/'.$course-> img}}" style="height: 50px; width:50px;">
-              <input type="file" name="img" class="w-20 mb-8 shadow-xl" alt="" src=<img src="{{asset("storage/course->img")}}">
-            </div>
-        </div>
-
-
 
         @if(session()->has('message'))
                        <div class="alert alert-success">

@@ -40,7 +40,7 @@
                 <div class="nav-right user_nav-right col-md-6 col-xs-12 pull-right">
 
                     <div class="logo">
-                        <a href="index.html" title="العلوم العصرية للتدريب">
+                        <a href="{{route('website.home.index')}}" title="العلوم العصرية للتدريب">
                             <img src="{{ asset('assets/images/logo.png')}}" alt="site-logo" width="110" height="70">
                         </a>
                     </div>
@@ -63,12 +63,12 @@
                                         <div class="drop-links">
                                             <ul>
                                                 <li>
-                                                    <a href="profile1.html">
+                                                    <a href="{{route('website.profile.index')}}">
                                                         <i class="fa fa-user"></i>&nbsp; حسابي
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="index.html">
+                                                    <a href="{{route('website.home.index')}}">
                                                         <i class="fa fa-power-off"></i>&nbsp; خروج
                                                     </a>
                                                 </li>
@@ -233,104 +233,25 @@
         <div class="container">
             <div class="row">
                 <div class="row block-container">
-
-                    <div class="block col-md-4">
+                    @foreach ($courses as $course)
+                    <div class="block col-md-4 col-sm-6">
                         <figure>
-                            <div><img src="{{asset('assets/images/b3.jpg')}}" alt="img05" class="img-responsive"></div>
+                            <div><img src="{{ asset('assets/images/b3.jpg') }}" alt="img05"
+                                    class="img-responsive">
+                            </div>
                             <figcaption class="text-right">
-                                <h1>اسم الكورس</h1>
-                                <h1>اسم المدرس</h1>
-                                <h1>عدد الطلبة المشتركة</h1>
-                                <h1>تاريخ بداية الكورس</h1>
-                                <h1>تقييم الكورس</h1>
-                                <a href="#">
+                                <h1> اسم الكورس : {{ $course->name }}</h1>
+                                <h1> اسم المدرس : {{ $course->trainer->name }}</h1>
+                                <h1> عدد الطلبة المشتركين : 5</h1>
+                                <h1> تاريخ بداية الكورس : {{ $course->created_at }}</h1>
+                                {{-- <h1> تقييم الكورس : {{ $course->review->rate }}</h1> --}}
+                                <a href="{{ route('website.courses.show', $course->id)  }}">
                                     <i class="fa fa-eye"></i> مشاهدة الكورس
                                 </a>
                             </figcaption>
                         </figure>
                     </div>
-                    <!-- /.block -->
-                    <div class="block col-md-4">
-                        <figure>
-                            <div><img src="{{asset('assets/images/b3.jpg')}}" alt="img05" class="img-responsive"></div>
-                            <figcaption class="text-right">
-                                <h1>اسم الكورس</h1>
-                                <h1>اسم المدرس</h1>
-                                <h1>عدد الطلبة المشتركة</h1>
-                                <h1>تاريخ بداية الكورس</h1>
-                                <h1>تقييم الكورس</h1>
-                                <a href="#">
-                                    <i class="fa fa-eye"></i> مشاهدة الكورس
-                                </a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <!-- /.block -->
-                    <div class="block col-md-4">
-                        <figure>
-                            <div><img src="{{asset('assets/images/b3.jpg')}}" alt="img05" class="img-responsive"></div>
-                            <figcaption class="text-right">
-                                <h1>اسم الكورس</h1>
-                                <h1>اسم المدرس</h1>
-                                <h1>عدد الطلبة المشتركة</h1>
-                                <h1>تاريخ بداية الكورس</h1>
-                                <h1>تقييم الكورس</h1>
-                                <a href="#">
-                                    <i class="fa fa-eye"></i> مشاهدة الكورس
-                                </a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <!-- /.block -->
-                    <div class="block col-md-4">
-                        <figure>
-                            <div><img src="{{asset('assets/images/b3.jpg')}}" alt="img05" class="img-responsive"></div>
-                            <figcaption class="text-right">
-                                <h1>اسم الكورس</h1>
-                                <h1>اسم المدرس</h1>
-                                <h1>عدد الطلبة المشتركة</h1>
-                                <h1>تاريخ بداية الكورس</h1>
-                                <h1>تقييم الكورس</h1>
-                                <a href="#">
-                                    <i class="fa fa-eye"></i> مشاهدة الكورس
-                                </a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <!-- /.block -->
-                    <div class="block col-md-4">
-                        <figure>
-                            <div><img src="{{asset('assets/images/b3.jpg')}}" alt="img05" class="img-responsive"></div>
-                            <figcaption class="text-right">
-                                <h1>اسم الكورس</h1>
-                                <h1>اسم المدرس</h1>
-                                <h1>عدد الطلبة المشتركة</h1>
-                                <h1>تاريخ بداية الكورس</h1>
-                                <h1>تقييم الكورس</h1>
-                                <a href="#">
-                                    <i class="fa fa-eye"></i> مشاهدة الكورس
-                                </a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <!-- /.block -->
-                    <div class="block col-md-4">
-                        <figure>
-                            <div><img src="{{asset('assets/images/b3.jpg')}}" alt="img05" class="img-responsive"></div>
-                            <figcaption class="text-right">
-                                <h1>اسم الكورس</h1>
-                                <h1>اسم المدرس</h1>
-                                <h1>عدد الطلبة المشتركة</h1>
-                                <h1>تاريخ بداية الكورس</h1>
-                                <h1>تقييم الكورس</h1>
-                                <a href="#">
-                                    <i class="fa fa-eye"></i> مشاهدة الكورس
-                                </a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <!-- /.block -->
-
+                    @endforeach
 
                 </div>
                 <!-- /.row -->

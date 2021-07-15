@@ -7,6 +7,7 @@ use App\Http\Requests\Courses\UpdateRequest;
 use App\Http\Requests\Courses\StoreRequest;
 use App\Models\Course;
 use App\Models\Trainer;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -32,7 +33,8 @@ class CourseController extends Controller
     {
         //
         $trainers=Trainer::all();
-        return view('admin.courses.create',compact('trainers'));
+        $categorys=Category::all();
+        return view('admin.courses.create',compact('trainers','categorys'));
     }
 
     /**

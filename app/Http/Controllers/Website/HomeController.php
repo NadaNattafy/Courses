@@ -29,6 +29,49 @@ class HomeController extends Controller
        return view('website.index',compact('courses','useropinions'));
     }
 
+    public function filter(Request $request)
+    {
+        $courses = course::query();
+
+        if ($request->has('category_id')) {
+            $category_id = $request->category_id;
+            $courses = $courses->whereHas('category', function ($q) use ($category_id) {
+                $q->where('parent_id', $category_id);
+            });
+        }
+
+        if ($request->has('subcategory_id')) {
+            $courses = $courses->where('category_id', $request->subcategory_id);
+        }
+
+        if ($request->has('price_more_than')) {
+            $courses = $courses->where('price', '>', $request->price_more_than);
+        }
+        if ($request->has('price_less_than')) {
+            $courses = $courses->where('price', '<', $request->price_less_than);
+        }
+        if ($request->has('order') && $request->order == 'asc_az') {
+            if (app()->getLocale() == 'ar') $courses = $courses->orderBy('ar_name');
+            else $courses = $courses->orderBy('en_name');
+
+        }
+        if ($request->has('order') && $request->order == 'desc_az') {
+            if (app()->getLocale() == 'ar') $courses = $courses->orderBy('ar_name', 'desc');
+            else $courses = $courses->orderBy('en_name', 'desc');
+        }
+
+        if ($request->has('type') && $request->type == 'recently') {
+          $courses = $courses->latest();
+        }
+
+        if ($request->has('type') && $request->type == 'offer') {
+          $courses = $courses->where('price_after_discount','!=',null);
+        }
+        //
+        $courses = $courses->paginate($this->paginateNumber);
+        return $this->apiResponse(new CoursesCollection($courses));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
