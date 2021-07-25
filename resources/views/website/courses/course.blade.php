@@ -270,7 +270,7 @@ label.star:before {
                                 <i class="fa fa-heart"></i>
                             </a>
                         </li>
-                        {{-- <li class="rating" data-toggle="tooltip" data-placment="top" title="إضافة تقييم للدورة">
+                        <li class="rating" data-toggle="tooltip" data-placment="top" title="إضافة تقييم للدورة">
                             <ul>
                                 <li>
                                     <a href="#">
@@ -298,8 +298,8 @@ label.star:before {
                                     </a>
                                 </li>
                             </ul>
-                        </li> --}}
-                        <li class="rating" data-toggle="tooltip" data-placment="top" title="إضافة تقييم للدورة">
+                        </li>
+                        {{-- <li class="rating" data-toggle="tooltip" data-placment="top" title="إضافة تقييم للدورة">
                            
                         <form class="form-horizontal poststars" action="{{ route('website.courseStar', $course->id) }}" id="addStar" method="POST">
                             @csrf
@@ -318,7 +318,7 @@ label.star:before {
                                     </div>
                                 </div>  
                           </form>
-                        </li>
+                        </li> --}}
                     </ul>
                     <!-- =========================================================================================================================================== -->
 

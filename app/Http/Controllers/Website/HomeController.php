@@ -50,16 +50,7 @@ class HomeController extends Controller
         if ($request->has('price_less_than')) {
             $courses = $courses->where('price', '<', $request->price_less_than);
         }
-        if ($request->has('order') && $request->order == 'asc_az') {
-            if (app()->getLocale() == 'ar') $courses = $courses->orderBy('ar_name');
-            else $courses = $courses->orderBy('en_name');
-
-        }
-        if ($request->has('order') && $request->order == 'desc_az') {
-            if (app()->getLocale() == 'ar') $courses = $courses->orderBy('ar_name', 'desc');
-            else $courses = $courses->orderBy('en_name', 'desc');
-        }
-
+    
         if ($request->has('type') && $request->type == 'recently') {
           $courses = $courses->latest();
         }
@@ -70,6 +61,34 @@ class HomeController extends Controller
         //
         $courses = $courses->paginate($this->paginateNumber);
         return $this->apiResponse(new CoursesCollection($courses));
+    }
+
+    
+    public function search($price, Request $request, Property $property)
+    {
+        $category = $property->category;
+
+        $query = Property::query();
+
+        // Code for min and max price
+
+        $min_price = $request->has('min_price');
+        $max_price = $request->has('max_price');
+        //dd($max_price);
+
+        if (($min_price) && ($max_price)) {
+            $query->whereBetween('price', [$min_price, $max_price]);
+        }
+        elseif (! is_null($min_price)) {
+            $query->where('price', '>=', $min_price);
+        }
+        elseif (! is_null($max_price)) {
+            $query->where('price', '<=', $max_price);
+        }
+
+        $results = $query->get();
+
+        return view('website.index', compact('category', 'results'));
     }
 
     /**
