@@ -42,7 +42,12 @@ class UserOpinionController extends Controller
     public function store(StoreRequest $request)
     {
         //
-        UserOpinion::create($request->validated());
+        $useropinion = UserOpinion::create($request->validated());
+
+        if ($request->has('img')) {
+
+            $useropinion->update(['img' => $request->file('img')->store('coursePics')]);
+           }
 
         return redirect()->route('admin.useropinions.index')->with('message','User Opinion created successfully.');
 

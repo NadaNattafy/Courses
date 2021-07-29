@@ -33,6 +33,11 @@ class Course extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function favourite(){
+
+        return $this->hasMany(Favourite::class);
+    }
+
     public function user()
     {
 

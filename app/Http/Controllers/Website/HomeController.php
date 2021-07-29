@@ -65,17 +65,17 @@ class HomeController extends Controller
     // }
 
 
-    public function store(StoreRequest $request, Course $course)
+    public function store(StoreRequest $request)
     {
-        $category = $course->category;
+        // $category = $course->category;
+        // $trainer = $course->trainer;
+        $course = Course::where('name' , $request->name)->get();
 
-        $course = Course::query();
-
-        // Code for min and max price
-
+dd($course);
         $min_price = $request->has('min_price');
         $max_price = $request->has('max_price');
         //dd($max_price);
+
 
         if (($min_price) && ($max_price)) {
             $course->whereBetween('price', [$min_price, $max_price]);
@@ -86,7 +86,14 @@ class HomeController extends Controller
         elseif (! is_null($max_price)) {
             $course->where('price', '<=', $max_price);
         }
-        dd(request('trainer_name'));
+       // dd(request('trainer_name'));
+
+    //    ->when(request('topic_id'), function ($q) {
+    //     $q->whereIn('topics.id', request('topic_id'));
+    // })
+    // ->when(request('date_from')and request('date_to'), function ($q) {
+    //     $q->whereBetween('invoice_date', [request('date_from'), request('date_to')]);
+    // })
 
         $results = $course->get();
 

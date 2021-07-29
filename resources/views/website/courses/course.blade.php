@@ -4,7 +4,7 @@
     <link href="{{ asset('assets/css/video-js.css') }}" rel="stylesheet" type="text/css">
 <style>
   /** rating **/
-div.stars {
+/* div.stars {
   display: inline-block;
 }
 
@@ -52,7 +52,50 @@ label.star:before {
   color:
 #ff7e1a;
 
+} */
+
+.course_ratings .rating_submit {
+    padding: 8px 30px;
+    display: inline-block;
+    background-color: #039be5;
+    color: #fff;
+    border: none;
+    cursor: pointer;
 }
+.rating_submit_inner {
+    display: block;
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    text-align: center;
+}
+.rating_submit_inner .star {
+    display: none;
+}
+.rating_submit_inner label {
+    color: lightgray;
+    display: inline-block;
+    font-size: 20px;
+    margin: 0 px;
+    transition: transform .15s ease;
+    cursor: pointer;
+}
+.rating_submit_inner label:hover {
+    transform: scale(1, 1);
+}
+.rating_submit_inner label:hover,
+.rating_submit_inner label:hover ~ label {
+    color: orange;
+}
+.rating_submit_inner .star:checked ~ label {
+    color: orange;
+}
+.course_ratings .fa {
+    color: #ff9800;
+}
+.course_ratings .fa.light {
+    color: #d3d3d3;
+}
+
 /** end rating **/
       </style>
 
@@ -63,6 +106,17 @@ label.star:before {
 @endsection
 
 @section('content')
+
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 <div class="wrap">
     <div class="loading">
@@ -261,65 +315,44 @@ label.star:before {
                         </li>
 
                         <li>
-                            <a href="#" class="add-fav" data-toggle="tooltip" data-placement="top"
-                                title="إضافة الي المفضلة">
+                            <form class="add-fav-dis"  action="{{ route('website.favourites.store') }}"  method="POST">
+                                @csrf
+                                <input type="hidden" name="course_id" value={{ $course->id }}>
+                            {{-- <a href="#" class="add-fav-dis" data-toggle="tooltip" data-placement="top"
+                                title="إضافة الي المفضلة"> --}}
+                                <button type="submit" class="add-fav-dis" >
                                 <i class="fa fa-heart"></i>
-                            </a>
-                            <a href="#" class="add-fav-dis" data-toggle="tooltip" data-placement="top"
-                                title="إضافة الي المفضلة">
-                                <i class="fa fa-heart"></i>
-                            </a>
+                                </button>
+                            </form>
                         </li>
-                        <li class="rating" data-toggle="tooltip" data-placment="top" title="إضافة تقييم للدورة">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-star active"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-star active"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-star-half-o active"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-star"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-star"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        {{-- <li class="rating" data-toggle="tooltip" data-placment="top" title="إضافة تقييم للدورة">
 
-                        <form class="form-horizontal poststars" action="{{ route('website.courseStar', $course->id) }}" id="addStar" method="POST">
+                        <li class="rating" data-toggle="tooltip" data-placment="top" title="إضافة تقييم للدورة">
+                        <form id="rate" class="form-horizontal poststars" action="{{ route('website.review.store') }}"  method="POST">
                             @csrf
                             <div class="form-group required">
-          <div class="col-sm-12">
-                                      <input class="star star-5" value="5" id="star-5" type="radio" name="rate"/>
-                                      <label class="star star-5" for="star-5"></label>
-                                      <input class="star star-4" value="4" id="star-4" type="radio" name="rate"/>
-                                      <label class="star star-4" for="star-4"></label>
-                                      <input class="star star-3" value="3" id="star-3" type="radio" name="rate"/>
-                                      <label class="star star-3" for="star-3"></label>
-                                      <input class="star star-2" value="2" id="star-2" type="radio" name="rate"/>
-                                      <label class="star star-2" for="star-2"></label>
-                                      <input class="star star-1" value="1" id="star-1" type="radio" name="rate"/>
-                                      <label class="star star-1" for="star-1"></label>
-                                    </div>
-                                </div>
-                          </form>
-                        </li> --}}
-                    </ul>
+                                  <div class="col-sm-12">
+                                     </div>
+
+                                <input type="hidden" name="course_id" value={{ $course->id }}>
+                    <div class="rating_submit_inner">
+                        <input id="radio1" type="radio" name="rate" value="5" class="star"/>
+                        <label for="radio1">&#9733;</label>
+                        <input id="radio2" type="radio" name="rate" value="4" class="star"/>
+                        <label for="radio2">&#9733;</label>
+                        <input id="radio3" type="radio" name="rate" value="3" class="star"/>
+                        <label for="radio3">&#9733;</label>
+                        <input id="radio4" type="radio" name="rate" value="2" class="star"/>
+                        <label for="radio4">&#9733;</label>
+                        <input id="radio5" type="radio" name="rate" value="1" class="star"/>
+                        <label for="radio5">&#9733;</label>
+
+                    </div>
+                    <span>
+                        <input type="submit" value="save" class='btn btn-primary'>
+                    </span>
+                        </form>
+    </li>
+</ul>
                     <!-- =========================================================================================================================================== -->
 
                     <div class="panel-pop modal" id="msg-all">

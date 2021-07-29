@@ -55,86 +55,12 @@ class CoursesController extends Controller
     public function show(Course $course)
     {
         //
-        $course = Course::get();
         $lessons=Lesson::where('course_id',$course->id)->get();
-        dd($lessons);
-        return view('website.courses.course' ,compact('lessons'));
+        //dd($lessons);
+        return view('website.courses.course' ,compact('lessons','course'));
     }
 
-    public function courseStar (StoreRequest $request, Course $course) {
-        $review = new Review;
-        $review->user_id = Auth::id();
-        $review->review = $request->input('star');
-        $course->reviews()->save($review);
-        return redirect()->back();
-  }
-
-
-  public function render()
-  {
-      $comments = Review::where('course_id', $this->course->id)->where('status', 1)->with('user')->get();
-      return view('website.courses.course', compact('comments'));
-  }
-
-  public function mount()
-  {
-      if(auth()->user()){
-          $review = Review::where('user_id', auth()->user()->id)->where('course_id', $this->course->id)->first();
-          if (!empty($review)) {
-              $this->rating  = $review->rating;
-              //$this->comment = $review->comment;
-              $this->currentId = $review->id;
-          }
-      }
-      return view('website.courses.course');
-  }
-
-  public function delete($id)
-  {
-      $review = Review::where('id', $id)->first();
-      if ($review && ($review->user_id == auth()->user()->id)) {
-          $review->delete();
-      }
-      if ($this->currentId) {
-          $this->currentId = '';
-          $this->rating  = '';
-          //$this->comment = '';
-      }
-  }
-
-  public function rate()
-  {
-      $review = Review::where('user_id', auth()->user()->id)->where('course_id', $this->course->id)->first();
-      $this->validate();
-      if (!empty($review)) {
-          $review->user_id = auth()->user()->id;
-          $review->course_id = $this->course->id;
-          $review->rating = $this->rating;
-         // $review->comment = $this->comment;
-          $review->status = 1;
-          try {
-              $review->update();
-          } catch (\Throwable $th) {
-              throw $th;
-          }
-          session()->flash('message', 'Success!');
-      } else {
-          $review = new Review;
-          $review->user_id = auth()->user()->id;
-          $review->course_id = $this->course->id;
-          $review->rating = $this->rating;
-          //$review->comment = $this->comment;
-          $review->status = 1;
-          try {
-              $review->save();
-          } catch (\Throwable $th) {
-              throw $th;
-          }
-          $this->hideForm = true;
-      }
-  }
-
-
+  
     /**
      * Show the form for editing the specified resource.
      *

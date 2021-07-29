@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Review;
+namespace App\Http\Requests\Favourite;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -25,8 +25,6 @@ class StoreRequest extends FormRequest
     {
         return [
             //
-            'rate' => ['required', 'in:1,2,3,4,5'],
-            'comment' => 'nullable',
             'course_id' => 'required',
             'user_id' => 'nullable',
         ];

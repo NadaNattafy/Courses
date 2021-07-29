@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Review\StoreRequest;
-use App\Models\Review;
-use App\Models\Course;
+use App\Http\Requests\Favourite\StoreRequest;
+use App\Models\Favourite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ReviewController extends Controller
+class FavouriteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -29,9 +28,9 @@ class ReviewController extends Controller
     public function create()
     {
         //
-        $reviews = Review::get();
+        $favourites = Favourite::get();
 
-        return view('website.courses.course', compact('reviews'));
+        return view('website.courses.course', compact('favourites'));
     }
 
     /**
@@ -43,15 +42,13 @@ class ReviewController extends Controller
     public function store (StoreRequest $request) {
 
         $course_id= $request->course_id; // recieved from the single or individual post page
-        $rate = $request->rate; // this is the rating count
         $user_id =  Auth::id();// this will get the user ip address
 
-   Review::firstOrCreate(['course_id'=>$course_id, 'user_id'=>$user_id , 'rate'=>$rate]);
+   Favourite::firstOrCreate(['course_id'=>$course_id, 'user_id'=>$user_id]);
 
-   return redirect()->back()->with('message','Rated successfully');;
+   return redirect()->back()->with('message','Added Favourite successfully');;
 
     }
-
 
     /**
      * Display the specified resource.

@@ -233,6 +233,7 @@
                 <!-- /.form-item -->
                 <form id="search-course" action="{{ route('website.home.store') }}" method="get">
                     @csrf
+                    {{-- @dd(request('name')); --}}
                 <div class="form-advanced col-xs-12 adv-left">
                     <div class="advanced-item col-md-3 col-xs-12 pull-right">
                         <h2>ابحث بسعر الكورس</h2>
@@ -261,9 +262,11 @@
                         </div>
                     </div>
                 </div>
+                </div>
             </form>
                 </div>
                     </div>
+</div>
                     <!-- /.advanced-item -->
                 </div>
                 <!-- /.form-advanced -->
@@ -334,12 +337,10 @@
                     <img src="{{url('/').'/storage/'.$useropinion -> img}}" alt="" class="img-responsive">
                 </div>
                 <h1>{{$useropinion -> name}}</h1>
-                @endforeach
-
             </div>
+                @endforeach
         </div>
     </div>
-</div>
 
 
             @endsection
