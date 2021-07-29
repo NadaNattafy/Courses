@@ -18,6 +18,8 @@ class LessonController extends Controller
     public function index()
     {
         //
+        $lessons = Lesson::get();
+        return view('website.courses.course',compact('lessons'));
     }
 
     /**
@@ -91,7 +93,7 @@ class LessonController extends Controller
     {
         //
         $lessons = Lesson::find($id);
-        $lesson->delete();
+        $lessons->delete();
         return redirect()->route('website.courses.show')
                         ->with('message','Lesson deleted successfully');
 

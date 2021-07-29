@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Courses\StoreRequest;
 use App\Models\Course;
 use App\Models\UserOpinion;
 use Illuminate\Http\Request;
@@ -29,46 +30,46 @@ class HomeController extends Controller
        return view('website.index',compact('courses','useropinions'));
     }
 
-    public function filter(Request $request)
+    // public function filter(Request $request)
+    // {
+    //     $courses = course::query();
+
+    //     if ($request->has('category_id')) {
+    //         $category_id = $request->category_id;
+    //         $courses = $courses->whereHas('category', function ($q) use ($category_id) {
+    //             $q->where('parent_id', $category_id);
+    //         });
+    //     }
+
+    //     if ($request->has('subcategory_id')) {
+    //         $courses = $courses->where('category_id', $request->subcategory_id);
+    //     }
+
+    //     if ($request->has('price_more_than')) {
+    //         $courses = $courses->where('price', '>', $request->price_more_than);
+    //     }
+    //     if ($request->has('price_less_than')) {
+    //         $courses = $courses->where('price', '<', $request->price_less_than);
+    //     }
+
+    //     if ($request->has('type') && $request->type == 'recently') {
+    //       $courses = $courses->latest();
+    //     }
+
+    //     if ($request->has('type') && $request->type == 'offer') {
+    //       $courses = $courses->where('price_after_discount','!=',null);
+    //     }
+    //     //
+    //     $courses = $courses->paginate($this->paginateNumber);
+    //     return $this->apiResponse(new CoursesCollection($courses));
+    // }
+
+
+    public function store(StoreRequest $request, Course $course)
     {
-        $courses = course::query();
+        $category = $course->category;
 
-        if ($request->has('category_id')) {
-            $category_id = $request->category_id;
-            $courses = $courses->whereHas('category', function ($q) use ($category_id) {
-                $q->where('parent_id', $category_id);
-            });
-        }
-
-        if ($request->has('subcategory_id')) {
-            $courses = $courses->where('category_id', $request->subcategory_id);
-        }
-
-        if ($request->has('price_more_than')) {
-            $courses = $courses->where('price', '>', $request->price_more_than);
-        }
-        if ($request->has('price_less_than')) {
-            $courses = $courses->where('price', '<', $request->price_less_than);
-        }
-    
-        if ($request->has('type') && $request->type == 'recently') {
-          $courses = $courses->latest();
-        }
-
-        if ($request->has('type') && $request->type == 'offer') {
-          $courses = $courses->where('price_after_discount','!=',null);
-        }
-        //
-        $courses = $courses->paginate($this->paginateNumber);
-        return $this->apiResponse(new CoursesCollection($courses));
-    }
-
-    
-    public function search($price, Request $request, Property $property)
-    {
-        $category = $property->category;
-
-        $query = Property::query();
+        $course = Course::query();
 
         // Code for min and max price
 
@@ -77,16 +78,17 @@ class HomeController extends Controller
         //dd($max_price);
 
         if (($min_price) && ($max_price)) {
-            $query->whereBetween('price', [$min_price, $max_price]);
+            $course->whereBetween('price', [$min_price, $max_price]);
         }
         elseif (! is_null($min_price)) {
-            $query->where('price', '>=', $min_price);
+            $course->where('price', '>=', $min_price);
         }
         elseif (! is_null($max_price)) {
-            $query->where('price', '<=', $max_price);
+            $course->where('price', '<=', $max_price);
         }
+        dd(request('trainer_name'));
 
-        $results = $query->get();
+        $results = $course->get();
 
         return view('website.index', compact('category', 'results'));
     }
@@ -107,10 +109,10 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+    // public function store(Request $request)
+    // {
+    //     //
+    // }
 
     /**
      * Display the specified resource.

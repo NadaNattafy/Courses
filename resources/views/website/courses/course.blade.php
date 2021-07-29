@@ -14,26 +14,26 @@ label.star {
   float: right;
   padding: 10px;
   font-size: 20px;
-  color: 
+  color:
 #444;
   transition: all .2s;
 }
 
 input.star:checked ~ label.star:before {
   content: 'f005';
-  color: 
+  color:
 #e74c3c;
   transition: all .25s;
 }
 
 input.star-5:checked ~ label.star:before {
-  color: 
+  color:
 #e74c3c;
-  text-shadow: 0 0 5px 
+  text-shadow: 0 0 5px
 #7f8c8d;
 }
 
-input.star-1:checked ~ label.star:before { color: 
+input.star-1:checked ~ label.star:before { color:
 #F62; }
 
 label.star:hover { transform: rotate(-15deg) scale(1.3); }
@@ -49,13 +49,13 @@ label.star:before {
 }
 .horline > li {
   font-weight: bold;
-  color: 
+  color:
 #ff7e1a;
 
 }
 /** end rating **/
       </style>
-      
+
 @endpush
 
 @section('title')
@@ -89,7 +89,7 @@ label.star:before {
                         <div class="login-item">
                             <input type="password" name="password" placeholder="كلمة السر">
                         </div>
-    
+
                         <!-- /.login-item -->
                         <div class="login-item">
                             <label class="pull-right">
@@ -242,7 +242,7 @@ label.star:before {
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('website.courses.show', $course->id) }}" class="active">
+                            <a href="{{ route('website.lessons.index') }}" class="active">
                                 <i class="fa fa-tasks"></i> الدروس
                             </a>
                         </li>
@@ -300,7 +300,7 @@ label.star:before {
                             </ul>
                         </li>
                         {{-- <li class="rating" data-toggle="tooltip" data-placment="top" title="إضافة تقييم للدورة">
-                           
+
                         <form class="form-horizontal poststars" action="{{ route('website.courseStar', $course->id) }}" id="addStar" method="POST">
                             @csrf
                             <div class="form-group required">
@@ -316,7 +316,7 @@ label.star:before {
                                       <input class="star star-1" value="1" id="star-1" type="radio" name="rate"/>
                                       <label class="star star-1" for="star-1"></label>
                                     </div>
-                                </div>  
+                                </div>
                           </form>
                         </li> --}}
                     </ul>

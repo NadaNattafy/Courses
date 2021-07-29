@@ -20,8 +20,9 @@ class CoursesController extends Controller
     public function index()
     {
         //
+        $lessons = Lesson::get();
         $courses = Course::get();
-        return view('website.courses.course',compact('courses'));
+        return view('website.courses.course',compact('courses','lessons'));
     }
 
     /**
@@ -54,9 +55,10 @@ class CoursesController extends Controller
     public function show(Course $course)
     {
         //
+        $course = Course::get();
         $lessons=Lesson::where('course_id',$course->id)->get();
-        //dd($lessons);
-        return view('website.courses.course' ,compact('course','lessons'));
+        dd($lessons);
+        return view('website.courses.course' ,compact('lessons'));
     }
 
     public function courseStar (StoreRequest $request, Course $course) {
@@ -67,7 +69,7 @@ class CoursesController extends Controller
         return redirect()->back();
   }
 
-  
+
   public function render()
   {
       $comments = Review::where('course_id', $this->course->id)->where('status', 1)->with('user')->get();

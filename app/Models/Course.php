@@ -14,7 +14,8 @@ class Course extends Model
         'trainer_id',
         'img',
         'price',
-        'category_id'
+        'category_id',
+        'min_price'
     ];
 
     public function trainer(){

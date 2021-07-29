@@ -97,7 +97,7 @@
                                 <div class="login-item">
                                     <input type="password" name="password" placeholder="كلمة السر">
                                 </div>
-            
+
                                 <!-- /.login-item -->
                                 <div class="login-item">
                                     <label class="pull-right">
@@ -231,32 +231,38 @@
                     <!-- end btn-container -->
                 </div>
                 <!-- /.form-item -->
+                <form id="search-course" action="{{ route('website.home.store') }}" method="get">
+                    @csrf
                 <div class="form-advanced col-xs-12 adv-left">
                     <div class="advanced-item col-md-3 col-xs-12 pull-right">
                         <h2>ابحث بسعر الكورس</h2>
-                        <input type="text" placeholder="ابحث بإسم المدرس">
+                        <input type="text" placeholder="ابحث بإسم المدرس" name="trainer_name">
                     </div>
                     <!-- /.advanced-item -->
                     <div class="advanced-item col-md-3 col-xs-12 pull-right">
                         <h2>ابحث بسعر الكورس</h2>
-                        <input type="text" placeholder="ابحث بإسم الكورس">
+                        <input type="text" placeholder="ابحث بإسم الكورس" name="name">
                     </div>
                     <!-- /.advanced-item -->
                     <div class="advanced-item col-md-3 col-xs-12 pull-right">
                         <h2>ابحث بسعر الكورس</h2>
-                        <input type="text" placeholder="ابحث بنوع الكورس">
+                        <input type="text" placeholder="ابحث بنوع الكورس" name="category_name">
                     </div>
                     <!-- /.advanced-item -->
                     <div class="advanced-item col-md-3 col-xs-12 adv-right pull-right">
                         <h2>ابحث بسعر الكورس</h2>
 
-                        <input placeholder="من" type="number" class="pull-right price-from" data-toggle="tooltip" data-placement="top" title="مـن">
-                        <input placeholder="إلي" type="number" class="price-to" data-toggle="tooltip" data-placement="top" title="إلـي">
+                        <input placeholder="من" type="number" class="pull-right price-from" data-toggle="tooltip" data-placement="top" title="مـن" name="min_price">
+                        <input placeholder="إلي" type="number" class="price-to" data-toggle="tooltip" data-placement="top" title="إلـي" name="price">
                         <div class="text-right price-spec">
                             <label id="ko">
-                                <input type="checkbox" class="price-free"> مجاني
+                                <input onclick="document.getElementById('search-course').submit()" type="checkbox" class="price-free"> مجاني
                             </label>
                         </div>
+                    </div>
+                </div>
+            </form>
+                </div>
                     </div>
                     <!-- /.advanced-item -->
                 </div>

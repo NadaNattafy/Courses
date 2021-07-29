@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'website', 'as' => 'website.', 'namespace' => 'App\Http\Controllers\Website'], function () {
+Route::group(['prefix' => '/', 'as' => 'website.', 'namespace' => 'App\Http\Controllers\Website'], function () {
 
     Route::resource('home', HomeController::class);
 

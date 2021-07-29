@@ -29,6 +29,7 @@ class StoreRequest extends FormRequest
             'trainer_id'    => 'required',
             'category_id'    => 'required',
             'price'    => 'required',
+            'min_price'    => 'required',
             'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }

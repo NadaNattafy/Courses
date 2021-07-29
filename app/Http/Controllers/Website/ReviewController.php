@@ -39,19 +39,19 @@ class ReviewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRequest $request)
-    {
-        //
-        $review= new Review;
-        $review->review = $request->input('star'); 
+    // public function store(StoreRequest $request)
+    // {
+    //     //
+    //     $review= new Review;
+    //     $review->review = $request->input('star');
 
-        $request['user_id'] = Auth::user()->id ;
+    //     $request['user_id'] = Auth::user()->id ;
 
 
-        Review::create($request->validated());
+    //     Review::create($request->validated());
 
-        return back()->with('message', 'Review Added successfully.');
-    }
+    //     return back()->with('message', 'Review Added successfully.');
+    // }
 
 //     public function courseStar (Request $request, Post $post) {
 //         $rating = new Rating;
