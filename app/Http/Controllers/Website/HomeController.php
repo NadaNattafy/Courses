@@ -18,6 +18,7 @@ class HomeController extends Controller
     public function index()
     {
         //
+       // dd(auth()->user()->id);
          $courses = Course::orderBy('id','DESC')->paginate(6);
         $courses = Course::WithAvg('review','rate')->orderBy('id','DESC')->paginate();
         $useropinions = UserOpinion::get();

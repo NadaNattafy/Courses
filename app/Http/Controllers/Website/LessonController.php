@@ -44,9 +44,14 @@ class LessonController extends Controller
     public function store(StoreRequest $request)
     {
         //
-        Lesson::create($request->validated());
-
         dd('kxjgkfh');
+        $lesson =  Lesson::create($request->validated());
+
+        if ($request->has('file')) {
+
+            $lesson->update(['file' => $request->file('file')->store('LessonFile')]);
+           }
+
 
         return back()->with('message', 'Lesson Added successfully.');
     }

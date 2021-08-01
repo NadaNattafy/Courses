@@ -179,9 +179,9 @@
                                     @auth
                                         <li>
                                             {{-- <a href="#"> --}}
-                                            <a href="{{ route('website.logout') }}" onclick="event.preventDefault(); document.getElementById('logout_form').submit()">
+                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout_form').submit()">
                                                 <i class="fa fa-user"></i> منطقة تسجيل خروج
-                                                <form id="logout_form" action="{{ route('website.logout') }}" method="POST"
+                                                <form id="logout_form" action="{{ route('logout') }}" method="POST"
                                                 style="display: none;">
                                               @csrf
                                           </form>

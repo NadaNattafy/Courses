@@ -14,7 +14,8 @@ class Lesson extends Model
         'description',
         'url',
         'course_id',
-        'duration'
+        'duration',
+        'file',
     ];
 
     public function course(){

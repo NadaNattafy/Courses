@@ -28,7 +28,8 @@ class StoreRequest extends FormRequest
             'name'     => 'required',
             'description'     => 'required',
             'url'     => 'required',
-            'duration'     => 'required',
+            'duration'     => 'nullable',
+            'file' => 'nullable',
             'course_id' =>  'required|exists:courses,id',
         ];
     }

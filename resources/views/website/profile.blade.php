@@ -10,6 +10,16 @@
 
 @section('content')
 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="wrap">
     <div class="loading">
         <div class="bounceball"></div>
@@ -563,14 +573,14 @@
                                                                 <a href="#" class="delete-course">
                                                                     <i class="fa fa-trash"></i> حذف الدورة
                                                                 </a>
-                                                                <a href="#" class="add-course">
+                                                                <a href="#" class="add-course" data-toggle="modal" data-target="#lesson">
                                                                     <i class="fa fa-plus"></i> إضافة محاضرة
                                                                 </a>
-                                                                <a href="#" class="message-course">
+                                                                <a href="#" class="message-course" data-toggle="modal" data-target="#msg-all">
                                                                     <i class="fa fa-envelope"></i> إرسال للجميع
                                                                 </a>
                                                                 <!-- =========================================================================================================================================== -->
-
+{{--
 
                                                                 <div class="panel-pop modal" id="msg-all">
                                                                     <div class="lost-inner">
@@ -600,7 +610,35 @@
                                                                     </div>
                                                                     <!-- /.lost-inner -->
                                                                 </div>
-                                                                <!-- /.modal -->
+                                                                <!-- /.modal --> --}}
+                                                                <!-- Modal -->
+                                                                <form id="send-message"
+                                                                action="{{ route('website.messages.store') }}"
+                                                                method="POST" enctype="multipart/form-data">
+                                                                @csrf
+<div class="modal fade" id="msg-all" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" >ارسال لجميع الطلاب المشتركين في الدورة</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="lost-item" id="messageTo">
+            <textarea placeholder="اكتب الرسالة هنا"
+                name="message"></textarea>
+        </div>
+        <div class="modal-footer">
+            <span>
+                <input
+                    onclick type="submit" value="إرسال">
+            </span>
+        </div>
+      </div>
+    </div>
+  </div>
+                                                                </form>
 
                                                                 <!-- =========================================================================================================================================== -->
                                                                 <a href="#" class="edit-course">
@@ -655,26 +693,31 @@
                                                                         action="{{ route('website.lessons.store') }}"
                                                                         method="POST" enctype="multipart/form-data">
                                                                         @csrf
+                                                                        {{-- <input type="hidden" name="course_id" value={{ $course->id }}> --}}
+                                                                        <div class="modal fade" id="lesson" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                            <div class="modal-dialog" role="document">
+                                                                              <div class="modal-content">
+                                                                                <div class="modal-header">
                                                                         <div class="lecture-item">
-                                                                            <h1>اسم الدرس</h1>
+                                                                            <h1 class="modal-title" id="exampleModalLabel">اسم الدرس</h1>
                                                                             <input type="text"
                                                                                 placeholder="اضف اسم المحاضرة" name="name">
                                                                         </div>
                                                                         <!-- /.lecture-item -->
                                                                         <div class="lecture-item">
-                                                                            <h1>اضف رابط خارجي للفيديو</h1>
+                                                                            <h1 class="modal-title" id="exampleModalLabel">اضف رابط خارجي للفيديو</h1>
                                                                             <div class="add_cont text-right">
-                                                                                <label class="text-right">
+                                                                                {{-- <label class="text-right">
                                                                                     <input type="checkbox" id="up-video" name="url">
                                                                                     <span>اذا أردت رفع فيديو من جهازك
                                                                                         الشخصي</span>
-                                                                                </label>
+                                                                                </label> --}}
 
                                                                                 <div
                                                                                     class="videoUploaded col-xs-12 text-right">
-                                                                                    <span><i class="fa fa-video-camera"></i>
+                                                                                    {{-- <span><i class="fa fa-video-camera"></i>
                                                                                         ارفع فيديو من جهازك</span>
-                                                                                    <input type="file" class="uploaded">
+                                                                                    <input type="file" class="uploaded"> --}}
                                                                                 </div>
                                                                                 <!--
                                                                                             <label class="text-right">
@@ -688,16 +731,18 @@
                                                                         </div>
                                                                         <!-- /.lecture-item -->
                                                                         <div class="lecture-item">
-                                                                            <h1>اسم الدرس</h1>
+                                                                            <h1 class="modal-title" id="exampleModalLabel">اسم الدرس</h1>
                                                                             <textarea placeholder="اضف وصف المحاضرة"
                                                                                 name="description"></textarea>
                                                                         </div>
                                                                         <!-- /.lecture-item -->
                                                                         <div class="lecture-item text-right">
                                                                             <div class="fileUpload col-xs-12 text-right">
-                                                                                <span><i class="fa fa-file"></i> رابط أوراق
+                                                                                {{-- <span><i class="fa fa-file"></i> رابط أوراق
                                                                                     العمل </span>
-                                                                                <input type="file" class="upload">
+                                                                                <input type="file" class="upload" name="file"> --}}
+                                                                                <label for="exampleFormControlFile1">رابط أوراق العمل</label>
+                                                                                <input type="file" class="form-control-file" name="file">
                                                                             </div>
                                                                             <span class="hint"> Image او Word او Powerpoint
                                                                                 او Pdf الملفات يمكن ان تكون </span>
@@ -714,13 +759,22 @@
                                                                             </label>
                                                                         </div> --}}
                                                                         <!-- /.lecture-item -->
-                                                                        <div class="lecture-item confirm-lec">
+                                                                        {{-- <div class="lecture-item confirm-lec">
                                                                             <input
-                                                                                onclick="document.getElementById('add-lesson').submit()"
-                                                                                type="submit" value="إضافة محاضرة">
+                                                                            onclick type="submit" value="إضافة محاضرة">
+                                                                        </div> --}}
+
+                                                                        <div class="modal-footer">
+                                                                            <span>
+                                                                                <input
+                                                                                    onclick type="submit" value="إضافة محاضرة">
+                                                                            </span>
                                                                         </div>
                                                                         <!-- /.lecture-item -->
-
+                                                                                </div>
+                                                                              </div>
+                                                                            </div>
+                                                                        </div>
                                                                     </form>
                                                                 </div>
                                                                 <!-- /.add_lecture -->
@@ -729,7 +783,7 @@
                                                             <!-- /.instructor-control -->
                                                             <ul>
                                                                 <li>
-                                                                    <h1>
+                                                                    <h1 class="modal-title" id="exampleModalLabel">
                                                                         <label>الوصف</label>
                                                                         <span class="par">
                                                                             هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى
@@ -834,7 +888,7 @@
                                                                     <i class="fa fa-envelope"></i> إرسال للجميع
                                                                 </a>
                                                                 <!-- =========================================================================================================================================== -->
-{{--
+
                                                                 <div class="panel-pop modal" id="msg-all">
                                                                     <div class="lost-inner">
                                                                         <h1>
@@ -859,7 +913,7 @@
                                                                     </div>
                                                                     <!-- /.lost-inner -->
                                                                 </div>
-                                                                <!-- /.modal --> --}}
+                                                                <!-- /.modal -->
 
                                                                 <!-- =========================================================================================================================================== -->
                                                                 <a href="#" class="edit-course">
@@ -975,7 +1029,6 @@
                                                                                 type="submit" value="إضافة محاضرة">
                                                                         </div>
                                                                         <!-- /.lecture-item -->
-
                                                                     </form>
                                                                 </div>
                                                                 <!-- /.add_lecture -->
