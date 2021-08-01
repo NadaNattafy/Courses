@@ -27,6 +27,7 @@ class StoreRequest extends FormRequest
             //
             'url' => 'required',
             'cv' => 'required',
+            'user_id' => 'nullable',
         ];
     }
 }

@@ -67,25 +67,42 @@ class HomeController extends Controller
 
     public function store(StoreRequest $request)
     {
+        // dd($course);
         // $category = $course->category;
         // $trainer = $course->trainer;
         $course = Course::where('name' , $request->name)->get();
 
-dd($course);
+
         $min_price = $request->has('min_price');
         $max_price = $request->has('max_price');
         //dd($max_price);
 
 
-        if (($min_price) && ($max_price)) {
-            $course->whereBetween('price', [$min_price, $max_price]);
+        // if (($min_price) && ($max_price)) {
+        //     $course->whereBetween('price', [$min_price, $max_price]);
+        // }
+        // elseif (! is_null($min_price)) {
+        //     $course->where('price', '>=', $min_price);
+        // }
+        // elseif (! is_null($max_price)) {
+        //     $course->where('price', '<=', $max_price);
+        // }
+        $course = Course::where('name' , $request->name)->get();
+
+        if ($request->has('trainer_name')) {
+            $courses = $course->where('trainer_name', $request->trainer_name);
         }
-        elseif (! is_null($min_price)) {
-            $course->where('price', '>=', $min_price);
+
+        elseif ($request->has('price')) {
+            $courses = $course->where('price', '>', $request->price_more_than);
         }
-        elseif (! is_null($max_price)) {
-            $course->where('price', '<=', $max_price);
+        elseif($request->has('min_price')) {
+            $courses = $course->where('price', '<', $request->price_less_than);
         }
+        else {
+            $courses = $course->where('category_name', $request->category_name);
+        }
+
        // dd(request('trainer_name'));
 
     //    ->when(request('topic_id'), function ($q) {

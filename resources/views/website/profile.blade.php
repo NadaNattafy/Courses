@@ -651,18 +651,21 @@
 
                                                                 <!-- =========================================================================================================================================== -->
                                                                 <div class="add_lecture">
-                                                                    <form action="#" method="get">
+                                                                    <form class="add-lesson"
+                                                                        action="{{ route('website.lessons.store') }}"
+                                                                        method="POST" enctype="multipart/form-data">
+                                                                        @csrf
                                                                         <div class="lecture-item">
                                                                             <h1>اسم الدرس</h1>
                                                                             <input type="text"
-                                                                                placeholder="اضف اسم المحاضرة">
+                                                                                placeholder="اضف اسم المحاضرة" name="name">
                                                                         </div>
                                                                         <!-- /.lecture-item -->
                                                                         <div class="lecture-item">
                                                                             <h1>اضف رابط خارجي للفيديو</h1>
                                                                             <div class="add_cont text-right">
                                                                                 <label class="text-right">
-                                                                                    <input type="checkbox" id="up-video">
+                                                                                    <input type="checkbox" id="up-video" name="url">
                                                                                     <span>اذا أردت رفع فيديو من جهازك
                                                                                         الشخصي</span>
                                                                                 </label>
@@ -681,13 +684,13 @@
                 -->
                                                                             </div>
                                                                             <input type="text" placeholder="ادخل رابط فيديو"
-                                                                                class="linked">
+                                                                                name="url" class="linked">
                                                                         </div>
                                                                         <!-- /.lecture-item -->
                                                                         <div class="lecture-item">
                                                                             <h1>اسم الدرس</h1>
-                                                                            <textarea
-                                                                                placeholder="اضف وصف المحاضرة"></textarea>
+                                                                            <textarea placeholder="اضف وصف المحاضرة"
+                                                                                name="description"></textarea>
                                                                         </div>
                                                                         <!-- /.lecture-item -->
                                                                         <div class="lecture-item text-right">
@@ -700,7 +703,7 @@
                                                                                 او Pdf الملفات يمكن ان تكون </span>
                                                                         </div>
                                                                         <!-- /.lecture-item -->
-                                                                        <div class="lecture-item add-sorting">
+                                                                        {{-- <div class="lecture-item add-sorting">
                                                                             <label>
                                                                                 <input type="checkbox" id="sort-lesson">
                                                                                 <span>يجب تحديد ترتيب الدرس </span>
@@ -709,10 +712,12 @@
                                                                                     title="اكتب ترتيب الدرس بالأرقام"
                                                                                     class="add_sort-number">
                                                                             </label>
-                                                                        </div>
+                                                                        </div> --}}
                                                                         <!-- /.lecture-item -->
                                                                         <div class="lecture-item confirm-lec">
-                                                                            <input type="submit" value="إضافة محاضرة">
+                                                                            <input
+                                                                                onclick="document.getElementById('add-lesson').submit()"
+                                                                                type="submit" value="إضافة محاضرة">
                                                                         </div>
                                                                         <!-- /.lecture-item -->
 
@@ -720,6 +725,7 @@
                                                                 </div>
                                                                 <!-- /.add_lecture -->
                                                             </div>
+
                                                             <!-- /.instructor-control -->
                                                             <ul>
                                                                 <li>
@@ -828,7 +834,7 @@
                                                                     <i class="fa fa-envelope"></i> إرسال للجميع
                                                                 </a>
                                                                 <!-- =========================================================================================================================================== -->
-
+{{--
                                                                 <div class="panel-pop modal" id="msg-all">
                                                                     <div class="lost-inner">
                                                                         <h1>
@@ -853,7 +859,7 @@
                                                                     </div>
                                                                     <!-- /.lost-inner -->
                                                                 </div>
-                                                                <!-- /.modal -->
+                                                                <!-- /.modal --> --}}
 
                                                                 <!-- =========================================================================================================================================== -->
                                                                 <a href="#" class="edit-course">
@@ -914,7 +920,7 @@
                                                                             <h1>اضف رابط خارجي للفيديو</h1>
                                                                             <div class="add_cont text-right">
                                                                                 <label class="text-right">
-                                                                                    <input type="checkbox" id="up-video">
+                                                                                    <input type="checkbox" id="up-video" name="url">
                                                                                     <span>اذا أردت رفع فيديو من جهازك
                                                                                         الشخصي</span>
                                                                                 </label>
@@ -942,7 +948,7 @@
                                                                                 name="description"></textarea>
                                                                         </div>
                                                                         <!-- /.lecture-item -->
-                                                                        <div class="lecture-item text-right">
+                                                                        {{-- <div class="lecture-item text-right">
                                                                             <div class="fileUpload col-xs-12 text-right">
                                                                                 <span><i class="fa fa-file"></i> رابط أوراق
                                                                                     العمل </span>
@@ -950,9 +956,9 @@
                                                                             </div>
                                                                             <span class="hint"> Image او Word او Powerpoint
                                                                                 او Pdf الملفات يمكن ان تكون </span>
-                                                                        </div>
+                                                                        </div> --}}
                                                                         <!-- /.lecture-item -->
-                                                                        <div class="lecture-item add-sorting">
+                                                                        {{-- <div class="lecture-item add-sorting">
                                                                             <label>
                                                                                 <input type="checkbox" id="sort-lesson">
                                                                                 <span>يجب تحديد ترتيب الدرس </span>
@@ -961,7 +967,7 @@
                                                                                     title="اكتب ترتيب الدرس بالأرقام"
                                                                                     class="add_sort-number">
                                                                             </label>
-                                                                        </div>
+                                                                        </div> --}}
                                                                         <!-- /.lecture-item -->
                                                                         <div class="lecture-item confirm-lec">
                                                                             <input

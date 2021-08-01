@@ -56,11 +56,10 @@ class CoursesController extends Controller
     {
         //
         $lessons=Lesson::where('course_id',$course->id)->get();
-        //dd($lessons);
         return view('website.courses.course' ,compact('lessons','course'));
     }
 
-  
+
     /**
      * Show the form for editing the specified resource.
      *

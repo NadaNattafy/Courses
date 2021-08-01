@@ -46,6 +46,8 @@ class LessonController extends Controller
         //
         Lesson::create($request->validated());
 
+        dd('kxjgkfh');
+
         return back()->with('message', 'Lesson Added successfully.');
     }
 
