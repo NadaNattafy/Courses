@@ -41,6 +41,11 @@ return [
             'provider' => 'users',
         ],
 
+        'trainer' => [
+            'driver' => 'session',
+            'provider' => 'trainers',
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -69,6 +74,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+
+        'trainers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Trainer::class,
         ],
 
         // 'users' => [

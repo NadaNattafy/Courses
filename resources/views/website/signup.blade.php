@@ -261,12 +261,12 @@
                                     <label>
                                         <input type="checkbox">
                                         <span>مدرب</span>
-                                        <a href="{{ route('website.trainer.index') }}" class="show-privacy">تعرف علي سياسة الخصوصية كمدرب</a>
+                                        <a href="{{ route('trainer.trainer.index') }}" class="show-privacy">تعرف علي سياسة الخصوصية كمدرب</a>
                                     </label>
                                     <label>
                                         <input type="checkbox">
                                         <span>متدرب</span>
-                                        <a href="{{ route('website.trainer.index') }}" class="show-privacy">تعرف علي سياسة الخصوصية كمتدرب</a>
+                                        <a href="{{ route('trainer.trainer.index') }}" class="show-privacy">تعرف علي سياسة الخصوصية كمتدرب</a>
                                     </label>
                                 </div>
                                 <!-- /.up_form-item -->

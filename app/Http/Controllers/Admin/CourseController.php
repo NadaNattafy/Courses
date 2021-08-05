@@ -92,10 +92,11 @@ class CourseController extends Controller
         //
         $course -> update($request->validated());
 
-        if ($request->has('img')) {
+        // $path = '/storage/'.Storage::putFile('uploads', $request->img);
 
-            $course->update(['img' => $request->file('img')->store('coursePics')]);
-           }
+        // if ($request->has('img')) {
+        //     $course->update(['img' => $request->file('img')->store('coursePics')]);
+        //    }
 
         return redirect()->route('admin.courses.index')->with('message','Course Updated Successfully');
     }

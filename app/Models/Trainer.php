@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\passwordTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
-class Trainer extends Model
+class Trainer extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, passwordTrait;
 
     protected $fillable = [
         'name',
@@ -23,12 +25,12 @@ class Trainer extends Model
         'speciality'
     ];
 
-    public function setPasswordAttribute($value)
-    {
-        if (!empty($value)) {
-        $this->attributes['password'] = Hash::make($value);
-       }
-    }
+    // public function setPasswordAttribute($value)
+    // {
+    //     if (!empty($value)) {
+    //     $this->attributes['password'] = Hash::make($value);
+    //    }
+    // }
 
     public function course(){
 

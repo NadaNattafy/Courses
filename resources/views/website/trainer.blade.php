@@ -128,18 +128,38 @@
                                     </a>
                                 </li>
                             @endguest
-                            @auth
-                                <li>
-                                    {{-- <a href="#"> --}}
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout_form').submit()">
-                                        <i class="fa fa-user"></i> منطقة تسجيل خروج
-                                        <form id="logout_form" action="{{ route('logout') }}" method="POST"
-                                        style="display: none;">
-                                      @csrf
-                                  </form>
-                                    </a>
-                                </li>
-                            @endauth
+                            @guest
+                            <li>
+                                <a href="{{ route('trainer.trainerlogin.index') }}" class="show-login">
+                                    <i class="fa fa-user"></i> منطثة تسجيل االمدرب
+                                </a>
+                            </li>
+                        @endguest
+                        @auth
+                            <li>
+                                {{-- <a href="#"> --}}
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout_form').submit()">
+                                    <i class="fa fa-user"></i> منطقة تسجيل خروج
+                                    <form id="logout_form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                  @csrf
+                              </form>
+                                </a>
+                            </li>
+                        @endauth
+
+                        @auth
+                            <li>
+                                {{-- <a href="#"> --}}
+                                <a href="{{ route('website.logout.trainer') }}" onclick="event.preventDefault(); document.getElementById('logout_form').submit()">
+                                    <i class="fa fa-user"></i> منطقة تسجيل خروج
+                                    <form id="logout_form" action="{{ route('website.logout.trainer') }}" method="POST"
+                                    style="display: none;">
+                                  @csrf
+                              </form>
+                                </a>
+                            </li>
+                        @endauth
 
                         </ul>
                     </div>
