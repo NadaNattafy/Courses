@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Cv;
+namespace App\Http\Requests\Interest;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -25,9 +25,8 @@ class StoreRequest extends FormRequest
     {
         return [
             //
-            'url' => 'required',
-            'cv' => 'required',
-            'trainer_id' => 'nullable',
+            'name' => 'required',
+            'trainer_id'    => 'required',
         ];
     }
 }

@@ -15,15 +15,35 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
 
-            return redirect()->intended('website/home')
+            return redirect()->intended('/home')
                         ->withSuccess('Signed in');
         }
 
-        return redirect("website/home")->withSuccess('Login details are not valid');
+        return redirect("/home")->withSuccess('Login details are not valid');
     }
+
+    public function TrainerLogin(StoreRequest $request)
+    {
+
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+
+            return redirect()->intended('/home')
+                        ->withSuccess('Signed in');
+        }
+
+        return redirect("/home")->withSuccess('Login details are not valid');
+    }
+
+    public function GetLoginTrainer()
+    {
+          return view('website.trainerlogin');
+        }
+
 
     public function logout(){
         Auth::logout();
-                return redirect('website/home');
+                return redirect('/home');
     }
+
 }

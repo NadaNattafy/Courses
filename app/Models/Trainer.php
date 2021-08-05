@@ -34,4 +34,14 @@ class Trainer extends Model
 
         return $this->hasMany(Course::class);
     }
+
+    public function interest(){
+
+        return $this->hasMany(Interest::class);
+    }
+
+    public function cv(){
+
+        return $this->hasOne(Cv::class);
+    }
 }

@@ -15,9 +15,9 @@ class CreateCvsTable extends Migration
     {
         Schema::create('cvs', function (Blueprint $table) {
             $table->id();
-            $table->string('url');
             $table->string('cv');
-            $table->foreignIdFor(\App\Models\User::class,'user_id','id')->constrained()
+            $table->text('url');
+            $table->foreignIdFor(\App\Models\Trainer::class,'trainer_id','id')->constrained()
             ->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });

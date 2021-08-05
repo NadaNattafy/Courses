@@ -432,10 +432,12 @@ label.star:before {
                     </div>
                     <!-- end certf -->
                     <div class="empty-msg text-center animated shake">
+                        @foreach ($lessons as $lesson)
                         <h1>
-                            <i class="fa fa-frown-o"></i>
-                            لا يوجد دروس الان ولكن يمكنك الاشتراك في الدورة لحين بدأها
+                            <i class="fa fa-tasks"></i>
+                            {{ $lesson->name }}
                         </h1>
+                        @endforeach
                     </div>
                     <!-- end empty-msg -->
                     <div class="week-module text-right">

@@ -3,13 +3,9 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Interest\StoreRequest;
-use App\Models\Course;
-use App\Models\Interest;
-use App\Models\Trainer;
 use Illuminate\Http\Request;
 
-class ProfileController extends Controller
+class TrainerLoginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,17 +15,7 @@ class ProfileController extends Controller
     public function index()
     {
         //
-        $trainers = Trainer::get();
-        $interests = Interest::get();
-        $courses = Course::orderBy('id','DESC')->paginate(6);
-        $courses = Course::WithAvg('review','rate')->orderBy('id','DESC')->paginate();
-        //$courses = Course::find(11);
-
-        // foreach($courses->review as $re)
-        // {
-        //  return  $re->rate;
-        // }
-       return view('website.profile',compact('courses','trainers','interests'));
+        return view('website.trainerlogin');
     }
 
     /**
@@ -40,9 +26,6 @@ class ProfileController extends Controller
     public function create()
     {
         //
-        $interests = Interest::get();
-
-        return view('website.profile', compact('interests'));
     }
 
     /**
@@ -51,12 +34,9 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRequest $request)
+    public function store(Request $request)
     {
         //
-        Interest::create($request->validated());
-
-        return back()->with('message', 'Interest Add successfully.');
     }
 
     /**

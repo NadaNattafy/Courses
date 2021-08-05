@@ -1175,22 +1175,15 @@
                                 <div class="home-content pass-content col-xs-12">
                                     <div class="home_data col-xs-12 pull-right text-right">
                                         <div class="interest-show">
+
                                             <ul>
+                                                @foreach ($interests as $interest )
                                                 <li>
-                                                    <span class="inter-item">لعب كرة قدم
+                                                    <span class="inter-item">{{ $interest->name }}
                                                         <i class="fa fa-times" id="del-item"></i>
                                                     </span>
                                                 </li>
-                                                <li>
-                                                    <span class="inter-item">لعب كرة قدم
-                                                        <i class="fa fa-times" id="del-item"></i>
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <span class="inter-item">لعب كرة قدم
-                                                        <i class="fa fa-times" id="del-item"></i>
-                                                    </span>
-                                                </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                         <!-- /.interest-show -->

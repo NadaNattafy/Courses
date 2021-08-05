@@ -46,7 +46,7 @@
                 <li><a class="icon icon-data" href="#">تغير كلمة المرور</a></li>
                 <li><a class="icon icon-location" href="{{route('website.signup.index')}}"><i class="fa fa-user-plus"></i>تسجيل حساب جديد</a></li>
                 <li><a class="icon icon-study" href="#">صفحة الاختبار</a></li>
-                <li><a class="icon icon-photo" href="{{ route('website.trainer.index') }}"><i class="fa fa-lock"></i>سياسة الخصوصية</a></li>
+                <li><a class="icon icon-photo" href="#"><i class="fa fa-lock"></i>سياسة الخصوصية</a></li>
             </ul>
         </nav>
         <div class="st-content">
@@ -83,7 +83,6 @@
                     <!-- /.container -->
                 </div>
                 <!-- /.error-detect -->
-
                 <div class="login-area">
                     <div class="container">
                         <div class="login-form col-md-6 col-xs-12 text-right pull-right">
@@ -173,6 +172,14 @@
                                         <li>
                                             <a href="#" class="show-login">
                                                 <i class="fa fa-user"></i> منطقة تسجيل الدخول
+                                            </a>
+                                        </li>
+                                    @endguest
+
+                                    @guest
+                                        <li>
+                                            <a href="{{ route('website.trainerlogin.index') }}" class="show-login">
+                                                <i class="fa fa-user"></i> منطثة تسجيل االمدرب
                                             </a>
                                         </li>
                                     @endguest

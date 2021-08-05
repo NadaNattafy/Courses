@@ -75,11 +75,6 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
-    public function cv(){
-
-        return $this->hasMany(Cv::class);
-    }
-
     public function message(){
 
         return $this->belongsTo(Message::class);

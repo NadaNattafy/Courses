@@ -4,12 +4,10 @@ namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Interest\StoreRequest;
-use App\Models\Course;
 use App\Models\Interest;
-use App\Models\Trainer;
 use Illuminate\Http\Request;
 
-class ProfileController extends Controller
+class InterestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,17 +17,6 @@ class ProfileController extends Controller
     public function index()
     {
         //
-        $trainers = Trainer::get();
-        $interests = Interest::get();
-        $courses = Course::orderBy('id','DESC')->paginate(6);
-        $courses = Course::WithAvg('review','rate')->orderBy('id','DESC')->paginate();
-        //$courses = Course::find(11);
-
-        // foreach($courses->review as $re)
-        // {
-        //  return  $re->rate;
-        // }
-       return view('website.profile',compact('courses','trainers','interests'));
     }
 
     /**
@@ -41,6 +28,8 @@ class ProfileController extends Controller
     {
         //
         $interests = Interest::get();
+
+        dd($interests);
 
         return view('website.profile', compact('interests'));
     }
