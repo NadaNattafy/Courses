@@ -6,6 +6,9 @@ use App\Http\Controllers\Website\CourseController;
 use App\Http\Controllers\Website\ForgetPassController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
+use function App\Helpers\changeDateFormate;
+use function App\Helpers\getImage;
+use function App\Helpers\uploadImage;
 
 
 /*

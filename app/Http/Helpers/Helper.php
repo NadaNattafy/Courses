@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Setting;
+use Illuminate\Support\Facades\Storage;
 
 function getsetting($name)
 {
@@ -20,10 +21,9 @@ function getsetting($name)
         }
         return url('/') . '/storage/' . $image;
     }
-    function uploadImage($image, $dir = 'uploads')
+    function uploadImage($file, $dir = 'coursePics')
     {
-        return \Storage::disk('public')->putimage($dir, $image);
-    }
+       return \Storage::disk('public')->putFile($dir, $file);    }
 
 
 ?>

@@ -87,7 +87,7 @@
                     <div class="container">
                         <div class="login-form col-md-6 col-xs-12 text-right pull-right">
                             <h1>تسجيل الدخول</h1>
-                            <form action="{{ route('website.login.user') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('login') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="login-item">
                                     <input type="email" name="email" placeholder="بريد المستخدم">
@@ -308,7 +308,7 @@
             @foreach ($courses as $course)
             <div class="block col-md-4 col-sm-6">
                 <figure>
-                    <div><img src="{{ asset('assets/images/b3.jpg') }}" alt="img05"
+                    <div><img src="{{url('/').'/storage/'.$course -> img}}" alt="img05"
                             class="img-responsive">
                     </div>
                     <figcaption class="text-right">
