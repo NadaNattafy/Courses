@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Interest\StoreRequest;
 use App\Models\Course;
 use App\Models\Interest;
+use App\Models\Remark;
 use App\Models\Trainer;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -21,6 +22,7 @@ class ProfileController extends Controller
     {
         //
         $trainers = Trainer::get();
+        $remarks = Remark::get();
         $users = User::get();
         $interests = Interest::get();
         $courses = Course::orderBy('id','DESC')->paginate(6);
@@ -31,7 +33,7 @@ class ProfileController extends Controller
         // {
         //  return  $re->rate;
         // }
-       return view('website.profile',compact('courses','trainers','interests','users'));
+       return view('website.profile',compact('courses','trainers','interests','users','remarks'));
     }
 
     /**

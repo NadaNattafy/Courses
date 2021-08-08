@@ -18,6 +18,7 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Mobile</th>
+                            <th>Img</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -30,6 +31,15 @@
                                 <td>{{$trainer -> name}}</td>
                                 <td>{{$trainer -> email}}</td>
                                 <td>{{$trainer -> mobile}}</td>
+                                <td>
+                                    <a class="fancybox-buttons img-holder small-img" rel="gallery" title=""
+                                        data-fancybox-group="button" href="{{ url('/') . '/storage/' . $trainer->img }}"
+                                        style="height: 50px; width:50px;">
+                                        <img src="{{ url('/') . '/storage/' . $trainer->img }}"
+                                            style="height: 50px; width:50px;">
+                                    </a>
+
+                                </td>
                                 <td>
                                     <a class="btn btn-info" href="{{ route('admin.trainers.show',$trainer->id) }}">Show</a>
                                        <a class="btn btn-primary" href="{{ route('admin.trainers.edit',$trainer->id) }}">Edit</a>

@@ -56,6 +56,13 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
+                                  <strong>Img:</strong>
+                                  <input type="file" name="img" class="w-20 mb-8 shadow-xl" alt="" src=<img src="{{asset("storage/trainer->img")}}">
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
                                     <strong>Mobile:</strong>
                                     <input type="text" name="mobile" class="form-control" placeholder="Mobile">
                                 </div>
@@ -110,7 +117,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Specialty :</strong>
-                                    <input type="text" name="specialty " class="form-control" placeholder="Specialty ">
+                                    <input type="text" name="specialty" class="form-control" placeholder="Specialty ">
                                 </div>
                             </div>
 

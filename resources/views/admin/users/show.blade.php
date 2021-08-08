@@ -57,6 +57,14 @@
             </div>
         </div>
 
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Img:</strong>
+                <img src="{{url('/').'/storage/'.$user -> img}}" style="height: 50px; width:50px;">
+            </div>
+        </div>
+
+
     </div>
 </div>
 </div>

@@ -35,7 +35,8 @@ class StoreRequest extends FormRequest
             'field' => 'required',
             'qualified' => 'required',
             'expertise' => 'required',
-            'specialty' => 'required'
+            'specialty' => 'required',
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

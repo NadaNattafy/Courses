@@ -73,13 +73,13 @@
                                         <div class="drop-links">
                                             <ul>
                                                 <li>
-                                                    <a href="profile1.html">
+                                                    <a href="{{ route('website.profile.index') }}">
                                                         <i class="fa fa-user"></i>&nbsp; حسابي
                                                     </a>
                                                 </li>
                                                 <li>
 
-                                                    <a href="index.html">
+                                                    <a href="{{ route('website.home.index') }}">
                                                         <i class="fa fa-power-off"></i>&nbsp; خروج
                                                     </a>
                                                 </li>
@@ -102,17 +102,18 @@
                                 <ul class="dropdown-menu notification-box" role="menu" aria-labelledby="dropdownMenu">
                                     <div class="drop drop-links col-xs-12">
                                         <ul>
+                                            @foreach ($remarks as $remark)
                                             <li>
                                                 <a href="#">
                                                     <img src="{{ asset('assets/images/avatar5.png')}}" alt="" class="img-circle pull-right">
                                                     <h4>
-                                                        امير ناجح
-                                                        <small><i class="fa fa-clock-o"></i>5 دقائق</small>
+                                                        {{ $remark->title }}
+                                                        <small><i class="fa fa-clock-o"></i>{{ $remark->created_at }}</small>
                                                     </h4>
-                                                    <p> هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.</p>
+                                                    <p> {{ $remark->body }} </p>
                                                 </a>
                                             </li>
-                                            <li>
+                                            {{-- <li>
                                                 <a href="#">
                                                     <img src="{{ asset('assets/images/avatar04.png')}}" alt="" class="img-circle pull-right">
                                                     <h4>
@@ -161,7 +162,8 @@
                                                     </h4>
                                                     <p> هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.</p>
                                                 </a>
-                                            </li>
+                                            </li> --}}
+                                            @endforeach
                                         </ul>
                                     </div>
                                     <!-- end drop -->
@@ -353,7 +355,8 @@
                                             <!-- /.imgcontent -->
                                         </div>
                                         <!-- /.Fption -->
-                                        <img src="{{ asset('assets/images/s.png') }}" alt="" width="150" height="150">
+                                        @foreach ($trainers as $trainer)
+                                        <img src="{{url('/').'/storage/'.$trainer -> img}}" alt="" width="150" height="150">
                                     </div>
                                 </div>
                                 <!-- /.home_img -->
@@ -361,7 +364,7 @@
 
                                     <div class="home_data col-md-10 col-sm-10 col-xs-12 text-right">
                                         <form action="#" method="get">
-                                            @foreach ($trainers as $trainer)
+
 
                                                 <div class="home_data-item all-set col-md-6 col-sm-6  col-xs-12 pull-right">
                                                     <div>
@@ -1941,7 +1944,7 @@
                     @foreach ($courses as $course)
                         <div class="block col-md-4 col-sm-6">
                             <figure>
-                                <div><img src="{{ asset('assets/images/b3.jpg') }}" alt="img05" class="img-responsive">
+                                <div><img src="{{url('/').'/storage/'.$course -> img}}" alt="img05" class="img-responsive">
                                 </div>
                                 <figcaption class="text-right">
                                     <h1> اسم الكورس : {{ $course->name }}</h1>

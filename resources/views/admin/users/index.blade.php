@@ -20,6 +20,7 @@
                             <th>Mobile</th>
                             <th>Email</th>
                             <th>Message</th>
+                            <th>Img</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -34,6 +35,15 @@
                                 <td>{{$user -> mobile}}</td>
                                 <td>{{$user -> email}}</td>
                                 <td>{{$user->message->message }}</td>
+                                <td>
+                                    <a class="fancybox-buttons img-holder small-img" rel="gallery" title=""
+                                        data-fancybox-group="button" href="{{ url('/') . '/storage/' . $user->img }}"
+                                        style="height: 50px; width:50px;">
+                                        <img src="{{ url('/') . '/storage/' . $user->img }}"
+                                            style="height: 50px; width:50px;">
+                                    </a>
+
+                                </td>
                                 <td>
                                     <a class="btn btn-info" href="{{ route('admin.users.show',$user->id) }}">Show</a>
                                        <a class="btn btn-primary" href="{{ route('admin.users.edit',$user->id) }}">Edit</a>

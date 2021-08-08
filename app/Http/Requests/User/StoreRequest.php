@@ -31,6 +31,7 @@ class StoreRequest extends FormRequest
             'email'    => 'required|email|unique:admins,email',
             'password' => 'required',
             'gender' => 'required',
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

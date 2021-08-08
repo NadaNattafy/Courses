@@ -22,7 +22,8 @@ class Trainer extends Authenticatable
         'field',
         'qualified',
         'expertise',
-        'speciality'
+        'specialty',
+        'img'
     ];
 
     // public function setPasswordAttribute($value)
@@ -35,6 +36,11 @@ class Trainer extends Authenticatable
     public function course(){
 
         return $this->hasMany(Course::class);
+    }
+
+    public function remark(){
+
+        return $this->hasMany(Remark::class);
     }
 
     public function interest(){

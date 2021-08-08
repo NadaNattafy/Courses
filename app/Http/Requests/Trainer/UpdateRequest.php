@@ -29,6 +29,7 @@ class UpdateRequest extends FormRequest
             'email'    => 'required|email|unique:admins,email',
             'password' => 'required',
             'mobile' => 'required',
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

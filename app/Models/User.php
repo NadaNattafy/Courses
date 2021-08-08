@@ -25,7 +25,8 @@ class User extends Authenticatable
         'email',
         'password',
         'gender',
-        'message_id'
+        'message_id',
+        'img'
     ];
 
     // public function setPasswordAttribute($value)
@@ -74,6 +75,11 @@ class User extends Authenticatable
     public function comment(){
 
         return $this->hasMany(Comment::class);
+    }
+
+    public function remark(){
+
+        return $this->hasMany(Remark::class);
     }
 
     public function message(){

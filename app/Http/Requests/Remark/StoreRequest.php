@@ -27,6 +27,8 @@ class StoreRequest extends FormRequest
             //
             'title' => 'required',
             'body' => 'required',
+            'user_id' => 'nullable',
+            'trainer_id' => 'nullable',
         ];
     }
 }
