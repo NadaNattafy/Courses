@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Interest\StoreRequest;
 use App\Models\Course;
 use App\Models\Interest;
+use App\Models\Lesson;
 use App\Models\Remark;
 use App\Models\Trainer;
 use App\Models\User;
@@ -22,6 +23,7 @@ class ProfileController extends Controller
     {
         //
         $trainers = Trainer::get();
+        $lessons = Lesson::get();
         $remarks = Remark::get();
         $users = User::get();
         $interests = Interest::get();

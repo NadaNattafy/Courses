@@ -1259,6 +1259,7 @@
                                                     <div role="tabpanel" class="tab-pane fade in active" id="current">
                                                         <div class="type col-xs-12">
                                                             <div class="filtered-head text-right">
+                                                                
                                                                 <h1>
                                                                     <i class="fa fa-tags"></i>
                                                                     علوم حاسب
