@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Test\StoreRequest;
 use App\Http\Requests\test\teststore;
 use App\Models\Test;
 use Illuminate\Http\Request;
@@ -39,7 +40,7 @@ class TestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(teststore $request)
+    public function store(StoreRequest $request)
     {
         //
         Test::create($request->validated());

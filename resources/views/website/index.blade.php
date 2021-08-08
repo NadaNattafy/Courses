@@ -43,10 +43,10 @@
                 <li><a class="icon icon-study" href="#">مقدمة الدرس</a></li>
                 <li><a class="icon icon-photo" href="#">صفحة الدرس</a></li>
                 <li><a class="icon icon-wallet" href="{{route('website.profile.index')}}"><i class="fa fa-user"></i>الحساب الشخصي</a></li>
-                <li><a class="icon icon-data" href="#">تغير كلمة المرور</a></li>
+                <li><a class="icon icon-data" href="{{route('website.reset.index')}}">تغير كلمة المرور</a></li>
                 <li><a class="icon icon-location" href="{{route('website.signup.index')}}"><i class="fa fa-user-plus"></i>تسجيل حساب جديد</a></li>
                 <li><a class="icon icon-study" href="#">صفحة الاختبار</a></li>
-                <li><a class="icon icon-photo" href="#"><i class="fa fa-lock"></i>سياسة الخصوصية</a></li>
+                <li><a class="icon icon-photo" href="{{route('trainer.trainer.index')}}"><i class="fa fa-lock"></i>سياسة الخصوصية</a></li>
             </ul>
         </nav>
         <div class="st-content">

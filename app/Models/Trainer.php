@@ -4,12 +4,13 @@ namespace App\Models;
 
 use App\Traits\passwordTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Traits\photoTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 class Trainer extends Authenticatable
 {
-    use HasFactory, passwordTrait;
+    use HasFactory, passwordTrait, photoTrait;
 
     protected $fillable = [
         'name',

@@ -113,56 +113,6 @@
                                                     <p> {{ $remark->body }} </p>
                                                 </a>
                                             </li>
-                                            {{-- <li>
-                                                <a href="#">
-                                                    <img src="{{ asset('assets/images/avatar04.png')}}" alt="" class="img-circle pull-right">
-                                                    <h4>
-                                                        حسني اديب
-                                                        <small><i class="fa fa-clock-o"></i>5 دقائق</small>
-                                                    </h4>
-                                                    <p> هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img src="{{ asset('assets/images/avatar3.png')}}" alt="" class="img-circle pull-right">
-                                                    <h4>
-                                                        مني سلامة
-                                                        <small><i class="fa fa-clock-o"></i>5 دقائق</small>
-                                                    </h4>
-                                                    <p> هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img src="{{ asset('assets/images/b3.jpg')}}" alt="" class="img-circle pull-right">
-                                                    <h4>
-                                                        امير ناجح
-                                                        <small><i class="fa fa-clock-o"></i>5 دقائق</small>
-                                                    </h4>
-                                                    <p> هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img src="{{ asset('assets/images/avatar04.png')}}" alt="" class="img-circle pull-right">
-                                                    <h4>
-                                                        حسني اديب
-                                                        <small><i class="fa fa-clock-o"></i>5 دقائق</small>
-                                                    </h4>
-                                                    <p> هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img src="{{ asset('assets/images/avatar3.png')}}" alt="" class="img-circle pull-right">
-                                                    <h4>
-                                                        مني سلامة
-                                                        <small><i class="fa fa-clock-o"></i>5 دقائق</small>
-                                                    </h4>
-                                                    <p> هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.</p>
-                                                </a>
-                                            </li> --}}
                                             @endforeach
                                         </ul>
                                     </div>
