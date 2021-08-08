@@ -7,6 +7,7 @@ use App\Http\Requests\Interest\StoreRequest;
 use App\Models\Course;
 use App\Models\Interest;
 use App\Models\Trainer;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -20,6 +21,7 @@ class ProfileController extends Controller
     {
         //
         $trainers = Trainer::get();
+        $users = User::get();
         $interests = Interest::get();
         $courses = Course::orderBy('id','DESC')->paginate(6);
         $courses = Course::WithAvg('review','rate')->orderBy('id','DESC')->paginate();
@@ -29,7 +31,7 @@ class ProfileController extends Controller
         // {
         //  return  $re->rate;
         // }
-       return view('website.profile',compact('courses','trainers','interests'));
+       return view('website.profile',compact('courses','trainers','interests','users'));
     }
 
     /**

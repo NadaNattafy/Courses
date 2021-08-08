@@ -24,7 +24,6 @@ class AuthController extends Controller
 
     public function TrainerLogin(StoreRequest $request)
     {
-
         $credentials = $request->only('email', 'password');
         if (auth()-> guard('trainer') ->attempt($credentials)) {
 
@@ -51,7 +50,7 @@ class AuthController extends Controller
         if(Auth::guard('trainer')->check())
          {
             Auth::guard('trainer')->logout();
-            return redirect('/home');
+            return redirect('/home')->route('marketer.login');
         }
 
     }

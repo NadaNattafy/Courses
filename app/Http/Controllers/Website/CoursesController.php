@@ -56,6 +56,7 @@ class CoursesController extends Controller
     {
         //
         $lessons=Lesson::where('course_id',$course->id)->get();
+       // dd(auth()->user()->id);
         return view('website.courses.course' ,compact('lessons','course'));
     }
 

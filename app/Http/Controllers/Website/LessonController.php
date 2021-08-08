@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Lesson\StoreRequest;
 use App\Models\Course;
 use App\Models\Lesson;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class LessonController extends Controller
@@ -44,7 +45,6 @@ class LessonController extends Controller
     public function store(StoreRequest $request)
     {
         //
-        dd('kxjgkfh');
         $lesson =  Lesson::create($request->validated());
 
         if ($request->has('file')) {

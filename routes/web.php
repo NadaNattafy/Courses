@@ -78,6 +78,12 @@ Route::group(['prefix' => '/', 'as' => 'website.', 'namespace' => 'App\Http\Cont
 
    Route::get('send', [NotificationController::class, 'sendNotification'])->name('send');
 
+   Route::post('trainer.login', [AuthController::class, 'trainerLogin'])->name('login.trainer');
+
+   Route::get('/trainer.login', [AuthController::class, 'trainerLogin@save'])-> name('save.trainer.login');
+
+   Route::post('logout-trainer', [AuthController::class, 'logouttrainer'])->name('logout.trainer');
+
    Route::post('/rate/{course}', 'ReviewController@courseStar')->name('courseStar');
 
    Route::get('/forget-password', [ForgotPassController::class, 'showForgetPasswordForm'])->name('forget.password.get');
@@ -92,6 +98,8 @@ Route::group(['prefix' => '/', 'as' => 'trainer.', 'namespace' => 'App\Http\Cont
     Route::resource('trainer', TrainerController::class);
 
     Route::resource('trainerlogin', TrainerLoginController::class);
+
+
 
 });
 
