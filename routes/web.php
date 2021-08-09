@@ -2,14 +2,8 @@
 
 use App\Http\Controllers\Website\AuthController;
 use App\Http\Controllers\Website\NotificationController;
-use App\Http\Controllers\Website\CourseController;
-use App\Http\Controllers\Website\ForgetPassController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
-use function App\Helpers\changeDateFormate;
-use function App\Helpers\getImage;
-use function App\Helpers\uploadImage;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +14,7 @@ use function App\Helpers\uploadImage;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::group(['prefix' => '/', 'as' => 'website.', 'namespace' => 'App\Http\Controllers\Website'], function () {
 
@@ -66,30 +60,30 @@ Route::group(['prefix' => '/', 'as' => 'website.', 'namespace' => 'App\Http\Cont
 
     Route::resource('review', ReviewController::class);
 
-   Route::post('user-login', [AuthController::class, 'userLogin'])->name('login.user');
+    Route::post('user-login', [AuthController::class, 'userLogin'])->name('login.user');
 
-   Route::post('trainer.login', [AuthController::class, 'trainerLogin'])->name('login.trainer');
+    Route::post('trainer.login', [AuthController::class, 'trainerLogin'])->name('login.trainer');
 
-   Route::get('/trainer.login', [AuthController::class, 'trainerLogin@save'])-> name('save.trainer.login');
+    Route::get('/trainer.login', [AuthController::class, 'trainerLogin@save'])->name('save.trainer.login');
 
-   Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-   Route::post('logout-trainer', [AuthController::class, 'logouttrainer'])->name('logout.trainer');
+    Route::post('logout-trainer', [AuthController::class, 'logouttrainer'])->name('logout.trainer');
 
-   Route::get('send', [NotificationController::class, 'sendNotification'])->name('send');
+    Route::get('send', [NotificationController::class, 'sendNotification'])->name('send');
 
-   Route::post('trainer.login', [AuthController::class, 'trainerLogin'])->name('login.trainer');
+    Route::post('trainer.login', [AuthController::class, 'trainerLogin'])->name('login.trainer');
 
-   Route::get('/trainer.login', [AuthController::class, 'trainerLogin@save'])-> name('save.trainer.login');
+    // Route::get('/trainer.login', [AuthController::class, 'trainerLogin@save'])->name('save.trainer.login');
 
-   Route::post('logout-trainer', [AuthController::class, 'logouttrainer'])->name('logout.trainer');
+    // Route::post('logout-trainer', [AuthController::class, 'logouttrainer'])->name('logout.trainer');
 
-   Route::post('/rate/{course}', 'ReviewController@courseStar')->name('courseStar');
+    Route::post('/rate/{course}', 'ReviewController@courseStar')->name('courseStar');
 
-   Route::get('/forget-password', [ForgotPassController::class, 'showForgetPasswordForm'])->name('forget.password.get');
-Route::post('forget-password', [ForgotPassController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
-Route::get('reset-password/{token}', [ForgotPassController::class, 'showResetPasswordForm'])->name('reset.password.get');
-Route::post('reset-password', [ForgotPassController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+    Route::get('/forget-password', [ForgotPassController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+    Route::post('forget-password', [ForgotPassController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
+    Route::get('reset-password/{token}', [ForgotPassController::class, 'showResetPasswordForm'])->name('reset.password.get');
+    Route::post('reset-password', [ForgotPassController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 });
 
@@ -99,7 +93,13 @@ Route::group(['prefix' => '/', 'as' => 'trainer.', 'namespace' => 'App\Http\Cont
 
     Route::resource('trainerlogin', TrainerLoginController::class);
 
+    Route::get('/login-trainer', [AuthenticatedSessionController::class, 'create'])
+        ->middleware('guest')
+        ->name('login.trainer');
 
+    Route::post('/logout-trainer-trainer', [AuthenticatedSessionController::class, 'destroy'])
+        ->middleware('auth')
+        ->name('logout.trainer');
 
 });
 
@@ -107,8 +107,6 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Route::get('send-mail', [WelcomeController::class, 'mailSend']);
-
-

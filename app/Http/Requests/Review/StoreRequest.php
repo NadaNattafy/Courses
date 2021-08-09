@@ -27,7 +27,7 @@ class StoreRequest extends FormRequest
             //
             'rate' => ['required', 'in:1,2,3,4,5'],
             'comment' => 'nullable',
-            'course_id' => 'required',
+            'course_id' => 'nullable',
             'user_id' => 'nullable',
         ];
     }

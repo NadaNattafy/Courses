@@ -16,6 +16,8 @@ class AlertController extends Controller
     public function index()
     {
         //
+        //$count = Remark::where('id',$id)->count();
+       // $count = Remark::where('status','=','1')->count();
         $remarks = Remark::get();
         return view('website.courses.course-alert',compact('remarks'));
     }

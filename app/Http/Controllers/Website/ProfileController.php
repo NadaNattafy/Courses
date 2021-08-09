@@ -35,7 +35,7 @@ class ProfileController extends Controller
         // {
         //  return  $re->rate;
         // }
-       return view('website.profile',compact('courses','trainers','interests','users','remarks'));
+       return view('website.profile',compact('courses','trainers','interests','users','remarks','lessons'));
     }
 
     /**
