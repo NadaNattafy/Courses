@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\Website\AuthController;
+//use App\Http\Controllers\Trainer\AuthenticatedSessionController;
 use App\Http\Controllers\Website\NotificationController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -72,7 +74,7 @@ Route::group(['prefix' => '/', 'as' => 'website.', 'namespace' => 'App\Http\Cont
 
     Route::get('send', [NotificationController::class, 'sendNotification'])->name('send');
 
-    Route::post('trainer.login', [AuthController::class, 'trainerLogin'])->name('login.trainer');
+   // Route::post('trainer.login', [AuthController::class, 'trainerLogin'])->name('login.trainer');
 
     // Route::get('/trainer.login', [AuthController::class, 'trainerLogin@save'])->name('save.trainer.login');
 
@@ -93,13 +95,17 @@ Route::group(['prefix' => '/', 'as' => 'trainer.', 'namespace' => 'App\Http\Cont
 
     Route::resource('trainerlogin', TrainerLoginController::class);
 
-    Route::get('/login-trainer', [AuthenticatedSessionController::class, 'create'])
+    Route::get('/trainer-login', [AuthenticatedSessionController::class, 'create'])
         ->middleware('guest')
-        ->name('login.trainer');
+        ->name('trainer.login');
+
+        Route::post('/login-trainer', [AuthenticatedSessionController::class, 'store'])
+                ->middleware('login.trainer');
 
     Route::post('/logout-trainer-trainer', [AuthenticatedSessionController::class, 'destroy'])
         ->middleware('auth')
         ->name('logout.trainer');
+
 
 });
 

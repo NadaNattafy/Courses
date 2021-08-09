@@ -288,7 +288,7 @@ label.star:before {
     <div class="intro-container col-xs-12">
         <div class="intro-head text-center">
             <div class="container">
-                <h1>كورس البرمجة بلغة الجافا</h1>
+                <h1>{{ $course->name }}</h1>
             </div>
             <!-- /.container -->
         </div>

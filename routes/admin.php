@@ -32,9 +32,12 @@ Route::group(['prefix'=>'admin','as'=>'admin.','namespace'=>'App\Http\Controller
 
     Route::resource('settings', SettingController::class);
 
-    Route::get('/login-admin', [AuthenticatedSessionController::class, 'create'])
+    Route::get('/admin-login', [AuthenticatedSessionController::class, 'create'])
         ->middleware('guest')
-        ->name('login.admin');
+        ->name('admin.login');
+
+        Route::post('/login-admin', [AuthenticatedSessionController::class, 'store'])
+        ->middleware('login.admin');
 
     Route::post('/logout-admin', [AuthenticatedSessionController::class, 'destroy'])
         ->middleware('auth')
