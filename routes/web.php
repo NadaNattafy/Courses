@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Website\AuthController;
-//use App\Http\Controllers\Trainer\Auth\AuthenticatedSessionController;
+// use App\Http\Controllers\Trainer\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Website\NotificationController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -70,7 +70,7 @@ Route::group(['prefix' => '/', 'as' => 'website.', 'namespace' => 'App\Http\Cont
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::post('logout-trainer', [AuthController::class, 'logouttrainer'])->name('logout.trainer');
+    // Route::post('logout-trainer', [AuthController::class, 'logouttrainer'])->name('logout.trainer');
 
     Route::get('send', [NotificationController::class, 'sendNotification'])->name('send');
 
@@ -86,26 +86,6 @@ Route::group(['prefix' => '/', 'as' => 'website.', 'namespace' => 'App\Http\Cont
     Route::post('forget-password', [ForgotPassController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
     Route::get('reset-password/{token}', [ForgotPassController::class, 'showResetPasswordForm'])->name('reset.password.get');
     Route::post('reset-password', [ForgotPassController::class, 'submitResetPasswordForm'])->name('reset.password.post');
-
-});
-
-Route::group(['prefix' => '/', 'as' => 'trainer.', 'namespace' => 'App\Http\Controllers\Trainer'], function () {
-
-    Route::resource('trainer', TrainerController::class);
-
-    Route::resource('trainerlogin', TrainerLoginController::class);
-
-    Route::get('/login-trainer', [AuthenticatedSessionController::class, 'create'])
-        ->middleware('guest')
-        ->name('login.trainer');
-
-        Route::post('/login-trainer', [AuthenticatedSessionController::class, 'store'])
-                ->middleware('guest');
-
-    Route::post('/logout-trainer-trainer', [AuthenticatedSessionController::class, 'destroy'])
-        ->middleware('auth')
-        ->name('logout.trainer');
-
 
 });
 

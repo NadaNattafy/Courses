@@ -27,6 +27,24 @@ class RedirectIfAuthenticated
             }
         }
 
+        switch ($guard) {
+            case 'admin':
+              if (Auth::guard($guard)->check()) {
+                return redirect()->route('admin.dashboard');
+              }
+
+              case 'trainer':
+                if (Auth::guard($guard)->check()) {
+                  return redirect()->route('trainer.trainerlogin');
+                }
+
+            default:
+              if (Auth::guard($guard)->check()) {
+                  return redirect('/');
+              }
+              break;
+          }
+
         // if ($guard == "user" && Auth::guard($guard)->check()) {
         //     return redirect('/user');
         // }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 
 
 // Admin Routes
@@ -12,7 +13,7 @@ Route::get('admin/home', function () {
     return view('admin.layout.index');
 });
 
-Route::group(['prefix'=>'admin','as'=>'admin.','namespace'=>'App\Http\Controllers\Admin'], function () {
+Route::group(['prefix'=>'admin','as'=>'admin.','namespace'=>'App\Http\Controllers\Admin','middleware'=>'auth:admin'], function () {
 
     Route::resource('admins', AdminController::class);
 
@@ -31,18 +32,18 @@ Route::group(['prefix'=>'admin','as'=>'admin.','namespace'=>'App\Http\Controller
     Route::resource('useropinions', UserOpinionController::class);
 
     Route::resource('settings', SettingController::class);
-
-    Route::get('/admin-login', [AuthenticatedSessionController::class, 'create'])
-        ->middleware('guest')
-        ->name('admin.login');
-
-        Route::post('/login-admin', [AuthenticatedSessionController::class, 'store'])
-        ->middleware('login.admin');
-
-    Route::post('/logout-admin', [AuthenticatedSessionController::class, 'destroy'])
-        ->middleware('auth')
-        ->name('logout.admin');
 });
+
+Route::get('/login-admin', [AuthenticatedSessionController::class, 'create'])
+        ->middleware('guest')
+        ->name('login');
+
+        Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+        ->middleware('login');
+
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+        ->middleware('auth:admin')
+        ->name('logout');
 
 //Route::resources
 

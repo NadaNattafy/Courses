@@ -17,7 +17,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
-        return view('trainer.login.trainer');
+        return view('auth.login');
     }
 
     /**
@@ -43,6 +43,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request)
     {
+
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();

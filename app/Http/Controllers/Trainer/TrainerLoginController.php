@@ -14,7 +14,7 @@ class TrainerLoginController extends Controller
      */
     public function index()
     {
-        //
+
         return view('website.trainerlogin');
     }
 
@@ -25,7 +25,7 @@ class TrainerLoginController extends Controller
      */
     public function create()
     {
-        //
+        dd("hi");
     }
 
     /**
@@ -36,7 +36,7 @@ class TrainerLoginController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

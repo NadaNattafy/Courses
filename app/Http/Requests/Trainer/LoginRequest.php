@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Auth;
+namespace App\Http\Requests\Trainer;
 
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
@@ -43,6 +43,7 @@ class LoginRequest extends FormRequest
      */
     public function authenticate()
     {
+
         $this->ensureIsNotRateLimited();
 
         if (! Auth::guard('trainer')->attempt($this->only('email', 'password'), $this->boolean('remember'))) {

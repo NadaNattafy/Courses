@@ -178,8 +178,8 @@
 
                                     @guest
                                         <li>
-                                            <a href="{{ route('trainer.trainerlogin.index') }}" class="show-login">
-                                                <i class="fa fa-user"></i> منطثة تسجيل االمدرب
+                                            <a href="#" class="show-login">
+                                                <i class="fa fa-user"></i> منطقة تسجيل المدرب
                                             </a>
                                         </li>
                                     @endguest
@@ -196,16 +196,16 @@
                                         </li>
                                     @endauth
 
-                                    @auth
+                                    @auth('trainer')
                                         <li>
                                             {{-- <a href="#"> --}}
-                                            <a href="{{ route('trainer.logout.trainer') }}" onclick="event.preventDefault(); document.getElementById('logout_form').submit()">
+                                            <a href="#" onclick="event.preventDefault(); document.getElementById('logout_form_trainer').submit()">
                                                 <i class="fa fa-user"></i> منطقة تسجيل خروج
-                                                <form id="logout_form" action="{{ route('trainer.logout.trainer') }}" method="POST"
+                                            </a>
+                                            <form id="logout_form_trainer" action="{{ route('trainer.logout') }}" method="POST"
                                                 style="display: none;">
                                               @csrf
                                           </form>
-                                            </a>
                                         </li>
                                     @endauth
                                     <!--
