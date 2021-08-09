@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Website\AuthController;
-//use App\Http\Controllers\Trainer\AuthenticatedSessionController;
+//use App\Http\Controllers\Trainer\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Website\NotificationController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -95,12 +95,12 @@ Route::group(['prefix' => '/', 'as' => 'trainer.', 'namespace' => 'App\Http\Cont
 
     Route::resource('trainerlogin', TrainerLoginController::class);
 
-    Route::get('/trainer-login', [AuthenticatedSessionController::class, 'create'])
+    Route::get('/login-trainer', [AuthenticatedSessionController::class, 'create'])
         ->middleware('guest')
-        ->name('trainer.login');
+        ->name('login.trainer');
 
         Route::post('/login-trainer', [AuthenticatedSessionController::class, 'store'])
-                ->middleware('login.trainer');
+                ->middleware('guest');
 
     Route::post('/logout-trainer-trainer', [AuthenticatedSessionController::class, 'destroy'])
         ->middleware('auth')

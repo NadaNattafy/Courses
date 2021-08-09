@@ -83,7 +83,7 @@
                 <!-- /.error-detect -->
             </header>
 <div class="container">
-    <form action="{{ route('trainer.login.trainer') }}" method="POST">
+    <form action="{{ route('login.trainer') }}" method="POST">
         @csrf
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
