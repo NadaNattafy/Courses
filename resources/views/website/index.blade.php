@@ -158,7 +158,7 @@
                     <div class="container">
                         <div class="nav-right col-md-8 col-xs-12 pull-right">
                             <div class="logo">
-                                <a href="index.html" title="العلوم العصرية للتدريب">
+                                <a href="{{route('website.home.index')}}" title="العلوم العصرية للتدريب">
                                     <img src="{{ asset('assets/images/logo.png') }}" alt="site-logo" width="110" height="70">
                                 </a>
                             </div>
@@ -168,35 +168,21 @@
                         <div class="nav-left col-md-4 col-xs-12 pull-left">
                             <div class="user-controls">
                                 <ul>
-                                    @guest
-                                        <li>
-                                            <a href="#" class="show-login">
-                                                <i class="fa fa-user"></i> منطقة تسجيل الدخول
-                                            </a>
-                                        </li>
-                                    @endguest
 
-                                    @guest('trainer')
-                                        <li>
-                                            <a href="{{route('trainer.trainerlogin.index')}}" class="show-login">
-                                                <i class="fa fa-user"></i> منطقة تسجيل المدرب
-                                            </a>
-                                        </li>
-                                    @endguest
-                                    @auth
-                                        <li>
-                                            {{-- <a href="#"> --}}
-                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout_form').submit()">
-                                                <i class="fa fa-user"></i> منطقة تسجيل خروج
-                                                <form id="logout_form" action="{{ route('logout') }}" method="POST"
-                                                style="display: none;">
-                                              @csrf
-                                          </form>
-                                            </a>
-                                        </li>
-                                    @endauth
-
-                                    @auth('trainer')
+                                   @if(auth('web')->check() || auth('trainer')->check() )
+                                                @auth
+                                                <li>
+                                                    {{-- <a href="#"> --}}
+                                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout_form').submit()">
+                                                        <i class="fa fa-user"></i> منطقة تسجيل خروج
+                                                        <form id="logout_form" action="{{ route('logout') }}" method="POST"
+                                                        style="display: none;">
+                                                        @csrf
+                                                    </form>
+                                                    </a>
+                                                </li>
+                                            @endauth
+                                        @auth('trainer')
                                         <li>
                                             {{-- <a href="#"> --}}
                                             <a href="#" onclick="event.preventDefault(); document.getElementById('logout_form_trainer').submit()">
@@ -204,10 +190,25 @@
                                             </a>
                                             <form id="logout_form_trainer" action="{{ route('trainer.logout') }}" method="POST"
                                                 style="display: none;">
-                                              @csrf
-                                          </form>
+                                                @csrf
+                                            </form>
                                         </li>
                                     @endauth
+
+                                    @else
+                                    <li>
+                                        <a href="#" class="show-login">
+                                            <i class="fa fa-user"></i> منطقة تسجيل الدخول
+                                        </a>
+                                    </li>
+                           
+                                    <li>
+                                        <a href="{{route('trainer.trainerlogin.index')}}" class="show-login">
+                                            <i class="fa fa-user"></i> منطقة تسجيل المدرب
+                                        </a>
+                                    </li>
+                            
+                               @endif
                                     <!--
                             <li>
 <a href="#">
