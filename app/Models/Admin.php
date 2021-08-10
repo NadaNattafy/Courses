@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use App\Traits\passwordTrait;
-
-class Admin extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+class Admin  extends Authenticatable
 {
     use HasFactory;
     use passwordTrait;

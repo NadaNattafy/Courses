@@ -82,33 +82,53 @@
                 </div>
                 <!-- /.error-detect -->
             </header>
-<div class="container">
-    <form action="{{ route('trainer.login') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <div class="login-item">
-            <input type="email" name="email" placeholder="بريد المستخدم">
-        </div>
-        <!-- /.login-item -->
-        <div class="login-item">
-            <input type="password" name="password" placeholder="كلمة السر">
-        </div>
 
-        <!-- /.login-item -->
-        <div class="login-item">
-            <label class="pull-right">
-                <input type="checkbox">
-                <span>تذكر كلمة السر دائماً</span>
-            </label>
-            <label class="pull-left">
-                <a href="#" class="forget">هل نسيت كلمة المرور ؟</a>
-            </label>
+<div class="up-container">
+    <div class="up-header text-center">
+        <div class="container">
+            <h1>تسجيل الدخول المدرب</h1>
         </div>
-        <!-- /.login-item -->
-        <div class="login-item">
-            <input type="submit" value="دخول">
+        <!-- /.container -->
+    </div>
+    <!-- /.up-header -->
+    <div class="up-box">
+        <div class="container">
+            <div class="up-form forget-panel">
+
+                <form action="{{ route('trainer.login') }}" method="POST" >
+                    @csrf
+                    <div class="login-item">
+                        <input type="email" name="email" placeholder="بريد المستخدم">
+                    </div>
+                    <!-- /.login-item -->
+                    <div class="login-item">
+                        <input type="password" name="password" placeholder="كلمة السر">
+                    </div>
+            
+                    <!-- /.login-item -->
+                    <div class="login-item">
+                        <label class="pull-right">
+                            <input type="checkbox">
+                            <span>تذكر كلمة السر دائماً</span>
+                        </label>
+                        <label class="pull-left">
+                            <a href="#" class="forget">هل نسيت كلمة المرور ؟</a>
+                        </label>
+                    </div>
+                    <!-- /.login-item -->
+                    <div class="login-item">
+                        <input type="submit" value="دخول">
+                    </div>
+                </form>
+
+            </div>
+            <!-- /.up-form -->
         </div>
-    </form>
+        <!-- /.container -->
+    </div>
+    <!-- /.up-box -->
 </div>
+
 @endsection
 
 @push('script')

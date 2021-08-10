@@ -1283,6 +1283,12 @@ footer {
     display: none;
 }
 
+.login-area-trainer {
+    padding: 30px 0;
+    background-color: #1ABC9C;
+    display: none;
+}
+
 .login-form,
 .signup-form {
     padding: 0 20px;

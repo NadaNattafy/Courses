@@ -231,7 +231,7 @@
                     @foreach ($courses as $course)
                     <div class="block col-md-4 col-sm-6">
                         <figure>
-                            <div><img src="{{ asset('assets/images/b3.jpg') }}" alt="img05"
+                            <div><img src="{{url('/').'/storage/'.$course -> img}}"alt="img05"
                                     class="img-responsive">
                             </div>
                             <figcaption class="text-right">

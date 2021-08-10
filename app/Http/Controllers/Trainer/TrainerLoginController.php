@@ -25,7 +25,6 @@ class TrainerLoginController extends Controller
      */
     public function create()
     {
-        dd("hi");
     }
 
     /**

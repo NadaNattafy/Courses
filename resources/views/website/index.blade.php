@@ -83,7 +83,7 @@
                     <!-- /.container -->
                 </div>
                 <!-- /.error-detect -->
-            @guest
+            
                 <div class="login-area">
                     <div class="container">
                         <div class="login-form col-md-6 col-xs-12 text-right pull-right">
@@ -120,7 +120,7 @@
                         <div class="signup-form col-md-6 col-xs-12 text-right">
                             <h1>تسجيل عضوية جديدة</h1>
                             <p>اذا كنت مستخدم جديد لموقعنا فيمكنك ان تتصفح معظم الكورسات الموجودة الان امامك ولكن لن تستطيع الحصول علي معلومات الكورس او الاشتراك به الا اذا كنت تمتلك حساب لدينا لذلك تستطيع تسجيل حساب جديد من هنا </p>
-                            <a href="signup.html">
+                            <a href="{{route('website.signup.index')}}">
                                 <i class="fa fa-user-plus"></i> تسجيل عضوية
                             </a>
                         </div>
@@ -152,78 +152,6 @@
                     </div>
                     <!-- /.container -->
                 </div>
-@endguest
-@auth('trainer')
-                <div class="login-area-trainer">
-                    <div class="container">
-                        <div class="login-form col-md-6 col-xs-12 text-right pull-right">
-                            <h1> تسجيل الدخول المدرب</h1>
-                            <form action="{{ route('trainer.login') }}" method="POST" >
-                                @csrf
-                                <div class="login-item">
-                                    <input type="email" name="email" placeholder="بريد المستخدم">
-                                </div>
-                                <!-- /.login-item -->
-                                <div class="login-item">
-                                    <input type="password" name="password" placeholder="كلمة السر">
-                                </div>
-
-                                <!-- /.login-item -->
-                                <div class="login-item">
-                                    <label class="pull-right">
-                                        <input type="checkbox">
-                                        <span>تذكر كلمة السر دائماً</span>
-                                    </label>
-                                    <label class="pull-left">
-                                        <a href="#" class="forget">هل نسيت كلمة المرور ؟</a>
-                                    </label>
-                                </div>
-                                <!-- /.login-item -->
-                                <div class="login-item">
-                                    <input type="submit" value="دخول">
-                                </div>
-                            </form>
-                            <!-- /.login-item -->
-                        </div>
-                        <!-- /.login-form -->
-
-                        <div class="signup-form col-md-6 col-xs-12 text-right">
-                            <h1>تسجيل عضوية جديدة</h1>
-                            <p>اذا كنت مستخدم جديد لموقعنا فيمكنك ان تتصفح معظم الكورسات الموجودة الان امامك ولكن لن تستطيع الحصول علي معلومات الكورس او الاشتراك به الا اذا كنت تمتلك حساب لدينا لذلك تستطيع تسجيل حساب جديد من هنا </p>
-                            <a href="signup.html">
-                                <i class="fa fa-user-plus"></i> تسجيل عضوية
-                            </a>
-                        </div>
-                        <!-- /.signup-form -->
-
-                        <!-- =========================================================================================================================================== -->
-                        <form action="{{ route('trainer.password.email') }}" method="POST">
-                            @csrf
-
-                        <div class="panel-pop modal" id="forget">
-                            <div class="lost-inner">
-                                <h1>هل نسيت كلمة المرور ؟</h1>
-                                <div class="lost-item">
-                                    <input type="text" placeholder="الايميل المستخدم في تسجيل الدخول" name="email">
-                                </div>
-                                <!-- /.lost-item -->
-                                <div class="text-center">
-                                    <input type="submit" value="إعادة ضبط">
-                                </div>
-                                <!-- /.lost-item -->
-                            </div>
-                            <!-- /.lost-inner -->
-                        </div>
-                    </form>
-                        <!-- /.modal -->
-
-                        <!-- =========================================================================================================================================== -->
-
-                    </div>
-                    <!-- /.container -->
-                </div>
-                <!-- /.login-area -->
-                @endauth
 
 
                 <div class="header-nav">
@@ -248,9 +176,9 @@
                                         </li>
                                     @endguest
 
-                                    @guest
+                                    @guest('trainer')
                                         <li>
-                                            <a href="#" class="show-login-trainer">
+                                            <a href="{{route('trainer.trainerlogin.index')}}" class="show-login">
                                                 <i class="fa fa-user"></i> منطقة تسجيل المدرب
                                             </a>
                                         </li>
@@ -403,7 +331,7 @@
         <!-- /.row -->
 
         <div class="all-courses text-center">
-            <a href="all-courses.html">عرض جميع الكورسات</a>
+            <a href="{{route('website.allcourses.index')}}">عرض جميع الكورسات</a>
         </div>
         <!-- /.all-courses -->
 

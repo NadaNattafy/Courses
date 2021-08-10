@@ -1,4 +1,4 @@
-@extends('admin.layout.master')
+@extends('admin.layout.login')
 
 @section('style')
 
@@ -13,6 +13,7 @@
 @endsection
 
 @section('content')
+<div class="container">
 
 <div class="account-pages"></div>
 <div class="clearfix"></div>
@@ -25,19 +26,24 @@
         <div class="text-center">
             <h4 class="text-uppercase font-bold m-b-0">Sign In</h4>
         </div>
+    
         <div class="panel-body">
-            <form method="POST" action="#">
+            <form method="POST" action="{{route('admin.admin.login')}}">
                 @csrf
-
                 <div class="form-group ">
                     <div class="col-xs-12">
-                        <input class="form-control" type="text" required="" placeholder="Username">
+                        <input class="form-control" type="text" name="email" required="" placeholder="email">
+                        @if ($errors->has('email'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <input class="form-control" type="password" required="" placeholder="Password">
+                        <input class="form-control" type="password" required="" name="password" placeholder="Password">
                         @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -81,7 +87,7 @@
             <p class="text-muted">Don't have an account? <a href="page-register.html" class="text-primary m-l-5"><b>Sign Up</b></a></p>
         </div>
     </div>
-
+</div>
 </div>
 @endsection
 
@@ -103,7 +109,7 @@
  <script src="{{asset('_dashboard/assets/js/jquery.scrollTo.min.js')}}"></script>
 
  <!-- App js -->
- <script src="assets/js/jquery.core.js"></script>
- <script src="assets/js/jquery.app.js"></script>
+ <script src="{{asset('_dashboard/assets/js/jquery.core.js')}}"></script>
+ <script src="{{asset('_dashboard/assets/js/jquery.app.js')}}"></script>
 
  @endpush
