@@ -83,7 +83,7 @@
                 <!-- /.error-detect -->
             </header>
 <div class="container">
-    <form action="{{ route('login') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('trainer.login') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="login-item">
             <input type="email" name="email" placeholder="بريد المستخدم">

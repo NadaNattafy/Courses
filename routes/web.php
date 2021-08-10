@@ -64,21 +64,9 @@ Route::group(['prefix' => '/', 'as' => 'website.', 'namespace' => 'App\Http\Cont
 
     Route::post('user-login', [AuthController::class, 'userLogin'])->name('login.user');
 
-    Route::post('trainer.login', [AuthController::class, 'trainerLogin'])->name('login.trainer');
-
-    Route::get('/trainer.login', [AuthController::class, 'trainerLogin@save'])->name('save.trainer.login');
-
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-    // Route::post('logout-trainer', [AuthController::class, 'logouttrainer'])->name('logout.trainer');
+    //Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::get('send', [NotificationController::class, 'sendNotification'])->name('send');
-
-   // Route::post('trainer.login', [AuthController::class, 'trainerLogin'])->name('login.trainer');
-
-    // Route::get('/trainer.login', [AuthController::class, 'trainerLogin@save'])->name('save.trainer.login');
-
-    // Route::post('logout-trainer', [AuthController::class, 'logouttrainer'])->name('logout.trainer');
 
     Route::post('/rate/{course}', 'ReviewController@courseStar')->name('courseStar');
 
@@ -87,7 +75,30 @@ Route::group(['prefix' => '/', 'as' => 'website.', 'namespace' => 'App\Http\Cont
     Route::get('reset-password/{token}', [ForgotPassController::class, 'showResetPasswordForm'])->name('reset.password.get');
     Route::post('reset-password', [ForgotPassController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
+    Route::get('/login', [AuthenticatedSessionController::class, 'create'])
+    ->middleware('guest')
+    ->name('login');
+
+    Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+    ->name('login')
+            ->middleware('guest');
+
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('logout');
+
+    Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
+                ->middleware('guest')
+                ->name('password.request');
+
+Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
+                ->middleware('guest')
+                ->name('password.email');
+    
+
 });
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

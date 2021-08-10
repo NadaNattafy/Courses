@@ -53,6 +53,19 @@ $(document).ready(function () {
         $('.login-area,.signup-area').stop();
         $('.login-area,.signup-area').slideToggle(400);
 
+        $('.login-area,.signup-area').stop();
+        $('.login-area,.signup-area').slideUp(400);
+
+    });
+
+    //for Login area Trainer
+    $('.show-login-trainer').on("click", function () {
+        $('.login-area-trainer,.signup-area').stop();
+        $('.login-area-trainer,.signup-area').slideToggle(400);
+
+        $('.login-area-trainer,.signup-area').stop();
+        $('.login-area-trainer,.signup-area').slideUp(400);
+
     });
 
     $('#ko').click(function () {

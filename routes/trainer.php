@@ -22,5 +22,13 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth:trainer')
     ->name('logout');
 
+    Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
+                ->middleware('guest')
+                ->name('password.request');
+
+Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
+                ->middleware('guest')
+                ->name('password.email');
+
 
 });

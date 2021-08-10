@@ -32,18 +32,20 @@ Route::group(['prefix'=>'admin','as'=>'admin.','namespace'=>'App\Http\Controller
     Route::resource('useropinions', UserOpinionController::class);
 
     Route::resource('settings', SettingController::class);
+
+    
+Route::get('/login', [AuthenticatedSessionController::class, 'create'])
+->middleware('guest')
+->name('login');
+
+Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+->middleware('login');
+
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+->middleware('auth:admin')
+->name('logout');
 });
 
-Route::get('/login-admin', [AuthenticatedSessionController::class, 'create'])
-        ->middleware('guest')
-        ->name('login');
-
-        Route::post('/login', [AuthenticatedSessionController::class, 'store'])
-        ->middleware('login');
-
-    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
-        ->middleware('auth:admin')
-        ->name('logout');
 
 //Route::resources
 

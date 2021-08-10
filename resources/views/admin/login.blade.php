@@ -26,7 +26,8 @@
             <h4 class="text-uppercase font-bold m-b-0">Sign In</h4>
         </div>
         <div class="panel-body">
-            <form class="form-horizontal m-t-20" action="index.html">
+            <form method="POST" action="#">
+                @csrf
 
                 <div class="form-group ">
                     <div class="col-xs-12">
@@ -37,6 +38,12 @@
                 <div class="form-group">
                     <div class="col-xs-12">
                         <input class="form-control" type="password" required="" placeholder="Password">
+                        @if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+
                     </div>
                 </div>
 
