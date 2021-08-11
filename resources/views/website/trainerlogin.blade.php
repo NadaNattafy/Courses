@@ -20,7 +20,6 @@
 <div class="wrapper st-container" id="st-container">
     <!-- content push wrapper -->
     <div class="st-pusher">
-
         <nav class="st-menu st-effect-8" id="menu-8">
             <h2 class="icon icon-stack">
                 <img src="{{ asset('assets/images/logo.png')}}" class="img-responsive">
@@ -48,6 +47,7 @@
             </ul>
         </nav>
         <div class="st-content">
+
             <div class="dividers">
                 <span class="t1"></span>
                 <span class="t2"></span>
@@ -61,7 +61,7 @@
                 <span class="t5"></span>
             </div>
             <!-- /.dividers -->
-
+        </div>
             <div id="st-trigger-effects" class="column">
 
                 <button data-effect="st-effect-8" class="st_show">
@@ -98,7 +98,7 @@
                 <form action="{{ route('trainer.login') }}" method="POST" >
                     @csrf
                     <div class="login-item">
-                        <input type="email" name="email" placeholder="بريد المستخدم">
+                        <input type="text" name="email" placeholder="بريد المستخدم">
                     </div>
                     <!-- /.login-item -->
                     <div class="login-item">

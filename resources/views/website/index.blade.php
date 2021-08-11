@@ -62,6 +62,7 @@
                 <span class="t4"></span>
                 <span class="t5"></span>
             </div>
+        
             <!-- /.dividers -->
 
             <div id="st-trigger-effects" class="column">
@@ -83,7 +84,6 @@
                     <!-- /.container -->
                 </div>
                 <!-- /.error-detect -->
-            
                 <div class="login-area">
                     <div class="container">
                         <div class="login-form col-md-6 col-xs-12 text-right pull-right">
@@ -91,7 +91,7 @@
                             <form action="{{ route('login') }}" method="POST">
                                 @csrf
                                 <div class="login-item">
-                                    <input type="email" name="email" placeholder="بريد المستخدم">
+                                    <input type="text" name="email" placeholder="بريد المستخدم">
                                 </div>
                                 <!-- /.login-item -->
                                 <div class="login-item">
@@ -148,12 +148,9 @@
                         <!-- /.modal -->
 
                         <!-- =========================================================================================================================================== -->
-
                     </div>
                     <!-- /.container -->
                 </div>
-
-
                 <div class="header-nav">
                     <div class="container">
                         <div class="nav-right col-md-8 col-xs-12 pull-right">
@@ -209,13 +206,7 @@
                                     </li>
                             
                                @endif
-                                    <!--
-                            <li>
-<a href="#">
-    <i class="fa fa-user-plus"></i> تسجيل عضوية
-</a>
-</li>
--->
+                          
                                 </ul>
                             </div>
                             <!-- /.user-controls -->
@@ -252,7 +243,7 @@
                     <!-- end btn-container -->
                 </div>
                 <!-- /.form-item -->
-                <form id="search-course" action="{{ route('website.home.store') }}" method="get">
+            <form id="search-course" action="{{ route('website.home.store') }}" method="get">
                     @csrf
                     {{-- @dd(request('name')); --}}
                 <div class="form-advanced col-xs-12 adv-left">
@@ -283,13 +274,7 @@
                         </div>
                     </div>
                 </div>
-                </div>
             </form>
-                </div>
-                    </div>
-</div>
-                    <!-- /.advanced-item -->
-                </div>
                 <!-- /.form-advanced -->
             </form>
         </div>
@@ -325,10 +310,9 @@
                 </figure>
             </div>
             @endforeach
-
         </div>
-
-        </div>
+    </div>
+</div>
         <!-- /.row -->
 
         <div class="all-courses text-center">
@@ -339,6 +323,8 @@
     </div>
     <!-- /.conainer -->
 </div>
+
+
 <!-- /.courses -->
 
 <div class="testominal">
@@ -362,6 +348,7 @@
                 @endforeach
         </div>
     </div>
+</div>
 
 
             @endsection
