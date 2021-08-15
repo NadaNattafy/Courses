@@ -63,10 +63,10 @@
                                 <li>
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" class="hvr-underline-reveal">
                                         <span class="cont-img">
-                                            <img src="{{ asset('assets/images/comment-02.jpg') }}" width="35" height="35"
+                                            <img src="{{ url('/') . '/storage/' . $trainers->img }}" width="35" height="35"
                                                 alt="User-Img">
                                         </span>
-                                        <b>امير ناجح</b>
+                                        <b>{{ $trainers->name}}</b>
                                         <i class="fa fa-caret-down"></i>
                                     </a>
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
@@ -106,7 +106,7 @@
                                                 @foreach ($remarks as $remark)
                                                     <li>
                                                         <a href="#">
-                                                            <img src="{{ asset('assets/images/avatar5.png') }}" alt=""
+                                                            <img src="{{ url('/') . '/storage/' . $trainers->img }}"alt=""
                                                                 class="img-circle pull-right">
                                                             <h4>
                                                                 {{ $remark->title }}
@@ -145,7 +145,6 @@
     </div>
     <!-- /.input-container -->
     </div>
-
     <!-- end the loading screen -->
 
     <div class="wrapper">
@@ -165,34 +164,8 @@
                             <i class="fa fa-close"></i>
                         </a>
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active">
-
-                                <a href="#home" aria-controls="home" role="tab" data-toggle="tab">
-                                    <i class="fa fa-user"></i> الملف الشخصي
-                                </a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#password" aria-controls="password" role="tab" data-toggle="tab">
-                                    <i class="fa fa-lock"></i> كلمة المرور
-                                </a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#courses" aria-controls="courses" role="tab" data-toggle="tab">
-                                    <i class="fa fa-database"></i> الدورات
-                                </a>
-                            </li>
-
-                            <li role="presentation">
-                                <a href="#interests" aria-controls="interests" role="tab" data-toggle="tab">
-                                    <i class="fa fa-diamond"></i> الاهتمامات
-                                </a>
-                            </li>
-
-                            <li role="presentation">
-                                <a href="#cv" aria-controls="cv" role="tab" data-toggle="tab">
-                                    <i class="fa fa-file-text-o"></i> السيرة الذاتية
-                                </a>
-                            </li>
+                            @if(auth('web')->check() || auth('trainer')->check() )
+                            @auth
                             <li role="presentation">
                                 <a href="#all-courses" aria-controls="all-courses" role="tab" data-toggle="tab">
                                     <i class="fa fa-eye"></i> تصفح الدورات
@@ -210,7 +183,44 @@
                                 </a>
                             </li>
 
-                        </ul>
+                            <li role="presentation">
+                                <a href="#interests" aria-controls="interests" role="tab" data-toggle="tab">
+                                    <i class="fa fa-diamond"></i> الاهتمامات
+                                </a>
+                            </li>
+                        @endauth
+                    @auth('trainer')
+                    <li role="presentation" class="active">
+
+                        <a href="#home" aria-controls="home" role="tab" data-toggle="tab">
+                            <i class="fa fa-user"></i> الملف الشخصي
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#password" aria-controls="password" role="tab" data-toggle="tab">
+                            <i class="fa fa-lock"></i> كلمة المرور
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#courses" aria-controls="courses" role="tab" data-toggle="tab">
+                            <i class="fa fa-database"></i> الدورات
+                        </a>
+                    </li>
+
+                    <li role="presentation">
+                        <a href="#interests" aria-controls="interests" role="tab" data-toggle="tab">
+                            <i class="fa fa-diamond"></i> الاهتمامات
+                        </a>
+                    </li>
+
+                    <li role="presentation">
+                        <a href="#cv" aria-controls="cv" role="tab" data-toggle="tab">
+                            <i class="fa fa-file-text-o"></i> السيرة الذاتية
+                        </a>
+                    </li>
+                @endauth
+                @endif
+                              </ul>
                     </div>
                     <!-- /.right_box-inner -->
                 </div>
@@ -308,8 +318,8 @@
                                             <!-- /.imgcontent -->
                                         </div>
                                         <!-- /.Fption -->
-                                        @foreach ($trainers as $trainer)
-                                            <img src="{{ url('/') . '/storage/' . $trainer->img }}" alt="" width="150"
+
+                                            <img src="{{ url('/') . '/storage/' . $trainers->img }}" alt="" width="150"
                                                 height="150">
                                     </div>
                                 </div>
@@ -325,7 +335,7 @@
                                                     <i class="fa fa-user-secret"></i>
                                                     <h1>الإسم بالكامل</h1>
                                                     <input type="text" id="edit-area" placeholder="الإسم بالكامل">
-                                                    <span>{{ $trainer->name }}</span>
+                                                    <span>{{ $trainers->name }}</span>
                                                 </div>
                                             </div>
                                             <!-- /.home_data-item -->
@@ -335,7 +345,7 @@
                                                     <i class="fa fa-user"></i>
                                                     <h1>إسم المستخدم</h1>
                                                     <input type="text" id="edit-area" placeholder="إسم المستخدم">
-                                                    <span>{{ $trainer->name }}</span>
+                                                    <span>{{ $trainers->name }}</span>
                                                 </div>
                                             </div>
                                             <!-- /.home_data-item -->
@@ -344,7 +354,7 @@
                                                     <i class="fa fa-phone"></i>
                                                     <h1>رقم الهاتف</h1>
                                                     <input type="text" id="edit-area" placeholder="رقم الهاتف">
-                                                    <span>{{ $trainer->mobile }}</span>
+                                                    <span>{{ $trainers->mobile }}</span>
                                                 </div>
                                             </div>
                                             <!-- /.home_data-item -->
@@ -354,7 +364,7 @@
                                                     <i class="fa fa-envelope"></i>
                                                     <h1>البريد الإلكتروني</h1>
                                                     <input type="email" id="edit-area" placeholder="البريد الإلكتروني">
-                                                    <span>{{ $trainer->email }}</span>
+                                                    <span>{{ $trainers->email }}</span>
                                                 </div>
                                             </div>
                                             <!-- /.home_data-item -->
@@ -363,7 +373,7 @@
                                                     <i class="fa fa-globe"></i>
                                                     <h1>الدولة</h1>
                                                     <input type="text" id="edit-area" placeholder="الدولة">
-                                                    <span>{{ $trainer->state }}</span>
+                                                    <span>{{ $trainers->state }}</span>
                                                 </div>
                                             </div>
                                             <!-- /.home_data-item -->
@@ -372,16 +382,16 @@
                                                     <i class="fa fa-male"></i>
                                                     <h1>الجنس</h1>
 
-                                                    <span>{{ $trainer->gender }}</span>
+                                                    <span>{{ $trainers->gender }}</span>
                                                 </div>
                                             </div>
                                             <!-- /.home_data-item -->
                                             <div class="home_data-item all-set col-md-6 col-sm-6  col-xs-12 pull-right">
                                                 <div>
                                                     <i class="fa fa-globe"></i>
-                                                    <h1>مدرب / متدرب</h1>
-                                                    <input type="text" id="edit-area" placeholder="مدرب / متدرب">
-                                                    <span>متدرب</span>
+                                                    <h1>مدرب </h1>
+                                                    <input type="text" id="edit-area" placeholder="مدرب ">
+                                                    <span>مدرب</span>
                                                 </div>
                                             </div>
                                             <!-- /.home_data-item -->
@@ -391,7 +401,7 @@
                                                     <i class="fa fa-graduation-cap"></i>
                                                     <h1> المؤهل</h1>
                                                     <input type="text" id="edit-area" placeholder="المؤهل">
-                                                    <span>{{ $trainer->qualified }}</span>
+                                                    <span>{{ $trainers->qualified }}</span>
                                                 </div>
                                             </div>
                                             <!-- /.home_data-item -->
@@ -401,7 +411,7 @@
                                                     <i class="fa fa-briefcase"></i>
                                                     <h1>التخصص</h1>
                                                     <input type="text" id="edit-area" placeholder="التخصص">
-                                                    <span>{{ $trainer->speciality }}</span>
+                                                    <span>{{ $trainers->specialty }}</span>
                                                 </div>
                                             </div>
                                             <!-- /.home_data-item -->
@@ -416,7 +426,7 @@
                                                         <option>هندسة هندسة</option>
                                                         <option>هندسة هندسة</option>
                                                     </select>
-                                                    <span>{{ $trainer->field }}</span>
+                                                    <span>{{ $trainers->field }}</span>
                                                 </div>
                                             </div>
                                             <!-- /.home_data-item -->
@@ -425,7 +435,6 @@
                                                 <input type="submit" class="confirm-set" value="حفظ التعديلات">
                                             </div>
                                             <!-- /.home_data-item -->
-                                            @endforeach
                                         </form>
                                     </div>
                                     <!-- ./home_data -->
@@ -449,13 +458,11 @@
                                 <div class="home-content pass-content col-xs-12">
                                     <div class="home_data col-xs-12 pull-right text-right">
                                         <div class="home_data-item all-pass col-md-12  col-xs-12 pull-right">
-                                            <div>
-                                                <i class="fa fa-lock"></i>
-                                                <h1>كلمة المرور القديمة</h1>
-                                                <input type="text" id="edit-area">
-                                                <span>......</span>
-
-                                            </div>
+                                            <form id="new-pass"
+                                                                            action="{{ route('trainer.trainer.update',$trainers->id) }}"
+                                                                            method="POST" >
+                                                                            {{ method_field('PUT') }}
+                                                                            @csrf
                                         </div>
                                         <!-- /.home_data-item -->
 
@@ -463,8 +470,8 @@
                                             <div>
                                                 <i class="fa fa-unlock"></i>
                                                 <h1>كلمة المرور الجديدة</h1>
-                                                <input type="text" id="edit-area">
-                                                <span>.........</span>
+                                                <input type="text" class="form-control" name="password" placeholder="كلمة المرور الجديدة">
+
                                             </div>
                                         </div>
                                         <!-- /.home_data-item -->
@@ -473,14 +480,16 @@
                                             <div>
                                                 <i class="fa fa-lock"></i>
                                                 <h1>إعادة كتابة كلمة المرور الجديدة</h1>
-                                                <input type="text" id="edit-area">
-                                                <span>............</span>
+                                                <input type="text" class="form-control" name="password_confirmation" placeholder="إعادة كتابة كلمة المرور الجديدة">
+
                                             </div>
                                         </div>
                                         <!-- /.home_data-item -->
                                         <div class="home_data-item all-pass col-md-12 col-sm-12  col-xs-12 pull-right">
-                                            <input type="submit" value="حفظ التعديلات" class="confirm-set-password">
+                                            <input type="submit" id="new-pass" value="حفظ التعديلات" class="confirm-set-password">
                                         </div>
+
+                                    </form>
                                         <!-- /.home_data-item -->
                                     </div>
                                     <!-- ./home_data -->
@@ -1187,82 +1196,36 @@
                                         </div>
                                         <!-- /.add-interest -->
                                         <div class="home_data-item col-md-12  col-xs-12 pull-right">
-
                                             <div class="interest-cont col-xs-12">
+                                                <form action="{{ route('website.trainerinterests.store') }}" method="POST">
+                                                    @csrf
                                                 <div class="interest-item col-md-4 col-sm-4 col-xs-6">
                                                     <label>
-                                                        <input type="checkbox">
-                                                        <span>الاكل</span>
+                                                        @foreach ($interests as $interest )
+                                                        <input type="checkbox" name="interest[{{$interest->id}}][name]">
+                                                        <span class="checkbox-icon"></span>
+                                                        <span>{{ $interest ->name }}</span>
+                                                        @endforeach
                                                     </label>
                                                 </div>
-                                                <!-- /.interest-item -->
-                                                <div class="interest-item col-md-4 col-sm-4 col-xs-6">
-                                                    <label>
-                                                        <input type="checkbox">
-                                                        <span>لعب كرة قدم</span>
-                                                    </label>
-                                                </div>
-                                                <!-- /.interest-item -->
-                                                <div class="interest-item col-md-4 col-sm-4 col-xs-6">
-                                                    <label>
-                                                        <input type="checkbox">
-                                                        <span>الاكل</span>
-                                                    </label>
-                                                </div>
-                                                <!-- /.interest-item -->
-                                                <div class="interest-item col-md-4 col-sm-4 col-xs-6">
-                                                    <label>
-                                                        <input type="checkbox">
-                                                        <span>الاكل</span>
-                                                    </label>
-                                                </div>
-                                                <!-- /.interest-item -->
-                                                <div class="interest-item col-md-4 col-sm-4 col-xs-6">
-                                                    <label>
-                                                        <input type="checkbox">
-                                                        <span>الاكل</span>
-                                                    </label>
-                                                </div>
-                                                <!-- /.interest-item -->
-                                                <div class="interest-item col-md-4 col-sm-4 col-xs-6">
-                                                    <label>
-                                                        <input type="checkbox">
-                                                        <span>الاكل</span>
-                                                    </label>
-                                                </div>
-                                                <!-- /.interest-item -->
-                                                <div class="interest-item col-md-4 col-sm-4 col-xs-6">
-                                                    <label>
-                                                        <input type="checkbox">
-                                                        <span>الاكل</span>
-                                                    </label>
-                                                </div>
-                                                <!-- /.interest-item -->
-                                                <div class="interest-item col-md-4 col-sm-4 col-xs-6">
-                                                    <label>
-                                                        <input type="checkbox">
-                                                        <span>الاكل</span>
-                                                    </label>
-                                                </div>
+
                                                 <!-- /.interest-item -->
                                             </div>
                                             <!-- /.interest-cont -->
                                             <div class="interst-gender col-xs-12">
                                                 <h1>نوع الدورات التي تفضل متابعتها </h1>
                                                 <div class="add_cont text-right">
-                                                    <label class="text-right">
-                                                        <input type="checkbox">
-                                                        <span>ذكور</span>
-                                                    </label>
-                                                    <label class="text-right">
-                                                        <input type="checkbox">
-                                                        <span>إناث</span>
-                                                    </label>
+
+                                                    <label for="male">ذكور</label>
+                                    <input type="radio" name="gender" id="male" value="male" checked>
+                                    <label for="female">اناث</label>
+                                    <input type="radio" name="gender" id="female" value="female">
                                                 </div>
                                                 <div class="cv-file text-left">
                                                     <input type="submit" value="حفظ">
                                                 </div>
-                                            </div>
+                                            </form>
+                                        </div>
                                             <!-- /.interest-gender -->
                                         </div>
                                         <!-- /.home_data-item -->

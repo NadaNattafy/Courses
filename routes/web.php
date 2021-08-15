@@ -26,6 +26,12 @@ Route::group(['prefix' => '/', 'as' => 'website.', 'namespace' => 'App\Http\Cont
 
     Route::resource('allcourses', AllCourseController::class);
 
+    Route::resource('addcourses', AddCourseController::class);
+
+    Route::resource('introcourses', IntroCourseController::class);
+
+    Route::resource('addlectures', AddLectureController::class);
+
     Route::resource('lessons', LessonController::class);
 
     Route::resource('comments', CommentController::class);
@@ -40,9 +46,13 @@ Route::group(['prefix' => '/', 'as' => 'website.', 'namespace' => 'App\Http\Cont
 
     Route::resource('interests', InterestController::class);
 
+    Route::resource('trainerinterests', TrainerInterestController::class);
+
     Route::resource('cvs', CvController::class);
 
     Route::resource('tests', TestController::class);
+
+    Route::resource('addtests', AddTestController::class);
 
     Route::resource('about', AboutController::class);
 
@@ -94,7 +104,7 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
 Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
                 ->middleware('guest')
                 ->name('password.email');
-    
+
 
 });
 

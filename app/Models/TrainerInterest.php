@@ -5,17 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Interest extends Model
+class TrainerInterest extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
         'trainer_id',
+        'interest_id',
     ];
 
     public function trainer(){
 
-        return $this->belongsToMany(Trainer::class, 'trainer_interests')->withPivot('value');
+        return $this->belongsTo(Trainer::class,'trainer_id','id');
+    }
+
+    public function interest(){
+
+        return $this->belongsTo(Interest::class);
     }
 }

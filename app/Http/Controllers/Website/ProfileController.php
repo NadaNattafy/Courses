@@ -7,9 +7,12 @@ use App\Http\Requests\Interest\StoreRequest;
 use App\Models\Course;
 use App\Models\Interest;
 use App\Models\Lesson;
+use App\Models\Menu;
 use App\Models\Remark;
 use App\Models\Trainer;
+use App\Models\TrainerInterest;
 use App\Models\User;
+
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -21,12 +24,14 @@ class ProfileController extends Controller
      */
     public function index()
     {
+        // dd(auth('trainer')->user());
         //
-        $trainers = Trainer::get();
+        $trainers = auth('trainer')->user();
         $lessons = Lesson::get();
         $remarks = Remark::get();
-        $users = User::get();
+        $users = auth()->user();
         $interests = Interest::get();
+        $trainerinterests = TrainerInterest::get();
         $courses = Course::orderBy('id','DESC')->paginate(6);
         $courses = Course::WithAvg('review','rate')->orderBy('id','DESC')->paginate();
         //$courses = Course::find(11);
@@ -35,7 +40,7 @@ class ProfileController extends Controller
         // {
         //  return  $re->rate;
         // }
-       return view('website.profile',compact('courses','trainers','interests','users','remarks','lessons'));
+       return view('website.profile',compact('courses','trainers','interests','users','remarks','lessons','trainerinterests'));
     }
 
     /**

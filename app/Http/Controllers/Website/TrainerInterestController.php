@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TrainerInt\StoreRequest;
+use App\Models\Interest;
+use App\Models\Trainer;
+use App\Models\TrainerInterest;
 use Illuminate\Http\Request;
 
-class AddTestController extends Controller
+class TrainerInterestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +19,6 @@ class AddTestController extends Controller
     public function index()
     {
         //
-        $tests = Test::get();
-        return view('website.tests.add-test',compact('tests'));
     }
 
     /**
@@ -27,6 +29,10 @@ class AddTestController extends Controller
     public function create()
     {
         //
+        $trainers=Trainer::all();
+        $interest=Interest::all();
+
+        return view('website.profile',compact('trainers','interests'));
     }
 
     /**
@@ -35,9 +41,12 @@ class AddTestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
+        TrainerInterest::create($request->all());
+
+        return back()->with('message','Trainer Interest Added successfully.');
     }
 
     /**

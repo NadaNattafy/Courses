@@ -46,7 +46,7 @@ class Trainer extends Authenticatable
 
     public function interest(){
 
-        return $this->hasMany(Interest::class);
+        return $this->belongsToMany(Interest::class, 'trainer_interests');
     }
 
     public function cv(){

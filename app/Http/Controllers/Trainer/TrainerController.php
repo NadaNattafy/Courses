@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Trainer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Trainer;
+use App\Http\Requests\Trainer\PasswordRequest;
 use Illuminate\Http\Request;
 
 class TrainerController extends Controller
@@ -37,6 +39,7 @@ class TrainerController extends Controller
     public function store(Request $request)
     {
         //
+    
     }
 
     /**
@@ -59,6 +62,9 @@ class TrainerController extends Controller
     public function edit($id)
     {
         //
+        $trainer = auth('trainer')->user();
+
+    return view('website.profile', compact('trainer'));
     }
 
     /**
@@ -68,9 +74,15 @@ class TrainerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PasswordRequest $request,Trainer $trainer )
     {
-        //
+        $inputs=$request->validated();
+     
+        $trainer = auth('trainer')->user();
+       
+       $trainer->update(['password'=>$inputs['password']]);
+
+        return back()->with('message', 'password changed successfully.');
     }
 
     /**

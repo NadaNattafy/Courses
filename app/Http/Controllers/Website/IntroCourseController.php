@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
-class AddTestController extends Controller
+class IntroCourseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class AddTestController extends Controller
     public function index()
     {
         //
-        $tests = Test::get();
-        return view('website.tests.add-test',compact('tests'));
+        $courses = Course::get();
+        return view('website.courses.course-intro');
     }
 
     /**
