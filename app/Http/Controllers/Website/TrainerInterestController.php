@@ -44,7 +44,9 @@ class TrainerInterestController extends Controller
     public function store(StoreRequest $request)
     {
         //
-        TrainerInterest::create($request->all());
+        $trainers = auth('trainer')->user();
+
+       $trainers->interest()->sync( $request->interests );
 
         return back()->with('message','Trainer Interest Added successfully.');
     }

@@ -50,7 +50,7 @@
                     <div class="nav-right user_nav-right col-md-6 col-xs-12 pull-right">
 
                         <div class="logo">
-                            <a href="index.html" title="العلوم العصرية للتدريب">
+                            <a href="{{route('website.home.index')}}" title="العلوم العصرية للتدريب">
                                 <img src="{{ asset('assets/images/logo.png') }}" alt="site-logo" width="110" height="70">
                             </a>
                         </div>
@@ -1202,9 +1202,9 @@
                                                 <div class="interest-item col-md-4 col-sm-4 col-xs-6">
                                                     <label>
                                                         @foreach ($interests as $interest )
-                                                        <input type="checkbox" name="interest[{{$interest->id}}][name]">
-                                                        <span class="checkbox-icon"></span>
-                                                        <span>{{ $interest ->name }}</span>
+                                                        <input type="checkbox" value="{{$interest->id}}" name="interests[]">
+                                                        <label
+                                                               for="{{$interest->id}}">{{$interest->name}}</label>
                                                         @endforeach
                                                     </label>
                                                 </div>

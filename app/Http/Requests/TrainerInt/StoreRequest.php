@@ -25,8 +25,7 @@ class StoreRequest extends FormRequest
     {
         return [
             //
-            'trainer_id' => 'required',
-            'interest_id' => 'required',
+            'interests' => 'array'
         ];
     }
 }
