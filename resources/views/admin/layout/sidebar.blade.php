@@ -115,7 +115,7 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="#">Index Settings</a></li>
+                        <li><a href="{{route('admin.settings.index')}}">Index Settings</a></li>
                     </ul>
                 </li>
 

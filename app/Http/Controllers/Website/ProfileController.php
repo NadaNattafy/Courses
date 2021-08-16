@@ -8,12 +8,9 @@ use App\Http\Requests\Lesson\UpdateRequest;
 use App\Models\Course;
 use App\Models\Interest;
 use App\Models\Lesson;
-use App\Models\Menu;
 use App\Models\Remark;
-use App\Models\Trainer;
 use App\Models\TrainerInterest;
 use App\Models\User;
-
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -32,11 +29,11 @@ class ProfileController extends Controller
         $users = auth()->user();
         $interests = Interest::get();
         $trainerinterests = TrainerInterest::get();
-        $courses = Course::orderBy('id','DESC')->paginate(6);
-        $courses = Course::WithAvg('review','rate')->orderBy('id','DESC')->paginate();
-
-        // dd($lessons);
-       return view('website.profile',compact('courses','trainers','interests','users','remarks','lessons','trainerinterests'));
+        $courses = Course::orderBy('id', 'DESC')->paginate(6);
+        $courses = Course::WithAvg('review', 'rate')->orderBy('id', 'DESC')->paginate();
+        //dd($courses);
+        //dd($lessons);
+        return view('website.profile', compact('courses', 'trainers', 'interests', 'users', 'remarks', 'lessons', 'trainerinterests'));
     }
 
     /**
@@ -86,8 +83,8 @@ class ProfileController extends Controller
     public function edit($id)
     {
         //
-        $lesson = Lesson::find($id);
-        return view('website.profile',compact('lesson'));
+        $course = Course::find($id);
+        return view('website.profile', compact('course'));
     }
 
     /**
@@ -97,12 +94,12 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRequest $request, Lesson $lesson)
+    public function update(UpdateRequest $request, Course $course)
     {
         //
-        $lesson -> update($request->validated());
+        $course->update($request->validated());
 
-        return redirect()->route('website.profiles.index')->with('message','Lesson Updated Successfully');
+        return redirect()->route('website.profiles.index')->with('message', 'Course Updated Successfully');
     }
 
     /**
@@ -114,11 +111,11 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         //
-        $lesson = Lesson::find($id);
-        $lesson->delete();
+        $course = Course::find($id);
+        $course->delete();
 
         return redirect()->route('website.profiles.index')
-                        ->with('message','Lesson deleted successfully');
+            ->with('message', 'Course deleted successfully');
 
     }
 }
