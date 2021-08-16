@@ -31,7 +31,7 @@
                                     <td>{{ $lesson->name }}</td>
                                     <td>{{ $lesson->description }}</td>
                                     <td>{{ $lesson->url }}</td>
-                                    <td>{{ $lesson->course->name }}</td>
+                                    <td>{{ @ ($lesson->course->name) }}</td>
                                     <td>
                                         <a class="btn btn-info"
                                             href="{{ route('admin.lessons.show', $lesson->id) }}">Show</a>
