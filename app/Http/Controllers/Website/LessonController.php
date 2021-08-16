@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Lesson\StoreRequest;
+use App\Http\Requests\Lesson\UpdateRequest;
 use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\User;
@@ -73,9 +74,10 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Lesson $lessons)
     {
         //
+        return view('website.profile',compact('lessons'));
     }
 
     /**
@@ -85,9 +87,12 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, Lesson $lessons)
     {
         //
+        $lessons -> update($request->validated());
+
+        return redirect()->route('website.profile.index')->with('message','Lesson Updated Successfully');
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Interest\StoreRequest;
+use App\Http\Requests\Lesson\UpdateRequest;
 use App\Models\Course;
 use App\Models\Interest;
 use App\Models\Lesson;
@@ -24,7 +25,6 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        // dd(auth('trainer')->user());
         //
         $trainers = auth('trainer')->user();
         $lessons = Lesson::get();
@@ -34,12 +34,8 @@ class ProfileController extends Controller
         $trainerinterests = TrainerInterest::get();
         $courses = Course::orderBy('id','DESC')->paginate(6);
         $courses = Course::WithAvg('review','rate')->orderBy('id','DESC')->paginate();
-        //$courses = Course::find(11);
 
-        // foreach($courses->review as $re)
-        // {
-        //  return  $re->rate;
-        // }
+        // dd($lessons);
        return view('website.profile',compact('courses','trainers','interests','users','remarks','lessons','trainerinterests'));
     }
 
@@ -90,6 +86,8 @@ class ProfileController extends Controller
     public function edit($id)
     {
         //
+        $lesson = Lesson::find($id);
+        return view('website.profile',compact('lesson'));
     }
 
     /**
@@ -99,9 +97,12 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, Lesson $lesson)
     {
         //
+        $lesson -> update($request->validated());
+
+        return redirect()->route('website.profiles.index')->with('message','Lesson Updated Successfully');
     }
 
     /**
@@ -113,5 +114,11 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         //
+        $lesson = Lesson::find($id);
+        $lesson->delete();
+
+        return redirect()->route('website.profiles.index')
+                        ->with('message','Lesson deleted successfully');
+
     }
 }

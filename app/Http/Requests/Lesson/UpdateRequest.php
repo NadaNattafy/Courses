@@ -28,6 +28,9 @@ class UpdateRequest extends FormRequest
             'name'     => 'required',
             'description'     => 'required',
             'url'     => 'required',
+            'duration'     => 'nullable',
+            'file' => 'nullable',
+            'course_id' =>  'nullable',
         ];
     }
 }

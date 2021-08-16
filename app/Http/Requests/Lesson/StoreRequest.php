@@ -30,7 +30,7 @@ class StoreRequest extends FormRequest
             'url'     => 'required',
             'duration'     => 'nullable',
             'file' => 'nullable',
-            'course_id' =>  'required|exists:courses,id',
+            'course_id' =>  'nullable',
         ];
     }
 }

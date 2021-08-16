@@ -50,7 +50,7 @@
                     <div class="nav-right user_nav-right col-md-6 col-xs-12 pull-right">
 
                         <div class="logo">
-                            <a href="{{route('website.home.index')}}" title="العلوم العصرية للتدريب">
+                            <a href="{{ route('website.home.index') }}" title="العلوم العصرية للتدريب">
                                 <img src="{{ asset('assets/images/logo.png') }}" alt="site-logo" width="110" height="70">
                             </a>
                         </div>
@@ -63,10 +63,10 @@
                                 <li>
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" class="hvr-underline-reveal">
                                         <span class="cont-img">
-                                            <img src="{{ url('/') . '/storage/' . $trainers->img }}" width="35" height="35"
-                                                alt="User-Img">
+                                            <img src="{{ url('/') . '/storage/' . $trainers->img }}" width="35"
+                                                height="35" alt="User-Img">
                                         </span>
-                                        <b>{{ $trainers->name}}</b>
+                                        <b>{{ $trainers->name }}</b>
                                         <i class="fa fa-caret-down"></i>
                                     </a>
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
@@ -106,8 +106,8 @@
                                                 @foreach ($remarks as $remark)
                                                     <li>
                                                         <a href="#">
-                                                            <img src="{{ url('/') . '/storage/' . $trainers->img }}"alt=""
-                                                                class="img-circle pull-right">
+                                                            <img src="{{ url('/') . '/storage/' . $trainers->img }}"
+                                                                alt="" class="img-circle pull-right">
                                                             <h4>
                                                                 {{ $remark->title }}
                                                                 <small><i
@@ -164,63 +164,63 @@
                             <i class="fa fa-close"></i>
                         </a>
                         <ul class="nav nav-tabs" role="tablist">
-                            @if(auth('web')->check() || auth('trainer')->check() )
-                            @auth
-                            <li role="presentation">
-                                <a href="#all-courses" aria-controls="all-courses" role="tab" data-toggle="tab">
-                                    <i class="fa fa-eye"></i> تصفح الدورات
-                                </a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#my_courses" aria-controls="my_courses" role="tab" data-toggle="tab">
-                                    <i class="fa fa-folder-open-o"></i> دوراتي كمتدرب
-                                </a>
-                            </li>
+                            @if (auth('web')->check() || auth('trainer')->check())
+                                @auth
+                                    <li role="presentation">
+                                        <a href="#all-courses" aria-controls="all-courses" role="tab" data-toggle="tab">
+                                            <i class="fa fa-eye"></i> تصفح الدورات
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#my_courses" aria-controls="my_courses" role="tab" data-toggle="tab">
+                                            <i class="fa fa-folder-open-o"></i> دوراتي كمتدرب
+                                        </a>
+                                    </li>
 
-                            <li role="presentation">
-                                <a href="#my_certf" aria-controls="my_certf" role="tab" data-toggle="tab">
-                                    <i class="fa fa-table"></i> شهاداتي كمتدرب
-                                </a>
-                            </li>
+                                    <li role="presentation">
+                                        <a href="#my_certf" aria-controls="my_certf" role="tab" data-toggle="tab">
+                                            <i class="fa fa-table"></i> شهاداتي كمتدرب
+                                        </a>
+                                    </li>
 
-                            <li role="presentation">
-                                <a href="#interests" aria-controls="interests" role="tab" data-toggle="tab">
-                                    <i class="fa fa-diamond"></i> الاهتمامات
-                                </a>
-                            </li>
-                        @endauth
-                    @auth('trainer')
-                    <li role="presentation" class="active">
+                                    <li role="presentation">
+                                        <a href="#interests" aria-controls="interests" role="tab" data-toggle="tab">
+                                            <i class="fa fa-diamond"></i> الاهتمامات
+                                        </a>
+                                    </li>
+                                @endauth
+                                @auth('trainer')
+                                    <li role="presentation" class="active">
 
-                        <a href="#home" aria-controls="home" role="tab" data-toggle="tab">
-                            <i class="fa fa-user"></i> الملف الشخصي
-                        </a>
-                    </li>
-                    <li role="presentation">
-                        <a href="#password" aria-controls="password" role="tab" data-toggle="tab">
-                            <i class="fa fa-lock"></i> كلمة المرور
-                        </a>
-                    </li>
-                    <li role="presentation">
-                        <a href="#courses" aria-controls="courses" role="tab" data-toggle="tab">
-                            <i class="fa fa-database"></i> الدورات
-                        </a>
-                    </li>
+                                        <a href="#home" aria-controls="home" role="tab" data-toggle="tab">
+                                            <i class="fa fa-user"></i> الملف الشخصي
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#password" aria-controls="password" role="tab" data-toggle="tab">
+                                            <i class="fa fa-lock"></i> كلمة المرور
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#courses" aria-controls="courses" role="tab" data-toggle="tab">
+                                            <i class="fa fa-database"></i> الدورات
+                                        </a>
+                                    </li>
 
-                    <li role="presentation">
-                        <a href="#interests" aria-controls="interests" role="tab" data-toggle="tab">
-                            <i class="fa fa-diamond"></i> الاهتمامات
-                        </a>
-                    </li>
+                                    <li role="presentation">
+                                        <a href="#interests" aria-controls="interests" role="tab" data-toggle="tab">
+                                            <i class="fa fa-diamond"></i> الاهتمامات
+                                        </a>
+                                    </li>
 
-                    <li role="presentation">
-                        <a href="#cv" aria-controls="cv" role="tab" data-toggle="tab">
-                            <i class="fa fa-file-text-o"></i> السيرة الذاتية
-                        </a>
-                    </li>
-                @endauth
-                @endif
-                              </ul>
+                                    <li role="presentation">
+                                        <a href="#cv" aria-controls="cv" role="tab" data-toggle="tab">
+                                            <i class="fa fa-file-text-o"></i> السيرة الذاتية
+                                        </a>
+                                    </li>
+                                @endauth
+                            @endif
+                        </ul>
                     </div>
                     <!-- /.right_box-inner -->
                 </div>
@@ -319,8 +319,8 @@
                                         </div>
                                         <!-- /.Fption -->
 
-                                            <img src="{{ url('/') . '/storage/' . $trainers->img }}" alt="" width="150"
-                                                height="150">
+                                        <img src="{{ url('/') . '/storage/' . $trainers->img }}" alt="" width="150"
+                                            height="150">
                                     </div>
                                 </div>
                                 <!-- /.home_img -->
@@ -459,10 +459,10 @@
                                     <div class="home_data col-xs-12 pull-right text-right">
                                         <div class="home_data-item all-pass col-md-12  col-xs-12 pull-right">
                                             <form id="new-pass"
-                                                                            action="{{ route('trainer.trainer.update',$trainers->id) }}"
-                                                                            method="POST" >
-                                                                            {{ method_field('PUT') }}
-                                                                            @csrf
+                                                action="{{ route('trainer.trainer.update', $trainers->id) }}"
+                                                method="POST">
+                                                {{ method_field('PUT') }}
+                                                @csrf
                                         </div>
                                         <!-- /.home_data-item -->
 
@@ -470,7 +470,8 @@
                                             <div>
                                                 <i class="fa fa-unlock"></i>
                                                 <h1>كلمة المرور الجديدة</h1>
-                                                <input type="text" class="form-control" name="password" placeholder="كلمة المرور الجديدة">
+                                                <input type="text" class="form-control" name="password"
+                                                    placeholder="كلمة المرور الجديدة">
 
                                             </div>
                                         </div>
@@ -480,16 +481,18 @@
                                             <div>
                                                 <i class="fa fa-lock"></i>
                                                 <h1>إعادة كتابة كلمة المرور الجديدة</h1>
-                                                <input type="text" class="form-control" name="password_confirmation" placeholder="إعادة كتابة كلمة المرور الجديدة">
+                                                <input type="text" class="form-control" name="password_confirmation"
+                                                    placeholder="إعادة كتابة كلمة المرور الجديدة">
 
                                             </div>
                                         </div>
                                         <!-- /.home_data-item -->
                                         <div class="home_data-item all-pass col-md-12 col-sm-12  col-xs-12 pull-right">
-                                            <input type="submit" id="new-pass" value="حفظ التعديلات" class="confirm-set-password">
+                                            <input type="submit" id="new-pass" value="حفظ التعديلات"
+                                                class="confirm-set-password">
                                         </div>
 
-                                    </form>
+                                        </form>
                                         <!-- /.home_data-item -->
                                     </div>
                                     <!-- ./home_data -->
@@ -534,20 +537,20 @@
                                                         aria-labelledby="headingOne">
                                                         <div class="panel-body">
                                                             <div class="instructor-control text-center">
-
-                                                                <a href="#" class="delete-course">
-                                                                    <i class="fa fa-trash"></i> حذف الدورة
-                                                                </a>
-                                                                <a href="#" class="add-course" data-toggle="modal"
-                                                                    data-target="#lesson">
-                                                                    <i class="fa fa-plus"></i> إضافة محاضرة
-                                                                </a>
-                                                                <a href="#" class="message-course" data-toggle="modal"
-                                                                    data-target="#msg-all">
-                                                                    <i class="fa fa-envelope"></i> إرسال للجميع
-                                                                </a>
-                                                                <!-- =========================================================================================================================================== -->
-                                                                {{-- <div class="panel-pop modal" id="msg-all">
+                                                                @foreach ($lessons as $lesson)
+                                                                    <a href="#" class="delete-course">
+                                                                        <i class="fa fa-trash"></i> حذف الدورة
+                                                                    </a>
+                                                                    <a href="#" class="add-course" data-toggle="modal"
+                                                                        data-target="#lesson">
+                                                                        <i class="fa fa-plus"></i> إضافة محاضرة
+                                                                    </a>
+                                                                    <a href="#" class="message-course" data-toggle="modal"
+                                                                        data-target="#msg-all">
+                                                                        <i class="fa fa-envelope"></i> إرسال للجميع
+                                                                    </a>
+                                                                    <!-- =========================================================================================================================================== -->
+                                                                    {{-- <div class="panel-pop modal" id="msg-all">
                                                                     <div class="lost-inner">
                                                                         <h1>
                                                                             <i class="fa fa-envelope"></i>
@@ -576,172 +579,182 @@
                                                                     <!-- /.lost-inner -->
                                                                 </div>
                                                                 <!-- /.modal --> --}}
-                                                                <!-- Modal -->
-                                                                <form id="send-message"
-                                                                    action="{{ route('website.messages.store') }}"
-                                                                    method="POST" enctype="multipart/form-data">
-                                                                    @csrf
-                                                                    <div class="modal fade" id="msg-all" tabindex="-1"
-                                                                        role="dialog" aria-labelledby="exampleModalLabel"
-                                                                        aria-hidden="true">
-                                                                        <div class="modal-dialog" role="document">
-                                                                            <div class="modal-content">
-                                                                                <div class="modal-header">
-                                                                                    <h5 class="modal-title"
-                                                                                        id="exampleModalLabel">ارسال لجميع
-                                                                                        الطلاب المشتركين في الدورة</h5>
-                                                                                    <button type="button" class="close"
-                                                                                        data-dismiss="modal"
-                                                                                        aria-label="Close">
-                                                                                        <span
-                                                                                            aria-hidden="true">&times;</span>
-                                                                                    </button>
-                                                                                </div>
-                                                                                <div class="lost-item" id="messageTo">
-                                                                                    <textarea placeholder="اكتب الرسالة هنا"
-                                                                                        name="message"></textarea>
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                    <span>
-                                                                                        <input onclick type="submit"
-                                                                                            value="إرسال">
-                                                                                    </span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </form>
-
-                                                                <!-- =========================================================================================================================================== -->
-                                                                <a href="#" class="edit-course">
-                                                                    <i class="fa fa-pencil"></i> تعديل الدورة
-                                                                </a>
-                                                                <a href="#" class="add-alert-form">
-                                                                    <i class="fa fa-bullhorn"></i> إضافة تنويه
-                                                                </a>
-
-                                                                <!-- =========================================================================================================================================== -->
-
-                                                                <div class="panel-pop modal" id="alert-all">
-                                                                    <div class="lost-inner">
-                                                                        <h1>
-                                                                            <i class="fa fa-envelope"></i>
-                                                                            اضافة تنويه للطلاب المشتركين في الدورة
-                                                                        </h1>
-
-                                                                        <form id="add-remark"
-                                                                            action="{{ route('website.remarks.store') }}"
-                                                                            method="POST" enctype="multipart/form-data">
-                                                                            @csrf
-
-                                                                            <div class="lost-item" id="alert-item">
-                                                                                <input type="text" name="title"
-                                                                                    placeholder="عنوان التنويه">
-                                                                            </div>
-                                                                            <!-- /.lost-item -->
-                                                                            <div class="lost-item" id="alert-item">
-                                                                                <textarea placeholder="مضمون التنويه"
-                                                                                    name="body"></textarea>
-                                                                            </div>
-                                                                            <!-- /.lost-item -->
-                                                                            <div class="text-center">
-                                                                                <span>
-                                                                                    <input
-                                                                                        onclick="document.getElementById('add-remark').submit()"
-                                                                                        type="submit" value="نشر التنويه">
-                                                                                </span>
-                                                                            </div>
-
-                                                                        </form>
-                                                                        <!-- /.lost-item -->
-                                                                    </div>
-                                                                    <!-- /.lost-inner -->
-                                                                </div>
-                                                                <!-- /.modal -->
-
-                                                                <!-- =========================================================================================================================================== -->
-                                                                <div class="add_lecture">
-                                                                    <form class="add-lesson"
-                                                                        action="{{ route('website.lessons.store') }}"
+                                                                    <!-- Modal -->
+                                                                    <form id="send-message"
+                                                                        action="{{ route('website.messages.store') }}"
                                                                         method="POST" enctype="multipart/form-data">
                                                                         @csrf
-                                                                        {{-- <input type="hidden" name="course_id" value={{ $course->id }}> --}}
-                                                                        <div class="modal fade" id="lesson" tabindex="-1"
+                                                                        <div class="modal fade" id="msg-all" tabindex="-1"
                                                                             role="dialog"
                                                                             aria-labelledby="exampleModalLabel"
                                                                             aria-hidden="true">
                                                                             <div class="modal-dialog" role="document">
                                                                                 <div class="modal-content">
                                                                                     <div class="modal-header">
-                                                                                        <div class="lecture-item">
-                                                                                            <h1 class="modal-title"
-                                                                                                id="exampleModalLabel">اسم
-                                                                                                الدرس</h1>
-                                                                                            <input type="text"
-                                                                                                placeholder="اضف اسم المحاضرة"
-                                                                                                name="name">
-                                                                                        </div>
-                                                                                        <!-- /.lecture-item -->
-                                                                                        <div class="lecture-item">
-                                                                                            <h1 class="modal-title"
-                                                                                                id="exampleModalLabel">اضف
-                                                                                                رابط خارجي للفيديو</h1>
-                                                                                            <div
-                                                                                                class="add_cont text-right">
-                                                                                                {{-- <label class="text-right">
+                                                                                        <h5 class="modal-title"
+                                                                                            id="exampleModalLabel">ارسال
+                                                                                            لجميع
+                                                                                            الطلاب المشتركين في الدورة</h5>
+                                                                                        <button type="button" class="close"
+                                                                                            data-dismiss="modal"
+                                                                                            aria-label="Close">
+                                                                                            <span
+                                                                                                aria-hidden="true">&times;</span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="lost-item" id="messageTo">
+                                                                                        <textarea
+                                                                                            placeholder="اكتب الرسالة هنا"
+                                                                                            name="message"></textarea>
+                                                                                    </div>
+                                                                                    <div class="modal-footer">
+                                                                                        <span>
+                                                                                            <input onclick type="submit"
+                                                                                                value="إرسال">
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
+
+                                                                    <!-- =========================================================================================================================================== -->
+                                                                    <a href="{{ route('website.profile.edit', $lesson->id) }}"
+                                                                        class="edit-course">
+                                                                        <i class="fa fa-pencil"></i> تعديل الدورة
+                                                                    </a>
+                                                                    <a href="#" class="add-alert-form">
+                                                                        <i class="fa fa-bullhorn"></i> إضافة تنويه
+                                                                    </a>
+
+                                                                    <!-- =========================================================================================================================================== -->
+
+                                                                    <div class="panel-pop modal" id="alert-all">
+                                                                        <div class="lost-inner">
+                                                                            <h1>
+                                                                                <i class="fa fa-envelope"></i>
+                                                                                اضافة تنويه للطلاب المشتركين في الدورة
+                                                                            </h1>
+
+                                                                            <form id="add-remark"
+                                                                                action="{{ route('website.remarks.store') }}"
+                                                                                method="POST" enctype="multipart/form-data">
+                                                                                @csrf
+
+                                                                                <div class="lost-item" id="alert-item">
+                                                                                    <input type="text" name="title"
+                                                                                        placeholder="عنوان التنويه">
+                                                                                </div>
+                                                                                <!-- /.lost-item -->
+                                                                                <div class="lost-item" id="alert-item">
+                                                                                    <textarea placeholder="مضمون التنويه"
+                                                                                        name="body"></textarea>
+                                                                                </div>
+                                                                                <!-- /.lost-item -->
+                                                                                <div class="text-center">
+                                                                                    <span>
+                                                                                        <input
+                                                                                            onclick="document.getElementById('add-remark').submit()"
+                                                                                            type="submit"
+                                                                                            value="نشر التنويه">
+                                                                                    </span>
+                                                                                </div>
+
+                                                                            </form>
+                                                                            <!-- /.lost-item -->
+                                                                        </div>
+                                                                        <!-- /.lost-inner -->
+                                                                    </div>
+                                                                    <!-- /.modal -->
+
+                                                                    <!-- =========================================================================================================================================== -->
+                                                                    <div class="add_lecture">
+                                                                        <form class="add-lesson"
+                                                                            action="{{ route('website.lessons.store') }}"
+                                                                            method="POST" enctype="multipart/form-data">
+                                                                            @csrf
+                                                                            {{-- <input type="hidden" name="course_id" value={{ $course->id }}> --}}
+                                                                            <div class="modal fade" id="lesson"
+                                                                                tabindex="-1" role="dialog"
+                                                                                aria-labelledby="exampleModalLabel"
+                                                                                aria-hidden="true">
+                                                                                <div class="modal-dialog" role="document">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <div class="lecture-item">
+                                                                                                <h1 class="modal-title"
+                                                                                                    id="exampleModalLabel">
+                                                                                                    اسم
+                                                                                                    الدرس</h1>
+                                                                                                <input type="text"
+                                                                                                    placeholder="اضف اسم المحاضرة"
+                                                                                                    name="name">
+                                                                                            </div>
+                                                                                            <!-- /.lecture-item -->
+                                                                                            <div class="lecture-item">
+                                                                                                <h1 class="modal-title"
+                                                                                                    id="exampleModalLabel">
+                                                                                                    اضف
+                                                                                                    رابط خارجي للفيديو</h1>
+                                                                                                <div
+                                                                                                    class="add_cont text-right">
+                                                                                                    {{-- <label class="text-right">
                                                                                     <input type="checkbox" id="up-video" name="url">
                                                                                     <span>اذا أردت رفع فيديو من جهازك
                                                                                         الشخصي</span>
                                                                                 </label> --}}
 
-                                                                                                <div
-                                                                                                    class="videoUploaded col-xs-12 text-right">
-                                                                                                    {{-- <span><i class="fa fa-video-camera"></i>
+                                                                                                    <div
+                                                                                                        class="videoUploaded col-xs-12 text-right">
+                                                                                                        {{-- <span><i class="fa fa-video-camera"></i>
                                                                                         ارفع فيديو من جهازك</span>
                                                                                     <input type="file" class="uploaded"> --}}
+                                                                                                    </div>
+                                                                                                    <!--
+                                                                                                    <label class="text-right">
+                                                                                                        <input type="radio" id="add-link">
+                                                                                                        <span>يوتيوب</span>
+                                                                                                    </label>
+                        -->
                                                                                                 </div>
-                                                                                                <!--
-                                                                                                <label class="text-right">
-                                                                                                    <input type="radio" id="add-link">
-                                                                                                    <span>يوتيوب</span>
-                                                                                                </label>
-                    -->
+                                                                                                <input type="text"
+                                                                                                    placeholder="ادخل رابط فيديو"
+                                                                                                    name="url"
+                                                                                                    class="linked">
                                                                                             </div>
-                                                                                            <input type="text"
-                                                                                                placeholder="ادخل رابط فيديو"
-                                                                                                name="url" class="linked">
-                                                                                        </div>
-                                                                                        <!-- /.lecture-item -->
-                                                                                        <div class="lecture-item">
-                                                                                            <h1 class="modal-title"
-                                                                                                id="exampleModalLabel">اسم
-                                                                                                الدرس</h1>
-                                                                                            <textarea
-                                                                                                placeholder="اضف وصف المحاضرة"
-                                                                                                name="description"></textarea>
-                                                                                        </div>
-                                                                                        <!-- /.lecture-item -->
-                                                                                        <div
-                                                                                            class="lecture-item text-right">
+                                                                                            <!-- /.lecture-item -->
+                                                                                            <div class="lecture-item">
+                                                                                                <h1 class="modal-title"
+                                                                                                    id="exampleModalLabel">
+                                                                                                    اسم
+                                                                                                    الدرس</h1>
+                                                                                                <textarea
+                                                                                                    placeholder="اضف وصف المحاضرة"
+                                                                                                    name="description"></textarea>
+                                                                                            </div>
+                                                                                            <!-- /.lecture-item -->
                                                                                             <div
-                                                                                                class="fileUpload col-xs-12 text-right">
-                                                                                                {{-- <span><i class="fa fa-file"></i> رابط أوراق
+                                                                                                class="lecture-item text-right">
+                                                                                                <div
+                                                                                                    class="fileUpload col-xs-12 text-right">
+                                                                                                    {{-- <span><i class="fa fa-file"></i> رابط أوراق
                                                                                     العمل </span>
                                                                                 <input type="file" class="upload" name="file"> --}}
-                                                                                                <label
-                                                                                                    for="exampleFormControlFile1">رابط
-                                                                                                    أوراق العمل</label>
-                                                                                                <input type="file"
-                                                                                                    class="form-control-file"
-                                                                                                    name="file">
+                                                                                                    <label
+                                                                                                        for="exampleFormControlFile1">رابط
+                                                                                                        أوراق العمل</label>
+                                                                                                    <input type="file"
+                                                                                                        class="form-control-file"
+                                                                                                        name="file">
+                                                                                                </div>
+                                                                                                <span class="hint"> Image او
+                                                                                                    Word او Powerpoint
+                                                                                                    او Pdf الملفات يمكن ان
+                                                                                                    تكون
+                                                                                                </span>
                                                                                             </div>
-                                                                                            <span class="hint"> Image او
-                                                                                                Word او Powerpoint
-                                                                                                او Pdf الملفات يمكن ان تكون
-                                                                                            </span>
-                                                                                        </div>
-                                                                                        <!-- /.lecture-item -->
-                                                                                        {{-- <div class="lecture-item add-sorting">
+                                                                                            <!-- /.lecture-item -->
+                                                                                            {{-- <div class="lecture-item add-sorting">
                                                                             <label>
                                                                                 <input type="checkbox" id="sort-lesson">
                                                                                 <span>يجب تحديد ترتيب الدرس </span>
@@ -751,51 +764,48 @@
                                                                                     class="add_sort-number">
                                                                             </label>
                                                                         </div> --}}
-                                                                                        <!-- /.lecture-item -->
-                                                                                        {{-- <div class="lecture-item confirm-lec">
+                                                                                            <!-- /.lecture-item -->
+                                                                                            {{-- <div class="lecture-item confirm-lec">
                                                                             <input
                                                                             onclick type="submit" value="إضافة محاضرة">
                                                                         </div> --}}
 
-                                                                                        <div class="modal-footer">
-                                                                                            <span>
-                                                                                                <input onclick type="submit"
-                                                                                                    value="إضافة محاضرة">
-                                                                                            </span>
+                                                                                            <div class="modal-footer">
+                                                                                                <span>
+                                                                                                    <input onclick
+                                                                                                        type="submit"
+                                                                                                        value="إضافة محاضرة">
+                                                                                                </span>
+                                                                                            </div>
+                                                                                            <!-- /.lecture-item -->
                                                                                         </div>
-                                                                                        <!-- /.lecture-item -->
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
-                                                                <!-- /.add_lecture -->
+                                                                        </form>
+                                                                    </div>
+                                                                    <!-- /.add_lecture -->
                                                             </div>
 
                                                             <!-- /.instructor-control -->
                                                             <ul>
+                                                                {{-- @foreach ($lessons as $lesson) --}}
+
                                                                 <li>
                                                                     <h1 class="modal-title" id="exampleModalLabel">
                                                                         <label>الوصف</label>
                                                                         <span class="par">
-                                                                            هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى
-                                                                            المقروء لصفحة ما سيلهي القارئ عن التركيز على
-                                                                            الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة
-                                                                            التي يقرأها. ولذلك يتم استخدام طريقة لوريم
-                                                                            إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما-
-                                                                            للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي،
+                                                                            {{ $lesson->description }}
                                                                         </span>
                                                                     </h1>
                                                                 </li>
-                                                                <li>
+                                                                {{-- <li>
                                                                     <h1>
                                                                         <label>المجال</label>
-                                                                        <span>برمجة وعلوم</span>
+                                                                        <span>{{ $lesson->course->trainer->field }}</span>
                                                                     </h1>
-                                                                </li>
-
-                                                                <li>
+                                                                </li> --}}
+                                                                {{-- <li>
                                                                     <h1>
                                                                         <label>عدد المشتركين في الدورة</label>
                                                                         <span>برمجة وعلوم</span>
@@ -818,32 +828,28 @@
                                                                         <label>الشهادة</label>
                                                                         <span>برمجة وعلوم</span>
                                                                     </h1>
-                                                                </li>
-                                                                <li>
+                                                                </li> --}}
+                                                                {{-- <li>
                                                                     <h1>
                                                                         <label>السعر</label>
-                                                                        <span>برمجة وعلوم</span>
+                                                                        <span>{{ $lesson->course->price }}</span>
                                                                     </h1>
                                                                 </li>
                                                                 <li>
                                                                     <h1>
                                                                         <label>التاريخ</label>
-                                                                        <span>برمجة وعلوم</span>
-                                                                    </h1>
-                                                                </li>
-                                                                <li>
-                                                                    <h1>
-                                                                        <label>السعر</label>
-                                                                        <span>برمجة وعلوم</span>
+                                                                        <span>{{ $lesson->created_at }}</span>
                                                                     </h1>
                                                                 </li>
                                                                 <li>
                                                                     <h1>
                                                                         <label>إسم المدرب</label>
-                                                                        <span>برمجة وعلوم</span>
+                                                                        <span>{{ $lesson->course->trainer->name }}</span>
                                                                     </h1>
-                                                                </li>
+                                                                </li> --}}
+
                                                             </ul>
+                                                            @endforeach
                                                         </div>
                                                         <!-- /.panel-body -->
 
@@ -874,6 +880,16 @@
                                                                 <a href="#" class="delete-course">
                                                                     <i class="fa fa-trash"></i> حذف الدورة
                                                                 </a>
+                                                                <form
+                                                                    action="{{ route('website.profile.destroy', $lesson->id) }}"
+                                                                    method="POST">
+
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit"
+                                                                        class="btn btn-danger">Delete</button>
+                                                                </form>
+
                                                                 <a href="#" class="add-course">
                                                                     <i class="fa fa-plus"></i> إضافة محاضرة
                                                                 </a>
@@ -988,11 +1004,11 @@
                                                                                     <input type="file" class="uploaded">
                                                                                 </div>
                                                                                 <!--
-                                                                                                <label class="text-right">
-                                                                                                    <input type="radio" id="add-link">
-                                                                                                    <span>يوتيوب</span>
-                                                                                                </label>
-                    -->
+                                                                                                    <label class="text-right">
+                                                                                                        <input type="radio" id="add-link">
+                                                                                                        <span>يوتيوب</span>
+                                                                                                    </label>
+                        -->
                                                                             </div>
                                                                             <input type="text" placeholder="ادخل رابط فيديو"
                                                                                 name="url" class="linked">
@@ -1197,19 +1213,21 @@
                                         <!-- /.add-interest -->
                                         <div class="home_data-item col-md-12  col-xs-12 pull-right">
                                             <div class="interest-cont col-xs-12">
-                                                <form action="{{ route('website.trainerinterests.store') }}" method="POST">
+                                                <form action="{{ route('website.trainerinterests.store') }}"
+                                                    method="POST">
                                                     @csrf
-                                                <div class="interest-item col-md-4 col-sm-4 col-xs-6">
-                                                    <label>
-                                                        @foreach ($interests as $interest )
-                                                        <input type="checkbox" value="{{$interest->id}}" name="interests[]">
-                                                        <label
-                                                               for="{{$interest->id}}">{{$interest->name}}</label>
-                                                        @endforeach
-                                                    </label>
-                                                </div>
+                                                    <div class="interest-item col-md-4 col-sm-4 col-xs-6">
+                                                        <label>
+                                                            @foreach ($interests as $interest)
+                                                                <input type="checkbox" value="{{ $interest->id }}"
+                                                                    name="interests[]">
+                                                                <label
+                                                                    for="{{ $interest->id }}">{{ $interest->name }}</label>
+                                                            @endforeach
+                                                        </label>
+                                                    </div>
 
-                                                <!-- /.interest-item -->
+                                                    <!-- /.interest-item -->
                                             </div>
                                             <!-- /.interest-cont -->
                                             <div class="interst-gender col-xs-12">
@@ -1217,15 +1235,15 @@
                                                 <div class="add_cont text-right">
 
                                                     <label for="male">ذكور</label>
-                                    <input type="radio" name="gender" id="male" value="male" checked>
-                                    <label for="female">اناث</label>
-                                    <input type="radio" name="gender" id="female" value="female">
+                                                    <input type="radio" name="gender" id="male" value="male" checked>
+                                                    <label for="female">اناث</label>
+                                                    <input type="radio" name="gender" id="female" value="female">
                                                 </div>
                                                 <div class="cv-file text-left">
                                                     <input type="submit" value="حفظ">
                                                 </div>
-                                            </form>
-                                        </div>
+                                                </form>
+                                            </div>
                                             <!-- /.interest-gender -->
                                         </div>
                                         <!-- /.home_data-item -->
