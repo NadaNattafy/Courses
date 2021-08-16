@@ -62,7 +62,7 @@
                 <span class="t4"></span>
                 <span class="t5"></span>
             </div>
-        
+
             <!-- /.dividers -->
 
             <div id="st-trigger-effects" class="column">
@@ -198,15 +198,15 @@
                                             <i class="fa fa-user"></i> منطقة تسجيل الدخول
                                         </a>
                                     </li>
-                           
+
                                     <li>
                                         <a href="{{route('trainer.trainerlogin.index')}}" class="show-login">
                                             <i class="fa fa-user"></i> منطقة تسجيل المدرب
                                         </a>
                                     </li>
-                            
+
                                @endif
-                          
+
                                 </ul>
                             </div>
                             <!-- /.user-controls -->
@@ -215,12 +215,12 @@
                     </div>
                     <!-- /.container -->
                 </div>
-           
+
             </header>
         </div>
     </div>
 </div>
-       
+
 <div class="search-box">
     <div class="container">
         <div class="search-inner">

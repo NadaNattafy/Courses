@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
+use App\Models\Lesson;
 use Illuminate\Http\Request;
 
 class CertifController extends Controller
@@ -15,7 +17,12 @@ class CertifController extends Controller
     public function index()
     {
         //
-        return view('website.certif');
+        $courses = Course::get();
+        $trainers = auth('trainer')->user();
+        $users = auth()->user();
+        $lessons = Lesson::get();
+        dd($lessons);
+        return view('website.certif',compact('courses','trainers','users','lessons'));
     }
 
     /**
