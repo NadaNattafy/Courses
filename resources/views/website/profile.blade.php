@@ -536,21 +536,18 @@
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="courses">
                                 <div class="home-head">
-                                    @foreach ($courses as $course)
-                                        <h1>
-                                            <i class="fa fa-database"></i>
-                                            الدورات
-                                        </h1>
-                                        <a class="add1_course" href="#">
-                                            <i class="fa fa-plus"></i>إضافة دورة
-                                        </a>
+                                    <h1>
+                                        <i class="fa fa-database"></i>
+                                        الدورات
+                                    </h1>
+                                    <a class="add1_course" href="#">
+                                        <i class="fa fa-plus"></i>إضافة دورة
+                                    </a>
                                 </div>
                                 <!-- /.home-head -->
                                 <div class="home-content  pass-content col-xs-12">
                                     <div class="home_data col-md-12 pull-right text-right">
                                         <div class="shop-wrapper col-xs-12">
-
-
                                             <div class="panel-group" id="accordion" role="tablist"
                                                 aria-multiselectable="true">
                                                 <div class="panel panel-default">
@@ -559,15 +556,14 @@
                                                         href="#collapseOne" aria-expanded="true"
                                                         aria-controls="collapseOne">
                                                         <h4 class="panel-title">
-                                                            {{-- @foreach ($courses as $course) --}}
                                                             <a>
-                                                                <h5>
-                                                                    <i class="fa fa-group"></i>
-                                                                </h5>
-                                                                {{ $course->name }}
-                                                            </a>
-                                                            @endforeach
-
+                                                                    <h5>
+                                                                        @foreach ($courses as $course)
+                                                                        <i class="fa fa-group"></i>
+                                                                        @endforeach
+                                                                    </h5>
+                                                                    {{ $course->name }}
+                                                                </a>
                                                         </h4>
                                                     </div>
                                                     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
@@ -742,11 +738,11 @@
                                                                                     <input type="file" class="uploaded"> --}}
                                                                                                 </div>
                                                                                                 <!--
-                                                                                                                    <label class="text-right">
-                                                                                                                        <input type="radio" id="add-link">
-                                                                                                                        <span>يوتيوب</span>
-                                                                                                                    </label>
-                                        -->
+                                                                                                                        <label class="text-right">
+                                                                                                                            <input type="radio" id="add-link">
+                                                                                                                            <span>يوتيوب</span>
+                                                                                                                        </label>
+                                            -->
                                                                                             </div>
                                                                                             <input type="text"
                                                                                                 placeholder="ادخل رابط فيديو"
@@ -805,12 +801,12 @@
                                                                             </span>
                                                                         </h1>
                                                                     </li>
-                                                                <li>
-                                                                    <h1>
-                                                                        <label>التاريخ</label>
-                                                                        <span>{{ $lesson->created_at}}</span>
-                                                                    </h1>
-                                                                </li>
+                                                                    <li>
+                                                                        <h1>
+                                                                            <label>التاريخ</label>
+                                                                            <span>{{ $lesson->created_at }}</span>
+                                                                        </h1>
+                                                                    </li>
                                                                 @endforeach
                                                             </ul>
 
@@ -967,11 +963,11 @@
                                                                                     <input type="file" class="uploaded">
                                                                                 </div>
                                                                                 <!--
-                                                                                                                    <label class="text-right">
-                                                                                                                        <input type="radio" id="add-link">
-                                                                                                                        <span>يوتيوب</span>
-                                                                                                                    </label>
-                                        -->
+                                                                                                                        <label class="text-right">
+                                                                                                                            <input type="radio" id="add-link">
+                                                                                                                            <span>يوتيوب</span>
+                                                                                                                        </label>
+                                            -->
                                                                             </div>
                                                                             <input type="text" placeholder="ادخل رابط فيديو"
                                                                                 name="url" class="linked">
@@ -1247,10 +1243,12 @@
                                                                 <!-- /.filtered-head -->
                                                                 <div class="card col-md-6 col-xs-12 pull-right">
                                                                     <div class="card-inner">
-                                                                        <span class="corse-type">{{ $course->trainer->field }}</span>
+                                                                        <span
+                                                                            class="corse-type">{{ $course->trainer->field }}</span>
                                                                         <div class="card-img">
 
-                                                                            <img src="{{url('/').'/storage/'.$course -> img}}" alt="img05" class="img-responsive">
+                                                                            <img src="{{ url('/') . '/storage/' . $course->img }}"
+                                                                                alt="img05" class="img-responsive">
                                                                             <div class="lessons-number text-center">
                                                                                 <h1>
                                                                                     <i class="fa fa-play-circle"></i>
@@ -1263,7 +1261,7 @@
                                                                         <div class="card-data">
                                                                             <div class="course_name text-right">
                                                                                 <h1>
-                                                                                 <a href="#">{{ $course->name }} </a>
+                                                                                    <a href="#">{{ $course->name }} </a>
                                                                                 </h1>
                                                                             </div>
                                                                             <!-- /.course-name -->
@@ -1276,8 +1274,8 @@
                                                                             <!-- /.course_setting -->
                                                                             <div class="course_instructor-data">
                                                                                 <span>
-                                                                                    <img src="{{url('/').'/storage/'.$course -> img}}" alt="img05"
-                                                                                        width="70" height="70"
+                                                                                    <img src="{{ url('/') . '/storage/' . $course->img }}"
+                                                                                        alt="img05" width="70" height="70"
                                                                                         class="img-responsive">
                                                                                 </span>
                                                                                 <a href="#">
@@ -1292,367 +1290,372 @@
                                                                     </div>
                                                                     <!-- /.card-inner -->
                                                                 </div>
-                                                                @endforeach
-                                                                <!-- /.card -->
-
-                                                            </div>
-                                                            <!-- /.type -->
-                                                        </div>
-                                                        <!-- /#current -->
-                                                        <div role="tabpanel" class="tab-pane fade" id="comming">
-                                                            <div class="flash_empty text-center">
-                                                                <h1 class="animated shake">
-                                                                    <i class="fa fa-frown-o"></i>
-                                                                    عفواً لا يوجد لديك دورات في هذا القسم
-                                                                </h1>
-                                                            </div>
-                                                            <!-- /.flash_empty -->
-                                                        </div>
-                                                    </div>
+                                                @endforeach
+                                                <!-- /.card -->
 
                                             </div>
+                                            <!-- /.type -->
                                         </div>
-                                        <!-- /.my_courses-container -->
-                                    </div>
-                                    <!-- ./home_data -->
-                                </div>
-                                <!-- /.home-content -->
-                            </div>
-                            <div role="tabpanel" class="tab-pane fade" id="my_courses">
-                                <div class="home-head">
-                                    <h1>
-                                        <i class="fa fa-folder-open-o"></i>
-                                        دوراتي
-                                    </h1>
-                                </div>
-                                <!-- /.home-head -->
-                                <div class="home-content pass-content col-xs-12">
-                                    <div class="home_data col-xs-12 pull-right text-right">
-                                        <div class="my_courses-container">
-                                            <div>
-
-                                                <!-- Nav tabs -->
-                                                <ul class="nav nav-tabs" role="tablist">
-                                                    <li role="presentation" class="active"><a href="#currentmy"
-                                                            aria-controls="current" role="tab" data-toggle="tab">الدورات
-                                                            الحالية</a></li>
-                                                    <li role="presentation"><a href="#commingmy" aria-controls="comming"
-                                                            role="tab" data-toggle="tab">الدورات القادمة</a></li>
-                                                    <li role="presentation"><a href="#finishedmy" aria-controls="comming"
-                                                            role="tab" data-toggle="tab">الدورات المنتهية</a></li>
-                                                </ul>
-
-                                                <!-- Tab panes -->
-                                                <div class="tab-content">
-                                                    <div role="tabpanel" class="tab-pane fade in active" id="currentmy">
-                                                        <div class="type col-xs-12">
-                                                            <div class="filtered-head text-right">
-                                                                <h1>
-                                                                    <i class="fa fa-tags"></i>
-                                                                    تنمية بشرية
-                                                                </h1>
-                                                            </div>
-                                                            <!-- /.filtered-head -->
-                                                            <div class="card col-md-6 col-xs-12 pull-right">
-                                                                <div class="card-inner">
-                                                                    <span class="corse-type">الالهام</span>
-                                                                    <div class="card-img">
-
-                                                                        <img src="{{ asset('assets/images/bg-4.jpg') }}"
-                                                                            alt="" class="img-responsive">
-                                                                        <div class="lessons-number text-center">
-                                                                            <h1>
-                                                                                <i class="fa fa-play-circle"></i>
-                                                                                100
-                                                                            </h1>
-                                                                        </div>
-                                                                        <!-- /.lessons-number -->
-                                                                    </div>
-                                                                    <!-- /.card-img -->
-                                                                    <div class="card-data">
-                                                                        <div class="course_name text-right">
-                                                                            <h1>
-                                                                                <a href="#">البرمجة بدون كود </a>
-                                                                            </h1>
-                                                                        </div>
-                                                                        <!-- /.course-name -->
-                                                                        <div class="course_setting text-right">
-                                                                            <span class="course_date">
-                                                                                <i class="fa fa-calendar"></i>
-                                                                                من 01 فبراير 2016 إلى 30 مايو 2016
-                                                                            </span>
-                                                                        </div>
-                                                                        <!-- /.course_setting -->
-                                                                        <div class="course_instructor-data">
-                                                                            <span>
-                                                                                <img src="{{ asset('assets/images/s.png') }}"
-                                                                                    width="70" height="70"
-                                                                                    class="img-responsive">
-                                                                            </span>
-                                                                            <a href="#">
-                                                                                <i class="fa fa-user"></i> أمير ناجح الدسوقي
-                                                                            </a>
-                                                                        </div>
-                                                                        <!-- /.course_instructor-data -->
-                                                                        <div class="corse-action">
-                                                                            <a href="#" class="gonna-corse">
-                                                                                <i class="fa fa-paper-plane"></i> إذهب الي
-                                                                                الدورة
-                                                                            </a>
-                                                                            <a href="#" class="out-corse">
-                                                                                <i class="fa fa-sign-out"></i> إنسحاب من
-                                                                                الدورة
-                                                                            </a>
-                                                                        </div>
-                                                                        <!-- /.corse-action -->
-                                                                    </div>
-                                                                    <!-- /.card-data -->
-
-                                                                </div>
-                                                                <!-- /.card-inner -->
-                                                            </div>
-                                                            <!-- /.card -->
-
-                                                            <div class="card col-md-6 col-xs-12 pull-right">
-                                                                <div class="card-inner">
-                                                                    <span class="corse-type">جافا سكربت</span>
-                                                                    <div class="card-img">
-                                                                        <img src="{{ asset('assets/images/bg-4.jpg') }}"
-                                                                            alt="" class="img-responsive">
-                                                                        <div class="lessons-number text-center">
-                                                                            <h1>
-                                                                                <i class="fa fa-play-circle"></i>
-                                                                                100
-                                                                            </h1>
-                                                                        </div>
-                                                                        <!-- /.lessons-number -->
-                                                                    </div>
-                                                                    <!-- /.card-img -->
-                                                                    <div class="card-data">
-                                                                        <div class="course_name text-right">
-                                                                            <h1>
-                                                                                <a href="#">البرمجة بدون كود </a>
-                                                                            </h1>
-                                                                        </div>
-                                                                        <!-- /.course-name -->
-                                                                        <div class="course_setting text-right">
-                                                                            <span class="course_date">
-                                                                                <i class="fa fa-calendar"></i>
-                                                                                من 01 فبراير 2016 إلى 30 مايو 2016
-                                                                            </span>
-                                                                        </div>
-                                                                        <!-- /.course_setting -->
-                                                                        <div class="course_instructor-data">
-                                                                            <span>
-                                                                                <img src="{{ asset('assets/images/s.png') }}"
-                                                                                    width="70" height="70"
-                                                                                    class="img-responsive">
-                                                                            </span>
-                                                                            <a href="#">
-                                                                                <i class="fa fa-user"></i> أمير ناجح الدسوقي
-                                                                            </a>
-                                                                        </div>
-                                                                        <!-- /.course_instructor-data -->
-                                                                        <div class="corse-action">
-                                                                            <a href="#" class="gonna-corse">
-                                                                                <i class="fa fa-paper-plane"></i> إذهب الي
-                                                                                الدورة
-                                                                            </a>
-                                                                            <a href="#" class="out-corse">
-                                                                                <i class="fa fa-sign-out"></i> إنسحاب من
-                                                                                الدورة
-                                                                            </a>
-                                                                        </div>
-                                                                        <!-- /.corse-action -->
-                                                                    </div>
-                                                                    <!-- /.card-data -->
-
-                                                                </div>
-                                                                <!-- /.card-inner -->
-                                                            </div>
-                                                            <!-- /.card -->
-
-                                                            <div class="card col-md-6 col-xs-12 pull-right">
-                                                                <div class="card-inner">
-                                                                    <span class="corse-type">جافا سكربت</span>
-                                                                    <div class="card-img">
-                                                                        <img src="{{ asset('assets/images/bg-4.jpg') }}"
-                                                                            alt="" class="img-responsive">
-                                                                        <div class="lessons-number text-center">
-                                                                            <h1>
-                                                                                <i class="fa fa-play-circle"></i>
-                                                                                100
-                                                                            </h1>
-                                                                        </div>
-                                                                        <!-- /.lessons-number -->
-                                                                    </div>
-                                                                    <!-- /.card-img -->
-                                                                    <div class="card-data">
-                                                                        <div class="course_name text-right">
-                                                                            <h1>
-                                                                                <a href="#">البرمجة بدون كود </a>
-                                                                            </h1>
-                                                                        </div>
-                                                                        <!-- /.course-name -->
-                                                                        <div class="course_setting text-right">
-                                                                            <span class="course_date">
-                                                                                <i class="fa fa-calendar"></i>
-                                                                                من 01 فبراير 2016 إلى 30 مايو 2016
-                                                                            </span>
-                                                                        </div>
-                                                                        <!-- /.course_setting -->
-                                                                        <div class="course_instructor-data">
-                                                                            <span>
-                                                                                <img src="{{ asset('assets/images/s.png') }}"
-                                                                                    width="70" height="70"
-                                                                                    class="img-responsive">
-                                                                            </span>
-                                                                            <a href="#">
-                                                                                <i class="fa fa-user"></i> أمير ناجح الدسوقي
-                                                                            </a>
-                                                                        </div>
-                                                                        <!-- /.course_instructor-data -->
-                                                                        <div class="corse-action">
-                                                                            <a href="#" class="gonna-corse">
-                                                                                <i class="fa fa-paper-plane"></i> إذهب الي
-                                                                                الدورة
-                                                                            </a>
-                                                                            <a href="#" class="out-corse">
-                                                                                <i class="fa fa-sign-out"></i> إنسحاب من
-                                                                                الدورة
-                                                                            </a>
-                                                                        </div>
-                                                                        <!-- /.corse-action -->
-                                                                    </div>
-                                                                    <!-- /.card-data -->
-
-                                                                </div>
-                                                                <!-- /.card-inner -->
-                                                            </div>
-                                                            <!-- /.card -->
-                                                        </div>
-                                                        <!-- /.type -->
-                                                    </div>
-                                                    <!-- /#currentmy -->
-                                                    <div role="tabpanel" class="tab-pane fade" id="commingmy">
-                                                        <div class="flash_empty text-center">
-                                                            <h1 class="animated shake">
-                                                                <i class="fa fa-frown-o"></i>
-                                                                عفواً لا يوجد لديك دورات في هذا القسم
-                                                            </h1>
-                                                        </div>
-                                                        <!-- /.flash_empty -->
-                                                    </div>
-                                                    <!-- /#commingmy -->
-                                                    <div role="tabpanel" class="tab-pane fade" id="finishedmy">
-                                                        <div class="flash_empty text-center">
-                                                            <h1 class="animated shake">
-                                                                <i class="fa fa-frown-o"></i>
-                                                                عفواً لا يوجد لديك دورات في هذا القسم
-                                                            </h1>
-                                                        </div>
-                                                        <!-- /.flash_empty -->
-                                                    </div>
-                                                    <!-- /#finishedmy -->
-                                                </div>
-
+                                        <!-- /#current -->
+                                        <div role="tabpanel" class="tab-pane fade" id="comming">
+                                            <div class="flash_empty text-center">
+                                                <h1 class="animated shake">
+                                                    <i class="fa fa-frown-o"></i>
+                                                    عفواً لا يوجد لديك دورات في هذا القسم
+                                                </h1>
                                             </div>
+                                            <!-- /.flash_empty -->
                                         </div>
-                                        <!-- /.my_courses-container -->
                                     </div>
-                                    <!-- ./home_data -->
+
                                 </div>
-                                <!-- /.home-content -->
                             </div>
-                            <div role="tabpanel" class="tab-pane fade" id="my_certf">
-                                <div class="home-head">
-                                    <h1>
-                                        <i class="fa fa-file"></i>
-                                        الشهادات التي حصلت عليها من انهاء الدورات
-                                    </h1>
-                                </div>
-                                <!-- /.home-head -->
-                                <div class="home-content pass-content col-xs-12">
-                                    <div class="home_data col-xs-12 pull-right text-right">
-                                        <div class="home_data-item col-md-12  col-xs-12 pull-right">
-                                            <div class="my-sertf">
-                                                <ul>
-                                                    <li>
-                                                        <h1>
-                                                            <i class="fa fa-file"></i>
-                                                            شهادة اتمام دورة البرمجة بلغة الجافا
-                                                        </h1>
-                                                        <a href="#">
-                                                            <i class="fa fa-cloud-download"></i> تحميل الشهادة
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <h1>
-                                                            <i class="fa fa-file"></i>
-                                                            شهادة اتمام دورة البرمجة بلغة الجافا
-                                                        </h1>
-                                                        <a href="#">
-                                                            <i class="fa fa-cloud-download"></i> تحميل الشهادة
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <!-- end my-certf -->
-                                        </div>
-                                        <!-- /.home_data-item -->
-                                    </div>
-                                    <!-- ./home_data -->
-                                </div>
-                                <!-- /.home-content -->
-                            </div>
+                            <!-- /.my_courses-container -->
                         </div>
-                        <!-- /.tap-content -->
+                        <!-- ./home_data -->
                     </div>
-                    <!-- /.left_tap-box -->
+                    <!-- /.home-content -->
                 </div>
-                <!-- /.left_tap-box -->
-            </div>
-            <!-- /.container -->
-        </div>
-        <!-- /.profile-content -->
-        @auth('trainer')
-            <div class="courses">
-                <div class="container">
-                    <div class="courses-head text-center">
-                        <h1>دوراتي للطالب</h1>
+                <div role="tabpanel" class="tab-pane fade" id="my_courses">
+                    <div class="home-head">
+                        <h1>
+                            <i class="fa fa-folder-open-o"></i>
+                            دوراتي
+                        </h1>
                     </div>
-                    <!-- /.testominal-head -->
-                    <div class="row block-container">
-                        @foreach ($courses as $course)
-                            <div class="block col-md-4 col-sm-6">
-                                <figure>
-                                    <div><img src="{{ url('/') . '/storage/' . $course->img }}" alt="img05"
-                                            class="img-responsive">
-                                    </div>
-                                    <figcaption class="text-right">
-                                        <h1> اسم الكورس : {{ $course->name }}</h1>
-                                        <h1> اسم المدرس : {{ $course->trainer->name }}</h1>
-                                        <h1> عدد الطلبة المشتركين : 5</h1>
-                                        <h1> تاريخ بداية الكورس : {{ $course->created_at }}</h1>
-                                        {{-- <h1> تقييم الكورس : {{ $course->review->rate }}</h1> --}}
-                                        <a href="{{ route('website.courses.show', $course->id) }}">
-                                            <i class="fa fa-eye"></i> مشاهدة الكورس
-                                        </a>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-                <!-- /.row -->
+                    <!-- /.home-head -->
+                    <div class="home-content pass-content col-xs-12">
+                        <div class="home_data col-xs-12 pull-right text-right">
+                            <div class="my_courses-container">
+                                <div>
 
-                <div class="all-courses text-center">
-                    <a href="all-courses.html">عرض جميع الكورسات</a>
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#currentmy" aria-controls="current"
+                                                role="tab" data-toggle="tab">الدورات
+                                                الحالية</a></li>
+                                        <li role="presentation"><a href="#commingmy" aria-controls="comming" role="tab"
+                                                data-toggle="tab">الدورات القادمة</a></li>
+                                        <li role="presentation"><a href="#finishedmy" aria-controls="comming" role="tab"
+                                                data-toggle="tab">الدورات المنتهية</a></li>
+                                    </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade in active" id="currentmy">
+                                            <div class="type col-xs-12">
+                                                <div class="filtered-head text-right">
+                                                    <h1>
+                                                        <i class="fa fa-tags"></i>
+                                                        تنمية بشرية
+                                                    </h1>
+                                                </div>
+                                                <!-- /.filtered-head -->
+                                                <div class="card col-md-6 col-xs-12 pull-right">
+                                                    <div class="card-inner">
+                                                        <span class="corse-type">الالهام</span>
+                                                        <div class="card-img">
+
+                                                            <img src="{{ asset('assets/images/bg-4.jpg') }}" alt=""
+                                                                class="img-responsive">
+                                                            <div class="lessons-number text-center">
+                                                                <h1>
+                                                                    <i class="fa fa-play-circle"></i>
+                                                                    100
+                                                                </h1>
+                                                            </div>
+                                                            <!-- /.lessons-number -->
+                                                        </div>
+                                                        <!-- /.card-img -->
+                                                        <div class="card-data">
+                                                            <div class="course_name text-right">
+                                                                <h1>
+                                                                    <a href="#">البرمجة بدون كود </a>
+                                                                </h1>
+                                                            </div>
+                                                            <!-- /.course-name -->
+                                                            <div class="course_setting text-right">
+                                                                <span class="course_date">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                    من 01 فبراير 2016 إلى 30 مايو 2016
+                                                                </span>
+                                                            </div>
+                                                            <!-- /.course_setting -->
+                                                            <div class="course_instructor-data">
+                                                                <span>
+                                                                    <img src="{{ asset('assets/images/s.png') }}"
+                                                                        width="70" height="70" class="img-responsive">
+                                                                </span>
+                                                                <a href="#">
+                                                                    <i class="fa fa-user"></i> أمير ناجح الدسوقي
+                                                                </a>
+                                                            </div>
+                                                            <!-- /.course_instructor-data -->
+                                                            <div class="corse-action">
+                                                                <a href="#" class="gonna-corse">
+                                                                    <i class="fa fa-paper-plane"></i> إذهب الي
+                                                                    الدورة
+                                                                </a>
+                                                                <a href="#" class="out-corse">
+                                                                    <i class="fa fa-sign-out"></i> إنسحاب من
+                                                                    الدورة
+                                                                </a>
+                                                            </div>
+                                                            <!-- /.corse-action -->
+                                                        </div>
+                                                        <!-- /.card-data -->
+
+                                                    </div>
+                                                    <!-- /.card-inner -->
+                                                </div>
+                                                <!-- /.card -->
+
+                                                <div class="card col-md-6 col-xs-12 pull-right">
+                                                    <div class="card-inner">
+                                                        <span class="corse-type">جافا سكربت</span>
+                                                        <div class="card-img">
+                                                            <img src="{{ asset('assets/images/bg-4.jpg') }}" alt=""
+                                                                class="img-responsive">
+                                                            <div class="lessons-number text-center">
+                                                                <h1>
+                                                                    <i class="fa fa-play-circle"></i>
+                                                                    100
+                                                                </h1>
+                                                            </div>
+                                                            <!-- /.lessons-number -->
+                                                        </div>
+                                                        <!-- /.card-img -->
+                                                        <div class="card-data">
+                                                            <div class="course_name text-right">
+                                                                <h1>
+                                                                    <a href="#">البرمجة بدون كود </a>
+                                                                </h1>
+                                                            </div>
+                                                            <!-- /.course-name -->
+                                                            <div class="course_setting text-right">
+                                                                <span class="course_date">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                    من 01 فبراير 2016 إلى 30 مايو 2016
+                                                                </span>
+                                                            </div>
+                                                            <!-- /.course_setting -->
+                                                            <div class="course_instructor-data">
+                                                                <span>
+                                                                    <img src="{{ asset('assets/images/s.png') }}"
+                                                                        width="70" height="70" class="img-responsive">
+                                                                </span>
+                                                                <a href="#">
+                                                                    <i class="fa fa-user"></i> أمير ناجح الدسوقي
+                                                                </a>
+                                                            </div>
+                                                            <!-- /.course_instructor-data -->
+                                                            <div class="corse-action">
+                                                                <a href="#" class="gonna-corse">
+                                                                    <i class="fa fa-paper-plane"></i> إذهب الي
+                                                                    الدورة
+                                                                </a>
+                                                                <a href="#" class="out-corse">
+                                                                    <i class="fa fa-sign-out"></i> إنسحاب من
+                                                                    الدورة
+                                                                </a>
+                                                            </div>
+                                                            <!-- /.corse-action -->
+                                                        </div>
+                                                        <!-- /.card-data -->
+
+                                                    </div>
+                                                    <!-- /.card-inner -->
+                                                </div>
+                                                <!-- /.card -->
+
+                                                <div class="card col-md-6 col-xs-12 pull-right">
+                                                    <div class="card-inner">
+                                                        <span class="corse-type">جافا سكربت</span>
+                                                        <div class="card-img">
+                                                            <img src="{{ asset('assets/images/bg-4.jpg') }}" alt=""
+                                                                class="img-responsive">
+                                                            <div class="lessons-number text-center">
+                                                                <h1>
+                                                                    <i class="fa fa-play-circle"></i>
+                                                                    100
+                                                                </h1>
+                                                            </div>
+                                                            <!-- /.lessons-number -->
+                                                        </div>
+                                                        <!-- /.card-img -->
+                                                        <div class="card-data">
+                                                            <div class="course_name text-right">
+                                                                <h1>
+                                                                    <a href="#">البرمجة بدون كود </a>
+                                                                </h1>
+                                                            </div>
+                                                            <!-- /.course-name -->
+                                                            <div class="course_setting text-right">
+                                                                <span class="course_date">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                    من 01 فبراير 2016 إلى 30 مايو 2016
+                                                                </span>
+                                                            </div>
+                                                            <!-- /.course_setting -->
+                                                            <div class="course_instructor-data">
+                                                                <span>
+                                                                    <img src="{{ asset('assets/images/s.png') }}"
+                                                                        width="70" height="70" class="img-responsive">
+                                                                </span>
+                                                                <a href="#">
+                                                                    <i class="fa fa-user"></i> أمير ناجح الدسوقي
+                                                                </a>
+                                                            </div>
+                                                            <!-- /.course_instructor-data -->
+                                                            <div class="corse-action">
+                                                                <a href="#" class="gonna-corse">
+                                                                    <i class="fa fa-paper-plane"></i> إذهب الي
+                                                                    الدورة
+                                                                </a>
+                                                                <a href="#" class="out-corse">
+                                                                    <i class="fa fa-sign-out"></i> إنسحاب من
+                                                                    الدورة
+                                                                </a>
+                                                            </div>
+                                                            <!-- /.corse-action -->
+                                                        </div>
+                                                        <!-- /.card-data -->
+
+                                                    </div>
+                                                    <!-- /.card-inner -->
+                                                </div>
+                                                <!-- /.card -->
+                                            </div>
+                                            <!-- /.type -->
+                                        </div>
+                                        <!-- /#currentmy -->
+                                        <div role="tabpanel" class="tab-pane fade" id="commingmy">
+                                            <div class="flash_empty text-center">
+                                                <h1 class="animated shake">
+                                                    <i class="fa fa-frown-o"></i>
+                                                    عفواً لا يوجد لديك دورات في هذا القسم
+                                                </h1>
+                                            </div>
+                                            <!-- /.flash_empty -->
+                                        </div>
+                                        <!-- /#commingmy -->
+                                        <div role="tabpanel" class="tab-pane fade" id="finishedmy">
+                                            <div class="flash_empty text-center">
+                                                <h1 class="animated shake">
+                                                    <i class="fa fa-frown-o"></i>
+                                                    عفواً لا يوجد لديك دورات في هذا القسم
+                                                </h1>
+                                            </div>
+                                            <!-- /.flash_empty -->
+                                        </div>
+                                        <!-- /#finishedmy -->
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- /.my_courses-container -->
+                        </div>
+                        <!-- ./home_data -->
+                    </div>
+                    <!-- /.home-content -->
                 </div>
-                <!-- /.all-courses -->
-            @endauth
+                <div role="tabpanel" class="tab-pane fade" id="my_certf">
+                    <div class="home-head">
+                        <h1>
+                            <i class="fa fa-file"></i>
+                            الشهادات التي حصلت عليها من انهاء الدورات
+                        </h1>
+                    </div>
+                    <!-- /.home-head -->
+                    <div class="home-content pass-content col-xs-12">
+                        <div class="home_data col-xs-12 pull-right text-right">
+                            <div class="home_data-item col-md-12  col-xs-12 pull-right">
+                                <div class="my-sertf">
+                                    <ul>
+                                        <li>
+                                            <h1>
+                                                <i class="fa fa-file"></i>
+                                                شهادة اتمام دورة البرمجة بلغة الجافا
+                                            </h1>
+                                            <a href="#">
+                                                <i class="fa fa-cloud-download"></i> تحميل الشهادة
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <h1>
+                                                <i class="fa fa-file"></i>
+                                                شهادة اتمام دورة البرمجة بلغة الجافا
+                                            </h1>
+                                            <a href="#">
+                                                <i class="fa fa-cloud-download"></i> تحميل الشهادة
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- end my-certf -->
+                            </div>
+                            <!-- /.home_data-item -->
+                        </div>
+                        <!-- ./home_data -->
+                    </div>
+                    <!-- /.home-content -->
+                </div>
+            </div>
+            <!-- /.tap-content -->
         </div>
-        <!-- /.conainer -->
+        <!-- /.left_tap-box -->
+    </div>
+    <!-- /.left_tap-box -->
+    </div>
+    <!-- /.container -->
+    </div>
+    <!-- /.profile-content -->
+    @auth('trainer')
+        <div class="courses">
+            <div class="container">
+                <div class="courses-head text-center">
+                    <h1>دوراتي للطالب</h1>
+                </div>
+                <!-- /.testominal-head -->
+                <div class="row block-container">
+                    @foreach ($courses as $course)
+                        <div class="block col-md-4 col-sm-6">
+                            <figure>
+                                <div><img src="{{ url('/') . '/storage/' . $course->img }}" alt="img05"
+                                        class="img-responsive">
+                                </div>
+                                <figcaption class="text-right">
+                                    <h1> اسم الكورس : {{ $course->name }}</h1>
+                                    <h1> اسم المدرس : {{ $course->trainer->name }}</h1>
+                                    <h1> عدد الطلبة المشتركين : 5</h1>
+                                    <h1> تاريخ بداية الكورس : {{ $course->created_at }}</h1>
+                                    {{-- <h1> تقييم الكورس : {{ $course->review->rate }}</h1> --}}
+                                    <a href="{{ route('website.courses.show', $course->id) }}">
+                                        <i class="fa fa-eye"></i> مشاهدة الكورس
+                                    </a>
+                                </figcaption>
+                            </figure>
+                        </div>
+                </div>
+                    @endforeach
+                </div>
+            </div>
+
+            <!-- /.row -->
+
+            <div class="all-courses text-center">
+                <a href="{{route('website.allcourses.index')}}">عرض جميع الكورسات</a>
+            </div>
+            <!-- /.all-courses -->
+        </div>
+    </div>
+
+        @endauth
+
+    </div>
+</div>
+    </div>
+    <!-- /.conainer -->
     </div>
 
 @endsection
