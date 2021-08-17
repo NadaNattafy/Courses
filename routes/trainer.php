@@ -6,9 +6,10 @@ use App\Http\Controllers\Trainer\Auth\AuthenticatedSessionController;
 
 Route::group(['prefix' => 'trainer', 'as' => 'trainer.'], function () {
 
-Route::resource('trainer', TrainerController::class);
-
-Route::resource('trainerlogin', TrainerLoginController::class);
+    Route::resources([
+        'trainer' => TrainerController::class,
+        'trainerlogin' => TrainerLoginController::class,
+    ]);
 
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
     ->middleware('guest')

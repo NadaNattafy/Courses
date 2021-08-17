@@ -15,23 +15,18 @@ Route::get('admin/home', function () {
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Controllers\Admin'], function () {
 
     Route::group(['middleware' => 'auth:admin'], function () {
-        Route::resource('admins', AdminController::class);
 
-        Route::resource('courses', CourseController::class);
-
-        Route::resource('categories', CategoryController::class);
-
-        Route::resource('users', UserController::class);
-
-        Route::resource('lessons', LessonController::class);
-
-        Route::resource('trainers', TrainerController::class);
-
-        Route::resource('usercourses', UserCourseController::class);
-
-        Route::resource('useropinions', UserOpinionController::class);
-
-        Route::resource('settings', SettingController::class);
+        Route::resources([
+            'admins' => AdminController::class,
+            'courses' => CourseController::class,
+            'categories' => CategoryController::class,
+            'users' => UserController::class,
+            'lessons' => LessonController::class,
+            'trainers' => TrainerController::class,
+            'usercourses' => UserCourseController::class,
+            'useropinions' => UserOpinionController::class,
+            'settings' => SettingController::class,
+        ]);
     });
 
     Route::get('/login', [AuthenticatedSessionController::class, 'create'])

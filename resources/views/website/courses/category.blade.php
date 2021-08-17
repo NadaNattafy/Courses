@@ -229,33 +229,35 @@
         <!-- /.container -->
     </div>
     <!-- /.search-categories -->
-    <div class="allcourses-body">
+    <div class="courses">
         <div class="container">
-            <div class="row">
-                <div class="row block-container">
-                    @foreach ($courses as $course)
-                    <div class="block col-md-4 col-sm-6">
-                        <figure>
-                            <div><img src="{{ asset('assets/images/b3.jpg') }}" alt="img05"
-                                    class="img-responsive">
-                            </div>
-                            <figcaption class="text-right">
-                                <h1> اسم الكورس : {{ $course->name }}</h1>
-                                <h1> اسم المدرس : {{ $course->trainer->name }}</h1>
-                                <h1> عدد الطلبة المشتركين : 5</h1>
-                                <h1> تاريخ بداية الكورس : {{ $course->created_at }}</h1>
-                                {{-- <h1> تقييم الكورس : {{ $course->review->rate }}</h1> --}}
-                                <a href="{{ route('website.courses.show', $course->id)  }}">
-                                    <i class="fa fa-eye"></i> مشاهدة الكورس
-                                </a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    @endforeach
-
-                </div>
-                <!-- /.row -->
+            <div class="courses-head text-center">
+                <h1>أحدث الكورسات</h1>
             </div>
+            <!-- /.testominal-head -->
+            <div class="row block-container">
+                @foreach ($courses as $course)
+                <div class="block col-md-4 col-sm-6">
+                    <figure>
+                        <div><img src="{{url('/').'/storage/'.$course -> img}}" alt="img05"
+                                class="img-responsive">
+                        </div>
+                        <figcaption class="text-right">
+                            <h1> اسم الكورس : {{ $course->name }}</h1>
+                            <h1> اسم المدرس : {{ $course->trainer->name }}</h1>
+                            <h1> عدد الطلبة المشتركين : 5</h1>
+                            <h1> تاريخ بداية الكورس : {{ $course->created_at }}</h1>
+                            {{-- <h1> تقييم الكورس : {{ $course->review->rate }}</h1> --}}
+                            <a href="{{ route('website.courses.show', $course->id)  }}">
+                                <i class="fa fa-eye"></i> مشاهدة الكورس
+                            </a>
+                        </figcaption>
+                    </figure>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
             <!-- /.row -->
 
             <div class="inner col-xs-12 text-center">

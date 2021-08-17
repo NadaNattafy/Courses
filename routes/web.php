@@ -19,57 +19,34 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => '/', 'as' => 'website.', 'namespace' => 'App\Http\Controllers\Website'], function () {
 
-    Route::resource('home', HomeController::class);
-
-    Route::resource('courses', CoursesController::class);
-
-    Route::resource('allcourses', AllCourseController::class);
-
-    Route::resource('addcourses', AddCourseController::class);
-
-    Route::resource('introcourses', IntroCourseController::class);
-
-    Route::resource('addlectures', AddLectureController::class);
-
-    Route::resource('lessons', LessonController::class);
-
-    Route::resource('comments', CommentController::class);
-
-    Route::resource('alerts', AlertController::class);
-
-    Route::resource('remarks', RemarkController::class);
-
-    Route::resource('messages', MessageController::class);
-
-    Route::resource('favourites', FavouriteController::class);
-
-    Route::resource('interests', InterestController::class);
-
-    Route::resource('trainerinterests', TrainerInterestController::class);
-
-    Route::resource('cvs', CvController::class);
-
-    Route::resource('tests', TestController::class);
-
-    Route::resource('addtests', AddTestController::class);
-
-    Route::resource('about', AboutController::class);
-
-    Route::resource('certif', CertifController::class);
-
-    Route::resource('category', CategoryController::class);
-
-    Route::resource('contact', ContactController::class)->only(['index', 'store', 'create']);
-
-    Route::resource('editor', EditorController::class);
-
-    Route::resource('profile', ProfileController::class);
-
-    Route::resource('reset', ResetController::class);
-
-    Route::resource('signup', SignUpController::class);
-
-    Route::resource('review', ReviewController::class);
+    Route::resources([
+        'home' => HomeController::class,
+        'courses' => CoursesController::class,
+        'allcourses' => AllCoursesController::class,
+        'addcourses' => AddCoursesController::class,
+        'introcourses' => IntroCoursesController::class,
+        'addlectures' => AddLectureController::class,
+        'lessons' => LessonController::class,
+        'comments' => CommentController::class,
+        'alerts' => AlertController::class,
+        'remarks' => RemarkController::class,
+        'messages' => MessageController::class,
+        'favourites' => FavouriteController::class,
+        'interests' => InterestController::class,
+        'trainerinterests' => TrainerInterestController::class,
+        'cvs' => CvController::class,
+        'tests' => TestController::class,
+        'addtests' => AddTestController::class,
+        'about' => AboutController::class,
+        'certif' => CertifController::class,
+        'category' => CategoryController::class,
+        'contact' => ContactController::class,
+        'editor' => EditorController::class,
+        'profile' => ProfileController::class,
+        'signup' => SignUpController::class,
+        'review' => ReviewController::class,
+        'reset' => ResetController::class,
+    ]);
 
     Route::get('send', [NotificationController::class, 'sendNotification'])->name('send');
 
