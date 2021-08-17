@@ -196,7 +196,9 @@
 
                     <li>
                         <a href="{{ route('website.alerts.index') }}">
-                            <span class="padge">4</span>
+                            <span class="padge">
+                                {{ $remarks->count() }}
+                            </span>
                             <i class="fa fa-bell"></i> التنويهات
                         </a>
                     </li>
@@ -214,7 +216,7 @@
                             <li>
                                 <h1> عنوان التنويه : {{ $remark->title }}</h1>
                                 <span>
-                                    {{ $remark->created_at }}
+                                    {{ \Carbon\Carbon::parse($remark->created_at)->format('M d Y') }}
                                 </span>
                                 <p> مضمون التنويه : {{ $remark->body }}</p>
                             </li>

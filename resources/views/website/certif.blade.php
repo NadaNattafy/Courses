@@ -204,7 +204,7 @@
                                     توقيع
                                 </div>
                                 <div class="date">
-                                    {{ $course->trainer->name }}
+                                    {{ @ ($course->trainer->name) }}
                                 </div>
                             </div>
                 @endforeach

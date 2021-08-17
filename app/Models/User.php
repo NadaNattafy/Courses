@@ -30,13 +30,6 @@ class User extends Authenticatable
         'img'
     ];
 
-    // public function setPasswordAttribute($value)
-    // {
-    //     if (!empty($value)) {
-    //     $this->attributes['password'] = Hash::make($value);
-    //    }
-    // }
-
     /**
      * The attributes that should be hidden for arrays.
      *

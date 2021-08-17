@@ -27,13 +27,6 @@ class Trainer extends Authenticatable
         'img'
     ];
 
-    // public function setPasswordAttribute($value)
-    // {
-    //     if (!empty($value)) {
-    //     $this->attributes['password'] = Hash::make($value);
-    //    }
-    // }
-
     public function course(){
 
         return $this->hasMany(Course::class);

@@ -9,6 +9,8 @@ class Remark extends Model
 {
     use HasFactory;
 
+    protected $dates = ['approval_date','created_at', 'updated_at', 'deleted_at' ];
+
     protected $fillable = [
         'title',
         'body',
@@ -25,4 +27,9 @@ class Remark extends Model
 
         return $this->belongsTo(Trainer::class);
     }
+
+    public function formattedDate()
+{
+    return $this->created_at->format('M d Y');
+}
 }
