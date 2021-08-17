@@ -1634,9 +1634,6 @@
 
             <!-- /.row -->
 
-            <div class="all-courses text-center">
-                <a href="{{route('website.allcourses.index')}}">عرض جميع الكورسات</a>
-            </div>
             <!-- /.all-courses -->
         </div>
     </div>
