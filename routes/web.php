@@ -25,6 +25,7 @@ Route::group(['prefix' => '/', 'as' => 'website.', 'namespace' => 'App\Http\Cont
         'allcourses' => AllCoursesController::class,
         'addcourses' => AddCoursesController::class,
         'introcourses' => IntroCoursesController::class,
+        'individualcourses' => IndividualCoursesController::class,
         'addlectures' => AddLectureController::class,
         'lessons' => LessonController::class,
         'comments' => CommentController::class,

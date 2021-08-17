@@ -207,10 +207,6 @@
             <div class="container">
                 <div class="comments-disqus">
                     <div class="empty-msg text-center animated shake">
-                        {{-- <h1>
-                            <i class="fa fa-frown-o"></i>
-                            لا يوجد دروس الان ولكن يمكنك الاشتراك في الدورة لحين بدأها
-                        </h1> --}}
                         <ul>
                             @foreach ($comments as $comment)
                             <li>

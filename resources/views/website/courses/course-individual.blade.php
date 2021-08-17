@@ -178,6 +178,7 @@
     <!-- /.intro-head -->
     <div class="corse-indv">
         <div class="container">
+            @foreach ($lessons as $lesson)
             <div class="mob-episodes col-xs-12">
                 <ul>
                     <li>
@@ -188,77 +189,8 @@
                     </li>
                     <li>
                         <a href="#" class="active">
-                            <i class="fa fa-play-circle"></i> الدرس الاول
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-play-circle"></i> الدرس الاول
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-play-circle"></i> الدرس الاول
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-play-circle"></i> الدرس الاول
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-play-circle"></i> الدرس الاول
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-play-circle"></i> الدرس الاول
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-play-circle"></i> الدرس الاول
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-play-circle"></i> الدرس الاول
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-play-circle"></i> الدرس الاول
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-play-circle"></i> الدرس الاول
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-play-circle"></i> الدرس الاول
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-play-circle"></i> الدرس الاول
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-play-circle"></i> الدرس الاول
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-play-circle"></i> الدرس الاول
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-play-circle"></i> الدرس الاول
+                            <i class="fa fa-play-circle"></i>
+                            {{ $lesson->name }}
                         </a>
                     </li>
                 </ul>
@@ -276,8 +208,8 @@
                         </a>
                         <div class="lesson-desc col-xs-12 text-right">
                             <h1>وصف المحاضرة</h1>
-                            <p>هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر إدخال بعض النوادر أو الكلمات العشوائية إلى النص. إن كنت تريد أن تستخدم نص لوريم إيبسوم ما، عليك أن تتحقق أولاً أن ليس هناك أي كلمات أو عبارات محرجة أو غير لائقة مخبأة في هذا النص. بينما تعمل جميع مولّدات نصوص لوريم إيبسوم على الإنترنت على إعادة تكرار مقاطع من نص لوريم إيبسوم نفسه عدة مرات بما تتطلبه الحاجة، يقوم مولّدنا هذا باستخدام كلمات من قاموس يحوي على أكثر من 200 كلمة لا تينية، مضاف إليها مجموعة من الجمل النموذجية، لتكوين نص لوريم إيبسوم ذو شكل منطقي قريب إلى النص الحقيقي. وبالتالي يكون النص الناتح خالي من التكرار، أو أي كلمات أو عبارات غير لائقة أو ما شابه. وهذا ما يجعله أول مولّد نص لوريم إيبسوم حقيقي على الإنترنت.
-
+                            <p>
+                                {{ $lesson->description }}
                             </p>
                         </div>
                     </div>
@@ -288,14 +220,24 @@
             <div class="corse-comments col-xs-12">
                 <div class="disqus-comments">
                     <div class="empty-msg text-center animated shake">
-                        <h1>
-                            <i class="fa fa-commenting-o"></i>
-عفوا لا توجد تعليقات علي هذا الدرس                                </h1>
+                        <ul>
+                            @foreach ($comments as $comment)
+                            <li>
+                                    <a href="#" class="lesson-det">
+                                        <i class="fa fa-play-circle"></i>
+                                        <span class="lesson-name">  التعليق :
+                                            {{ $comment->comment }}</span>
+                                    </a>
+                            </li>
+                            @endforeach
+
+                        </ul>
                     </div>
                 </div>
                 <!-- end disqus-comments -->
             </div>
             <!-- end corse-comments -->
+            @endforeach
         </div>
         <!-- end container -->
     </div>
