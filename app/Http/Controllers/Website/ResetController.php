@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Models\Trainer;
 use Illuminate\Http\Request;
 
 class ResetController extends Controller
@@ -15,7 +16,8 @@ class ResetController extends Controller
     public function index()
     {
         //
-        return view('website.reset-password');
+        $trainer = auth('trainer')->user();
+        return view('website.reset-password',compact('trainer'));
     }
 
     /**

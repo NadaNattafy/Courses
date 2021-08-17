@@ -51,24 +51,44 @@
                     <div class="user-logged">
                         <ul>
                             <li>
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" class="hvr-underline-reveal">
-                                    <span class="cont-img">
-                                <img src="{{ asset('assets/images/comment-02.jpg')}}" width="35" height="35" alt="User-Img">
-                            </span>
-                                    <b>امير ناجح</b>
-                                    <i class="fa fa-caret-down"></i>
+                                @if (auth('web')->check() || auth('trainer')->check())
+                                    @auth('web')
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                            class="hvr-underline-reveal">
+                                            <span class="cont-img">
+                                                <img src="{{ url('/') . '/storage/' . $users->img }}" width="35"
+                                                    height="35" alt="User-Img">
+                                            </span>
+                                            <b>{{ $users->name }}</b>
+                                            <i class="fa fa-caret-down"></i>
+                                        @else
+                                            @auth('trainer')
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                                                    class="hvr-underline-reveal">
+                                                    <span class="cont-img">
+                                                        <img src="{{ url('/') . '/storage/' . $trainers->img }}" width="35"
+                                                            height="35" alt="User-Img">
+                                                    </span>
+                                                    <b>{{ $trainers->name }}</b>
+                                                    <i class="fa fa-caret-down"></i>
+                                                </a>
+                                            @endauth
+                                    @endif
+                                @endauth
+
                                 </a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
                                     <div class="drop drop-links col-xs-12">
                                         <div class="drop-links">
                                             <ul>
                                                 <li>
-                                                    <a href="{{route('website.profile.index')}}">
+                                                    <a href="{{ route('website.profile.index') }}">
                                                         <i class="fa fa-user"></i>&nbsp; حسابي
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="{{route('website.home.index')}}">
+
+                                                    <a href="{{ route('website.home.index') }}">
                                                         <i class="fa fa-power-off"></i>&nbsp; خروج
                                                     </a>
                                                 </li>
@@ -91,66 +111,37 @@
                                 <ul class="dropdown-menu notification-box" role="menu" aria-labelledby="dropdownMenu">
                                     <div class="drop drop-links col-xs-12">
                                         <ul>
-                                            <li>
-                                                <a href="#">
-                                                    <img src="{{ asset('assets/images/avatar5.png')}}" alt="" class="img-circle pull-right">
-                                                    <h4>
-                                                        امير ناجح
-                                                        <small><i class="fa fa-clock-o"></i>5 دقائق</small>
-                                                    </h4>
-                                                    <p> هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img src="{{ asset('assets/images/avatar04.png')}}" alt="" class="img-circle pull-right">
-                                                    <h4>
-                                                        حسني اديب
-                                                        <small><i class="fa fa-clock-o"></i>5 دقائق</small>
-                                                    </h4>
-                                                    <p> هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img src="{{ asset('assets/images/avatar3.png')}}" alt="" class="img-circle pull-right">
-                                                    <h4>
-                                                        مني سلامة
-                                                        <small><i class="fa fa-clock-o"></i>5 دقائق</small>
-                                                    </h4>
-                                                    <p> هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img src="{{ asset('assets/images/b3.jpg')}}" alt="" class="img-circle pull-right">
-                                                    <h4>
-                                                        امير ناجح
-                                                        <small><i class="fa fa-clock-o"></i>5 دقائق</small>
-                                                    </h4>
-                                                    <p> هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img src="{{ asset('assets/images/avatar04.png')}}" alt="" class="img-circle pull-right">
-                                                    <h4>
-                                                        حسني اديب
-                                                        <small><i class="fa fa-clock-o"></i>5 دقائق</small>
-                                                    </h4>
-                                                    <p> هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img src="{{ asset('assets/images/avatar3.png')}}" alt="" class="img-circle pull-right">
-                                                    <h4>
-                                                        مني سلامة
-                                                        <small><i class="fa fa-clock-o"></i>5 دقائق</small>
-                                                    </h4>
-                                                    <p> هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.</p>
-                                                </a>
-                                            </li>
+                                            @foreach ($remarks as $remark)
+                                                <li>
+                                                    @if (auth('web')->check() || auth('trainer')->check())
+                                                        @auth('web')
+                                                            <a href="#">
+                                                                <img src="{{ url('/') . '/storage/' . $users->img }}"
+                                                                    alt="" class="img-circle pull-right">
+                                                                <h4>
+                                                                    {{ $remark->title }}
+                                                                    <small><i
+                                                                            class="fa fa-clock-o"></i>{{ $remark->created_at }}</small>
+                                                                </h4>
+                                                                <p> {{ $remark->body }} </p>
+                                                            </a>
+                                                        @else
+                                                            @auth('trainer')
+                                                                <a href="#">
+                                                                    <img src="{{ url('/') . '/storage/' . $trainers->img }}"
+                                                                        alt="" class="img-circle pull-right">
+                                                                    <h4>
+                                                                        {{ $remark->title }}
+                                                                        <small><i
+                                                                                class="fa fa-clock-o"></i>{{ $remark->created_at }}</small>
+                                                                    </h4>
+                                                                    <p> {{ $remark->body }} </p>
+                                                                </a>
+                                                            @endauth
+                                                        @endif
+                                                    @endauth
+                                                </li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                     <!-- end drop -->

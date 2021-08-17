@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Course;
+use App\Models\Remark;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -16,8 +18,12 @@ class CategoryController extends Controller
     public function index()
     {
         //
+        $trainers = auth('trainer')->user();
+        $remarks = Remark::get();
+        $users = auth()->user();
         $courses = Course::get();
-        return view('website.courses.category',compact('courses'));
+        $categories = Category::get();
+        return view('website.courses.category',compact('courses','trainers','remarks','users','categories'));
     }
 
     /**

@@ -46,6 +46,7 @@ Route::group(['prefix' => '/', 'as' => 'website.', 'namespace' => 'App\Http\Cont
         'signup' => SignUpController::class,
         'review' => ReviewController::class,
         'reset' => ResetController::class,
+
     ]);
 
     Route::get('send', [NotificationController::class, 'sendNotification'])->name('send');

@@ -17,7 +17,7 @@ class IntroCourseController extends Controller
     {
         //
         $courses = Course::get();
-        return view('website.courses.course-intro');
+        return view('website.courses.course-intro',compact('courses'));
     }
 
     /**

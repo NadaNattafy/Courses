@@ -61,14 +61,6 @@
                         <div class="user-logged">
                             <ul>
                                 <li>
-                                    {{-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" class="hvr-underline-reveal">
-                                        <span class="cont-img">
-                                            <img src="{{ url('/') . '/storage/' . $trainers->img }}" width="35"
-                                                height="35" alt="User-Img">
-                                        </span>
-                                        <b>{{ $trainers->name }}</b>
-                                        <i class="fa fa-caret-down"></i>
-                                    </a> --}}
                                     @if (auth('web')->check() || auth('trainer')->check())
                                         @auth('web')
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"
@@ -93,7 +85,6 @@
                                                 @endauth
                                         @endif
                                     @endauth
-                                    <i class="fa fa-caret-down"></i>
                                     </a>
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
                                         <div class="drop drop-links col-xs-12">
