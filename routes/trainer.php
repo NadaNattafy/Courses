@@ -9,6 +9,7 @@ Route::group(['prefix' => 'trainer', 'as' => 'trainer.'], function () {
 
     Route::resources([
         'trainer' => TrainerController::class,
+        
         'trainerlogin' => TrainerLoginController::class,
     ]);
 

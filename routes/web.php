@@ -20,33 +20,58 @@ Route::group(['prefix' => '/', 'as' => 'website.', 'namespace' => 'App\Http\Cont
 
     Route::resources([
         'home' => HomeController::class,
-        'courses' => CoursesController::class,
-        'allcourses' => AllCourseController::class,
-        'addcourses' => AddCourseController::class,
-        'introcourses' => IntroCourseController::class,
-        'individualcourses' => IndividualCoursesController::class,
-        'addlectures' => AddLectureController::class,
-        'lessons' => LessonController::class,
-        'comments' => CommentController::class,
-        'alerts' => AlertController::class,
-        'remarks' => RemarkController::class,
-        'messages' => MessageController::class,
-        'favourites' => FavouriteController::class,
-        'interests' => InterestController::class,
-        'trainerinterests' => TrainerInterestController::class,
-        'cvs' => CvController::class,
-        'tests' => TestController::class,
-        'addtests' => AddTestController::class,
-        'about' => AboutController::class,
-        'certif' => CertifController::class,
-        'category' => CategoryController::class,
-        'contact' => ContactController::class,
-        'editor' => EditorController::class,
-        'profile' => ProfileController::class,
-        'signup' => SignUpController::class,
-        'review' => ReviewController::class,
-        'reset' => ResetController::class,
 
+        'courses' => CoursesController::class,
+
+        'allcourses' => AllCourseController::class,
+
+        'addcourses' => AddCourseController::class,
+
+        'introcourses' => IntroCourseController::class,
+
+        'individualcourses' => IndividualCoursesController::class,
+
+        'addlectures' => AddLectureController::class,
+
+        'lessons' => LessonController::class,
+
+        'comments' => CommentController::class,
+
+        'alerts' => AlertController::class,
+
+        'remarks' => RemarkController::class,
+
+        'messages' => MessageController::class,
+
+        'favourites' => FavouriteController::class,
+
+        'interests' => InterestController::class,
+
+        'trainerinterests' => TrainerInterestController::class,
+
+        'cvs' => CvController::class,
+
+        'tests' => TestController::class,
+
+        'addtests' => AddTestController::class,
+
+        'about' => AboutController::class,
+
+        'certif' => CertifController::class,
+
+        'category' => CategoryController::class,
+
+        'contact' => ContactController::class,
+
+        'editor' => EditorController::class,
+
+        'profile' => ProfileController::class,
+
+        'signup' => SignUpController::class,
+
+        'review' => ReviewController::class,
+
+        'reset' => ResetController::class,
     ]);
 
     Route::get('send', [NotificationController::class, 'sendNotification'])->name('send');

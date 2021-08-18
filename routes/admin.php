@@ -18,13 +18,21 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
 
         Route::resources([
             'admins' => AdminController::class,
+
             'courses' => CourseController::class,
+
             'categories' => CategoryController::class,
+
             'users' => UserController::class,
+            
             'lessons' => LessonController::class,
+            
             'trainers' => TrainerController::class,
+            
             'usercourses' => UserCourseController::class,
+            
             'useropinions' => UserOpinionController::class,
+            
             'settings' => SettingController::class,
         ]);
     });
