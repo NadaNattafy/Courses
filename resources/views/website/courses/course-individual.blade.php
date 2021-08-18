@@ -171,7 +171,9 @@
 <div class="intro-container">
     <div class="intro-head text-center">
         <div class="container">
-            <h1>الدرس الاول من  دورة البرمجة بلغة الجافا</h1>
+            <h1>
+                الدرس الاول من  دورة البرمجة بلغة الجافا
+            </h1>
         </div>
         <!-- /.container -->
     </div>

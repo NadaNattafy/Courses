@@ -30,7 +30,7 @@ class UpdateRequest extends FormRequest
             'url'     => 'required',
             'duration'     => 'nullable',
             'file' => 'nullable',
-            'course_id' =>  'nullable',
+            'course_id' =>  'required',
         ];
     }
 }

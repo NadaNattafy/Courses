@@ -29,8 +29,8 @@ class MyMail extends Mailable
      */
     public function build()
     {
-        
-        return $this->subject('Mail from Courses.com')
+
+       // return $this->subject('Mail from Courses.com')
         return $this->view('emails.myMail');
     }
 }

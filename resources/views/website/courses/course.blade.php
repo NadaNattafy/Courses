@@ -307,7 +307,7 @@ label.star:before {
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('website.lessons.index') }}" class="active">
+                            <a href="{{ route('website.individualcourses.index') }}" class="active">
                                 <i class="fa fa-tasks"></i> الدروس
                             </a>
                         </li>

@@ -18,17 +18,13 @@ class HomeController extends Controller
     public function index()
     {
         //
-       // dd(auth()->user()->id);
-         $courses = Course::orderBy('id','DESC')->paginate(6);
-        $courses = Course::WithAvg('review','rate')->orderBy('id','DESC')->paginate();
-        $useropinions = UserOpinion::get();
-        //$courses = Course::find(11);
+        $courses = Course::orderBy('id', 'DESC')->paginate(6);
 
-        // foreach($courses->review as $re)
-        // {
-        //  return  $re->rate;
-        // }
-       return view('website.index',compact('courses','useropinions'));
+        $courses = Course::WithAvg('review', 'rate')->orderBy('id', 'DESC')->paginate();
+
+        $useropinions = UserOpinion::get();
+
+        return view('website.index', compact('courses', 'useropinions'));
     }
 
     // public function filter(Request $request)
@@ -65,19 +61,16 @@ class HomeController extends Controller
     //     return $this->apiResponse(new CoursesCollection($courses));
     // }
 
-
     public function store(StoreRequest $request)
     {
         // dd($course);
         // $category = $course->category;
         // $trainer = $course->trainer;
-        $course = Course::where('name' , $request->name)->get();
-
+        $course = Course::where('name', $request->name)->get();
 
         $min_price = $request->has('min_price');
         $max_price = $request->has('max_price');
         //dd($max_price);
-
 
         // if (($min_price) && ($max_price)) {
         //     $course->whereBetween('price', [$min_price, $max_price]);
@@ -88,30 +81,26 @@ class HomeController extends Controller
         // elseif (! is_null($max_price)) {
         //     $course->where('price', '<=', $max_price);
         // }
-        $course = Course::where('name' , $request->name)->get();
+        $course = Course::where('name', $request->name)->get();
 
         if ($request->has('trainer_name')) {
             $courses = $course->where('trainer_name', $request->trainer_name);
-        }
-
-        elseif ($request->has('price')) {
+        } elseif ($request->has('price')) {
             $courses = $course->where('price', '>', $request->price_more_than);
-        }
-        elseif($request->has('min_price')) {
+        } elseif ($request->has('min_price')) {
             $courses = $course->where('price', '<', $request->price_less_than);
-        }
-        else {
+        } else {
             $courses = $course->where('category_name', $request->category_name);
         }
 
-       // dd(request('trainer_name'));
+        // dd(request('trainer_name'));
 
-    //    ->when(request('topic_id'), function ($q) {
-    //     $q->whereIn('topics.id', request('topic_id'));
-    // })
-    // ->when(request('date_from')and request('date_to'), function ($q) {
-    //     $q->whereBetween('invoice_date', [request('date_from'), request('date_to')]);
-    // })
+        //    ->when(request('topic_id'), function ($q) {
+        //     $q->whereIn('topics.id', request('topic_id'));
+        // })
+        // ->when(request('date_from')and request('date_to'), function ($q) {
+        //     $q->whereBetween('invoice_date', [request('date_from'), request('date_to')]);
+        // })
 
         $results = $course->get();
 

@@ -22,9 +22,9 @@ Route::group(['prefix' => '/', 'as' => 'website.', 'namespace' => 'App\Http\Cont
     Route::resources([
         'home' => HomeController::class,
         'courses' => CoursesController::class,
-        'allcourses' => AllCoursesController::class,
-        'addcourses' => AddCoursesController::class,
-        'introcourses' => IntroCoursesController::class,
+        'allcourses' => AllCourseController::class,
+        'addcourses' => AddCourseController::class,
+        'introcourses' => IntroCourseController::class,
         'individualcourses' => IndividualCoursesController::class,
         'addlectures' => AddLectureController::class,
         'lessons' => LessonController::class,
