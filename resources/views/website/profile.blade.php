@@ -548,13 +548,13 @@
                                                         aria-controls="collapseOne">
                                                         <h4 class="panel-title">
                                                             <a>
-                                                                    <h5>
-                                                                        @foreach ($courses as $course)
+                                                                <h5>
+                                                                    @foreach ($courses as $course)
                                                                         <i class="fa fa-group"></i>
-                                                                        @endforeach
-                                                                    </h5>
-                                                                    {{ $course->name }}
-                                                                </a>
+                                                                    @endforeach
+                                                                </h5>
+                                                                {{ $course->name }}
+                                                            </a>
                                                         </h4>
                                                     </div>
                                                     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
@@ -729,11 +729,11 @@
                                                                                     <input type="file" class="uploaded"> --}}
                                                                                                 </div>
                                                                                                 <!--
-                                                                                                                        <label class="text-right">
-                                                                                                                            <input type="radio" id="add-link">
-                                                                                                                            <span>يوتيوب</span>
-                                                                                                                        </label>
-                                            -->
+                                                                                                                            <label class="text-right">
+                                                                                                                                <input type="radio" id="add-link">
+                                                                                                                                <span>يوتيوب</span>
+                                                                                                                            </label>
+                                                -->
                                                                                             </div>
                                                                                             <input type="text"
                                                                                                 placeholder="ادخل رابط فيديو"
@@ -954,11 +954,11 @@
                                                                                     <input type="file" class="uploaded">
                                                                                 </div>
                                                                                 <!--
-                                                                                                                        <label class="text-right">
-                                                                                                                            <input type="radio" id="add-link">
-                                                                                                                            <span>يوتيوب</span>
-                                                                                                                        </label>
-                                            -->
+                                                                                                                            <label class="text-right">
+                                                                                                                                <input type="radio" id="add-link">
+                                                                                                                                <span>يوتيوب</span>
+                                                                                                                            </label>
+                                                -->
                                                                             </div>
                                                                             <input type="text" placeholder="ادخل رابط فيديو"
                                                                                 name="url" class="linked">
@@ -1628,20 +1628,20 @@
                             </figure>
                         </div>
                 </div>
-                    @endforeach
-                </div>
+                @endforeach
             </div>
-
-            <!-- /.row -->
-
-            <!-- /.all-courses -->
         </div>
-    </div>
 
-        @endauth
+        <!-- /.row -->
+
+        <!-- /.all-courses -->
+        </div>
+        </div>
+
+    @endauth
 
     </div>
-</div>
+    </div>
     </div>
     <!-- /.conainer -->
     </div>

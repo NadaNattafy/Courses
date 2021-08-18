@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Website\AuthController;
 // use App\Http\Controllers\Trainer\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Website\NotificationController;
 use App\Http\Controllers\WelcomeController;

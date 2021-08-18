@@ -1,7 +1,11 @@
 @extends('website.layout.master')
 
 @push('style')
-
+    <style>
+        .panel-pop .modal {
+        z-index: 10000;
+        }
+        </style>
 @endpush
 
 @section('title')
@@ -32,7 +36,8 @@
                             الرئيسية</a></li>
                     <li><a id="sd" class="icon icon-location" href="{{ route('website.about.index') }}"><i
                                 class="fa fa-group"></i>من نحن</a></li>
-                    <li><a class="icon icon-study" href="{{ route('website.addcourses.index') }}"><i class="fa fa-plus"></i>
+                    <li><a class="icon icon-study" href="{{ route('website.addcourses.index') }}"><i
+                                class="fa fa-plus"></i>
                             اضافة دورة</a></li>
                     <li><a class="icon icon-photo" href="{{ route('website.addlectures.index') }}"><i
                                 class="fa fa-plus"></i>اضافة محاضرة</a></li>
@@ -120,7 +125,8 @@
                                             <span>تذكر كلمة السر دائماً</span>
                                         </label>
                                         <label class="pull-left">
-                                            <a href="#" class="forget">هل نسيت كلمة المرور ؟</a>
+                                            <a href="{{ route('password.email') }}" class="forget">هل نسيت كلمة المرور
+                                                ؟</a>
                                         </label>
                                     </div>
                                     <!-- /.login-item -->
@@ -151,12 +157,28 @@
                                     <div class="lost-inner">
                                         <h1>هل نسيت كلمة المرور ؟</h1>
                                         <div class="lost-item">
-                                            <input id="email" type="email" placeholder="الايميل المستخدم في تسجيل الدخول" name="email":value="old('email')" required autofocus >
+                                            <input id="email" type="email" placeholder="الايميل المستخدم في تسجيل الدخول"
+                                                name="email" :value="old('email')" required autofocus>
                                         </div>
                                         <!-- /.lost-item -->
                                         <div class="text-center">
                                             <input type="submit" value="إعادة ضبط">
                                         </div>
+
+                                        {{-- <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i
+                                                        class="glyphicon glyphicon-envelope color-blue"></i></span>
+                                                <input id="email" name="email" placeholder="email address"
+                                                    class="form-control" type="email">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input name="recover-submit" class="btn btn-lg btn-primary btn-block"
+                                                value="Reset Password" type="submit">
+                                        </div>
+
+                                        <input type="hidden" class="hide" name="token" id="token" value=""> --}}
                                         <!-- /.lost-item -->
                                     </div>
                                     <!-- /.lost-inner -->
@@ -319,7 +341,8 @@
                 @foreach ($courses as $course)
                     <div class="block col-md-4 col-sm-6">
                         <figure>
-                            <div><img src="{{ url('/') . '/storage/' . $course->img }}" alt="img05" class="img-responsive">
+                            <div><img src="{{ url('/') . '/storage/' . $course->img }}" alt="img05"
+                                    class="img-responsive">
                             </div>
                             <figcaption class="text-right">
                                 <h1> اسم الكورس : {{ $course->name }}</h1>

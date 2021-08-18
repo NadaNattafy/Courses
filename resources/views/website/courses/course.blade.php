@@ -2,102 +2,60 @@
 
 @push('style')
     <link href="{{ asset('assets/css/video-js.css') }}" rel="stylesheet" type="text/css">
-<style>
-  /** rating **/
-/* div.stars {
-  display: inline-block;
-}
+    <style>
+        .course_ratings .rating_submit {
+            padding: 8px 30px;
+            display: inline-block;
+            background-color: #039be5;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
 
-input.star { display: none; }
+        .rating_submit_inner {
+            display: block;
+            direction: rtl;
+            unicode-bidi: bidi-override;
+            text-align: center;
+        }
 
-label.star {
-  float: right;
-  padding: 10px;
-  font-size: 20px;
-  color:
-#444;
-  transition: all .2s;
-}
+        .rating_submit_inner .star {
+            display: none;
+        }
 
-input.star:checked ~ label.star:before {
-  content: 'f005';
-  color:
-#e74c3c;
-  transition: all .25s;
-}
+        .rating_submit_inner label {
+            color: lightgray;
+            display: inline-block;
+            font-size: 20px;
+            margin: 0 px;
+            transition: transform .15s ease;
+            cursor: pointer;
+        }
 
-input.star-5:checked ~ label.star:before {
-  color:
-#e74c3c;
-  text-shadow: 0 0 5px
-#7f8c8d;
-}
+        .rating_submit_inner label:hover {
+            transform: scale(1, 1);
+        }
 
-input.star-1:checked ~ label.star:before { color:
-#F62; }
+        .rating_submit_inner label:hover,
+        .rating_submit_inner label:hover~label {
+            color: orange;
+        }
 
-label.star:hover { transform: rotate(-15deg) scale(1.3); }
+        .rating_submit_inner .star:checked~label {
+            color: orange;
+        }
 
-label.star:before {
-  content: 'f006';
-  font-family: FontAwesome;
-}
+        .course_ratings .fa {
+            color: #ff9800;
+        }
 
+        .course_ratings .fa.light {
+            color: #d3d3d3;
+        }
 
-.horline > li:not(:last-child):after {
-    content: " |";
-}
-.horline > li {
-  font-weight: bold;
-  color:
-#ff7e1a;
+        /** end rating **/
 
-} */
-
-.course_ratings .rating_submit {
-    padding: 8px 30px;
-    display: inline-block;
-    background-color: #039be5;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-.rating_submit_inner {
-    display: block;
-    direction: rtl;
-    unicode-bidi: bidi-override;
-    text-align: center;
-}
-.rating_submit_inner .star {
-    display: none;
-}
-.rating_submit_inner label {
-    color: lightgray;
-    display: inline-block;
-    font-size: 20px;
-    margin: 0 px;
-    transition: transform .15s ease;
-    cursor: pointer;
-}
-.rating_submit_inner label:hover {
-    transform: scale(1, 1);
-}
-.rating_submit_inner label:hover,
-.rating_submit_inner label:hover ~ label {
-    color: orange;
-}
-.rating_submit_inner .star:checked ~ label {
-    color: orange;
-}
-.course_ratings .fa {
-    color: #ff9800;
-}
-.course_ratings .fa.light {
-    color: #d3d3d3;
-}
-
-/** end rating **/
-      </style>
+    </style>
 
 @endpush
 
@@ -108,173 +66,177 @@ label.star:before {
 @section('content')
 
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
-<div class="wrap">
-    <div class="loading">
-        <div class="bounceball"></div>
-        <div class="text">NOW LOADING</div>
-    </div>
-</div>
-
-<!-- end the loading screen -->
-
-<div class="wrapper">
-    <header>
-        <div class="error-detect">
-            <div class="container">
-                <div class="error text-center">
-                    <h1 class="danger-l">اي كلام اي كلام اي كلام يا حسني اي كلام يا حسني اي كلام</h1>
-                    <h1 class="message-l">اي كلام اي كلام اي كلام يا حسني اي كلام يا حسني اي كلام</h1>
-                    <h1 class="success-l">اي كلام اي كلام اي كلام يا حسني اي كلام يا حسني اي كلام</h1>
-                </div>
-                <!-- /.error-danger -->
-            </div>
-            <!-- /.container -->
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         </div>
-        <!-- /.error-detect -->
-        <div class="login-area">
-            <div class="container">
-                <div class="login-form col-md-6 col-xs-12 text-right pull-right">
-                    <h1>تسجيل الدخول</h1>
-                    <form action="{{ route('login') }}" method="POST">
-                        @csrf
-                        <div class="login-item">
-                            <input type="text" name="email" placeholder="بريد المستخدم">
-                        </div>
-                        <!-- /.login-item -->
-                        <div class="login-item">
-                            <input type="password" name="password" placeholder="كلمة السر">
-                        </div>
+    @endif
 
-                        <!-- /.login-item -->
-                        <div class="login-item">
-                            <label class="pull-right">
-                                <input type="checkbox">
-                                <span>تذكر كلمة السر دائماً</span>
-                            </label>
-                            <label class="pull-left">
-                                <a href="#" class="forget">هل نسيت كلمة المرور ؟</a>
-                            </label>
-                        </div>
-                        <!-- /.login-item -->
-                        <div class="login-item">
-                            <input type="submit" value="دخول">
-                        </div>
-                    </form>
-                    <!-- /.login-item -->
-                </div>
-                <!-- /.login-form -->
+    <div class="wrap">
+        <div class="loading">
+            <div class="bounceball"></div>
+            <div class="text">NOW LOADING</div>
+        </div>
+    </div>
 
-                <div class="signup-form col-md-6 col-xs-12 text-right">
-                    <h1>تسجيل عضوية جديدة</h1>
-                    <p>اذا كنت مستخدم جديد لموقعنا فيمكنك ان تتصفح معظم الكورسات الموجودة الان امامك ولكن لن تستطيع الحصول علي معلومات الكورس او الاشتراك به الا اذا كنت تمتلك حساب لدينا لذلك تستطيع تسجيل حساب جديد من هنا </p>
-                    <a href="{{route('website.signup.index')}}">
-                        <i class="fa fa-user-plus"></i> تسجيل عضوية
-                    </a>
-                </div>
-                <!-- /.signup-form -->
+    <!-- end the loading screen -->
 
-                <!-- =========================================================================================================================================== -->
-                <form action="{{ route('password.email') }}" method="POST">
-                    @csrf
-
-                <div class="panel-pop modal" id="forget">
-                    <div class="lost-inner">
-                        <h1>هل نسيت كلمة المرور ؟</h1>
-                        <div class="lost-item">
-                            <input type="text" placeholder="الايميل المستخدم في تسجيل الدخول" name="email">
-                        </div>
-                        <!-- /.lost-item -->
-                        <div class="text-center">
-                            <input type="submit" value="إعادة ضبط">
-                        </div>
-                        <!-- /.lost-item -->
+    <div class="wrapper">
+        <header>
+            <div class="error-detect">
+                <div class="container">
+                    <div class="error text-center">
+                        <h1 class="danger-l">اي كلام اي كلام اي كلام يا حسني اي كلام يا حسني اي كلام</h1>
+                        <h1 class="message-l">اي كلام اي كلام اي كلام يا حسني اي كلام يا حسني اي كلام</h1>
+                        <h1 class="success-l">اي كلام اي كلام اي كلام يا حسني اي كلام يا حسني اي كلام</h1>
                     </div>
-                    <!-- /.lost-inner -->
+                    <!-- /.error-danger -->
                 </div>
-            </form>
-                <!-- /.modal -->
-
-                <!-- =========================================================================================================================================== -->
+                <!-- /.container -->
             </div>
-            <!-- /.container -->
-        </div>
-        <div class="header-nav">
-            <div class="container">
-                <div class="nav-right col-md-8 col-xs-12 pull-right">
-                    <div class="logo">
-                        <a href="{{route('website.home.index')}}" title="العلوم العصرية للتدريب">
-                            <img src="{{ asset('assets/images/logo.png') }}" alt="site-logo" width="110" height="70">
+            <!-- /.error-detect -->
+            <div class="login-area">
+                <div class="container">
+                    <div class="login-form col-md-6 col-xs-12 text-right pull-right">
+                        <h1>تسجيل الدخول</h1>
+                        <form action="{{ route('login') }}" method="POST">
+                            @csrf
+                            <div class="login-item">
+                                <input type="text" name="email" placeholder="بريد المستخدم">
+                            </div>
+                            <!-- /.login-item -->
+                            <div class="login-item">
+                                <input type="password" name="password" placeholder="كلمة السر">
+                            </div>
+
+                            <!-- /.login-item -->
+                            <div class="login-item">
+                                <label class="pull-right">
+                                    <input type="checkbox">
+                                    <span>تذكر كلمة السر دائماً</span>
+                                </label>
+                                <label class="pull-left">
+                                    <a href="#" class="forget">هل نسيت كلمة المرور ؟</a>
+                                </label>
+                            </div>
+                            <!-- /.login-item -->
+                            <div class="login-item">
+                                <input type="submit" value="دخول">
+                            </div>
+                        </form>
+                        <!-- /.login-item -->
+                    </div>
+                    <!-- /.login-form -->
+
+                    <div class="signup-form col-md-6 col-xs-12 text-right">
+                        <h1>تسجيل عضوية جديدة</h1>
+                        <p>اذا كنت مستخدم جديد لموقعنا فيمكنك ان تتصفح معظم الكورسات الموجودة الان امامك ولكن لن تستطيع
+                            الحصول علي معلومات الكورس او الاشتراك به الا اذا كنت تمتلك حساب لدينا لذلك تستطيع تسجيل حساب
+                            جديد من هنا </p>
+                        <a href="{{ route('website.signup.index') }}">
+                            <i class="fa fa-user-plus"></i> تسجيل عضوية
                         </a>
                     </div>
-                    <!-- /.logo -->
-                </div>
-                <!-- /.nav-logo -->
-                <div class="nav-left col-md-4 col-xs-12 pull-left">
-                    <div class="user-controls">
-                        <ul>
+                    <!-- /.signup-form -->
 
-                           @if(auth('web')->check() || auth('trainer')->check() )
-                                        @auth
+                    <!-- =========================================================================================================================================== -->
+                    <form action="{{ route('password.email') }}" method="POST">
+                        @csrf
+
+                        <div class="panel-pop modal" id="forget">
+                            <div class="lost-inner">
+                                <h1>هل نسيت كلمة المرور ؟</h1>
+                                <div class="lost-item">
+                                    <input type="text" placeholder="الايميل المستخدم في تسجيل الدخول" name="email">
+                                </div>
+                                <!-- /.lost-item -->
+                                <div class="text-center">
+                                    <input type="submit" value="إعادة ضبط">
+                                </div>
+                                <!-- /.lost-item -->
+                            </div>
+                            <!-- /.lost-inner -->
+                        </div>
+                    </form>
+                    <!-- /.modal -->
+
+                    <!-- =========================================================================================================================================== -->
+                </div>
+                <!-- /.container -->
+            </div>
+            <div class="header-nav">
+                <div class="container">
+                    <div class="nav-right col-md-8 col-xs-12 pull-right">
+                        <div class="logo">
+                            <a href="{{ route('website.home.index') }}" title="العلوم العصرية للتدريب">
+                                <img src="{{ asset('assets/images/logo.png') }}" alt="site-logo" width="110" height="70">
+                            </a>
+                        </div>
+                        <!-- /.logo -->
+                    </div>
+                    <!-- /.nav-logo -->
+                    <div class="nav-left col-md-4 col-xs-12 pull-left">
+                        <div class="user-controls">
+                            <ul>
+
+                                @if (auth('web')->check() || auth('trainer')->check())
+                                    @auth
                                         <li>
                                             {{-- <a href="#"> --}}
-                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout_form').submit()">
+                                            <a href="{{ route('logout') }}"
+                                                onclick="event.preventDefault(); document.getElementById('logout_form').submit()">
                                                 <i class="fa fa-user"></i> منطقة تسجيل خروج
                                                 <form id="logout_form" action="{{ route('logout') }}" method="POST"
-                                                style="display: none;">
-                                                @csrf
-                                            </form>
+                                                    style="display: none;">
+                                                    @csrf
+                                                </form>
                                             </a>
                                         </li>
                                     @endauth
-                                @auth('trainer')
-                                <li>
-                                    {{-- <a href="#"> --}}
-                                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout_form_trainer').submit()">
-                                        <i class="fa fa-user"></i> منطقة تسجيل خروج
-                                    </a>
-                                    <form id="logout_form_trainer" action="{{ route('trainer.logout') }}" method="POST"
-                                        style="display: none;">
-                                        @csrf
-                                    </form>
-                                </li>
-                            @endauth
+                                    @auth('trainer')
+                                        <li>
+                                            {{-- <a href="#"> --}}
+                                            <a href="#"
+                                                onclick="event.preventDefault(); document.getElementById('logout_form_trainer').submit()">
+                                                <i class="fa fa-user"></i> منطقة تسجيل خروج
+                                            </a>
+                                            <form id="logout_form_trainer" action="{{ route('trainer.logout') }}"
+                                                method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                        </li>
+                                    @endauth
 
-                            @else
-                            <li>
-                                <a href="#" class="show-login">
-                                    <i class="fa fa-user"></i> منطقة تسجيل الدخول
-                                </a>
-                            </li>
+                                @else
+                                    <li>
+                                        <a href="#" class="show-login">
+                                            <i class="fa fa-user"></i> منطقة تسجيل الدخول
+                                        </a>
+                                    </li>
 
-                            <li>
-                                <a href="{{route('trainer.trainerlogin.index')}}" class="show-login">
-                                    <i class="fa fa-user"></i> منطقة تسجيل المدرب
-                                </a>
-                            </li>
+                                    <li>
+                                        <a href="{{ route('trainer.trainerlogin.index') }}" class="show-login">
+                                            <i class="fa fa-user"></i> منطقة تسجيل المدرب
+                                        </a>
+                                    </li>
 
-                       @endif
+                                @endif
 
-                        </ul>
+                            </ul>
+                        </div>
+                        <!-- /.user-controls -->
                     </div>
-                    <!-- /.user-controls -->
+                    <!-- /.nav-user -->
                 </div>
-                <!-- /.nav-user -->
+                <!-- /.container -->
             </div>
-            <!-- /.container -->
-        </div>
 
-    </header>
-</div>
+        </header>
+    </div>
 
     <div class="intro-container col-xs-12">
         <div class="intro-head text-center">
@@ -314,7 +276,7 @@ label.star:before {
 
                         <li>
                         <li>
-                            <a href="{{ route('website.comments.index') }}"  >
+                            <a href="{{ route('website.comments.index') }}">
                                 <i class="fa fa-commenting-o"></i> النقاشات
                             </a>
                         </li>
@@ -326,44 +288,45 @@ label.star:before {
                         </li>
 
                         <li>
-                            <form class="add-fav-dis"  action="{{ route('website.favourites.store') }}"  method="POST">
+                            <form class="add-fav-dis" action="{{ route('website.favourites.store') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="course_id" value={{ $course->id }}>
-                            {{-- <a href="#" class="add-fav-dis" data-toggle="tooltip" data-placement="top"
+                                {{-- <a href="#" class="add-fav-dis" data-toggle="tooltip" data-placement="top"
                                 title="إضافة الي المفضلة"> --}}
-                                <button type="submit" class="add-fav-dis" >
-                                <i class="fa fa-heart"></i>
+                                <button type="submit" class="add-fav-dis">
+                                    <i class="fa fa-heart"></i>
                                 </button>
                             </form>
                         </li>
 
                         <li class="rating" data-toggle="tooltip" data-placment="top" title="إضافة تقييم للدورة">
-                        <form id="rate" class="form-horizontal poststars" action="{{ route('website.review.store') }}"  method="POST">
-                            @csrf
-                            <div class="form-group required">
-                                  <div class="col-sm-12">
-                                     </div>
+                            <form id="rate" class="form-horizontal poststars"
+                                action="{{ route('website.review.store') }}" method="POST">
+                                @csrf
+                                <div class="form-group required">
+                                    <div class="col-sm-12">
+                                    </div>
 
-                                <input type="hidden" name="course_id" value={{ $course->id }}>
-                    <div class="rating_submit_inner">
-                        <input id="radio1" type="radio" name="rate" value="5" class="star"/>
-                        <label for="radio1">&#9733;</label>
-                        <input id="radio2" type="radio" name="rate" value="4" class="star"/>
-                        <label for="radio2">&#9733;</label>
-                        <input id="radio3" type="radio" name="rate" value="3" class="star"/>
-                        <label for="radio3">&#9733;</label>
-                        <input id="radio4" type="radio" name="rate" value="2" class="star"/>
-                        <label for="radio4">&#9733;</label>
-                        <input id="radio5" type="radio" name="rate" value="1" class="star"/>
-                        <label for="radio5">&#9733;</label>
+                                    <input type="hidden" name="course_id" value={{ $course->id }}>
+                                    <div class="rating_submit_inner">
+                                        <input id="radio1" type="radio" name="rate" value="5" class="star" />
+                                        <label for="radio1">&#9733;</label>
+                                        <input id="radio2" type="radio" name="rate" value="4" class="star" />
+                                        <label for="radio2">&#9733;</label>
+                                        <input id="radio3" type="radio" name="rate" value="3" class="star" />
+                                        <label for="radio3">&#9733;</label>
+                                        <input id="radio4" type="radio" name="rate" value="2" class="star" />
+                                        <label for="radio4">&#9733;</label>
+                                        <input id="radio5" type="radio" name="rate" value="1" class="star" />
+                                        <label for="radio5">&#9733;</label>
 
-                    </div>
-                    <span>
-                        <input type="submit" value="save" class='btn btn-primary'>
-                    </span>
-                        </form>
-    </li>
-</ul>
+                                    </div>
+                                    <span>
+                                        <input type="submit" value="save" class='btn btn-primary'>
+                                    </span>
+                            </form>
+                        </li>
+                    </ul>
                     <!-- =========================================================================================================================================== -->
 
                     <div class="panel-pop modal" id="msg-all">
@@ -444,10 +407,10 @@ label.star:before {
                     <!-- end certf -->
                     <div class="empty-msg text-center animated shake">
                         @foreach ($lessons as $lesson)
-                        <h1>
-                            <i class="fa fa-tasks"></i>
-                            {{ $lesson->name }}
-                        </h1>
+                            <h1>
+                                <i class="fa fa-tasks"></i>
+                                {{ $lesson->name }}
+                            </h1>
                         @endforeach
                     </div>
                     <!-- end empty-msg -->
@@ -460,7 +423,7 @@ label.star:before {
                     <!-- end week-moduke -->
                     <ul>
                         @foreach ($lessons as $lesson)
-                        <li>
+                            <li>
                                 <a href="#" class="lesson-det">
                                     <i class="fa fa-play-circle"></i>
                                     <span class="lesson-name"> اسم الدرس :
@@ -468,10 +431,11 @@ label.star:before {
                                 </a>
                                 <h3>{{ $lesson->duration }} دقيقة</h3>
 
-                                <a href="{{ route('website.lessons.destroy', $lesson->id) }}" class="del-lesson" data-toggle="tooltip" data-placement="top" title="حذف الدرس">
+                                <a href="{{ route('website.lessons.destroy', $lesson->id) }}" class="del-lesson"
+                                    data-toggle="tooltip" data-placement="top" title="حذف الدرس">
                                     <i class="fa fa-trash"></i>
                                 </a>
-                        </li>
+                            </li>
                         @endforeach
 
                     </ul>
@@ -499,7 +463,7 @@ label.star:before {
 
     <script>
         $('#addStar').change('.star', function(e) {
-        $(this).submit();
+            $(this).submit();
         });
     </script>
 
