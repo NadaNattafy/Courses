@@ -46,12 +46,7 @@ class CourseController extends Controller
     public function store(StoreRequest $request)
     {
         //
-        $course = Course::create($request->validated());
-
-        if ($request->has('img')) {
-
-            $course->update(['img' => $request->file('img')->store('coursePics')]);
-           }
+        Course::create($request->validated());
 
         return redirect()->route('admin.courses.index')->with('message','Course created successfully.');
     }
@@ -91,12 +86,6 @@ class CourseController extends Controller
     {
         //
         $course -> update($request->validated());
-
-
-       // $request->image->storeAs('images', $request->file('img'));
-        // if ($request->has('img')) {
-        //     $course->update(['img' => $request->file('img')->store('coursePics')]);
-        //      }
 
         return redirect()->route('admin.courses.index')->with('message','Course Updated Successfully');
     }

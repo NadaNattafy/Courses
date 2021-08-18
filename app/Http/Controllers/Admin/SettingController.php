@@ -43,12 +43,7 @@ class SettingController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $setting= Setting::create($request->all());
-
-        if ($request->has('img')) {
-
-            $setting->update(['img' => $request->file('img')->store('coursePics')]);
-           }
+        Setting::create($request->all());
 
        return redirect()->route('admin.settings.index')->with('message','Setting Created');
 

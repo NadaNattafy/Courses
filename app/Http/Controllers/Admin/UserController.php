@@ -44,12 +44,7 @@ class UserController extends Controller
     public function store(StoreRequest $request)
     {
         //
-        $user =User::create($request->validated());
-
-        if ($request->has('img')) {
-
-            $user->update(['img' => $request->file('img')->store('coursePics')]);
-           }
+        User::create($request->validated());
 
         return redirect()->route('admin.users.index')->with('message','User created successfully.');
     }

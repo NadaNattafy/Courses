@@ -42,12 +42,7 @@ class TrainerController extends Controller
     public function store(StoreRequest $request)
     {
         //
-        $trainer =Trainer::create($request->validated());
-
-        if ($request->has('img')) {
-
-            $trainer->update(['img' => $request->file('img')->store('coursePics')]);
-           }
+        Trainer::create($request->validated());
 
         return redirect()->route('admin.trainers.index')->with('message','Trainer created successfully.');
     }
