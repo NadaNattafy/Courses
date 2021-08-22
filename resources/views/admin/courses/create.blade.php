@@ -42,14 +42,12 @@
 
         <select name="trainer_id" class="form-control">
             @foreach($trainers  as $trainer)
-
                 <option value="{{ $trainer->id }} ">{{ $trainer->name }}</option>
             @endforeach
         </select>
 
         <select name="category_id" class="form-control">
             @foreach($categorys  as $category)
-
                 <option value="{{ $category->id }} ">{{ $category->name }}</option>
             @endforeach
         </select>

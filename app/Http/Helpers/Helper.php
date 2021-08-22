@@ -14,7 +14,7 @@ function getsetting($name)
         return \Carbon\Carbon::createFromFormat('Y-m-d', $date)->format($date_format);
     }
 
-    function getImage($image)
+    function getImg($image)
     {
         if (is_null($image)) {
             return '';
