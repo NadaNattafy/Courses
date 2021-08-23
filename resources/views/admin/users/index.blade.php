@@ -34,7 +34,7 @@
                                 <td>{{$user -> last_name}}</td>
                                 <td>{{$user -> mobile}}</td>
                                 <td>{{$user -> email}}</td>
-                                <td>{{$user->message->message }}</td>
+                                <td>{{@ ($user->message->message) }}</td>
                                 <td>
                                     <a class="fancybox-buttons img-holder small-img" rel="gallery" title=""
                                         data-fancybox-group="button" href="{{ url('/') . '/storage/' . $user->img }}"
